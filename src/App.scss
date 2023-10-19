@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;700&display=swap');
+img,
+svg{
+    max-width: 100%;
+    display: block;
+}
+a{
+    cursor: pointer;
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+*{
+    font-family: 'Signika Negative', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+:root{
+
+    /* Typogrophy*/
+
+    // Font Sizes
+    
+    // --fs-100: 9.54px;
+    // --fs-200: 12px;
+    // --fs-300: 16px;
+    // --fs-400: 18px;
+    // --fs-500: 21px;
+    // --fs-600: 30px;
+    // --fs-700: 50px;
+
+    // Font Weight
+
+    --fw-300: 300;
+    --fw-400: 400;
+    --fw-700: 700;
+
+    // Colors
+
+    // --primary-bg: #121126;
+    // --secondary-bg: #F4F4F4;
+    // --primary-acc: #190840;
+    // --secondary-acc: #DB2EF2;
+    // --light-color: white;
+    // --dark-color: #0D0D0D;
+    // --mid-color: #220859;
+    // --gray-color: #D9D9D9
+
+}
+
+/* Styling Presets*/
+
+.primary-bg{
+    background-color: var(--primary-bg);
+}
+.secondary-bg{
+    background: var(--secondary-bg);
+}
+.primary-acc{
+    background: var(--primary-acc);
+}
+.secondary-acc{
+    background: var(--secondary-acc);
+}
+
+/*Utitlity Classes*/
+.hide{
+    display: block !important;
+}
+
+.page-inline-padding{
+    width: min(1050px, 100% - 1rem *  2);
+    margin-inline: auto;
+}
+.page-block-padding{
+    padding-top: 80px;
+    padding-bottom: 180px;
+}
+.position-center{
+    margin:auto;
+    inset: 0;
+    position: absolute;
+}
+.grid{
+    display: grid;
+}
+.flex{
+    display: flex;
+}
+.space-between{
+    display: flex;
+    justify-content: space-between;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-direction-col{
+    display: flex;
+    flex-direction: column;
+}
+.vertical-align{
+    display: flex;
+    align-items: center;
+}
+
+// .primary-button{
+
+// }
+// .secondary-button{
+
+// }

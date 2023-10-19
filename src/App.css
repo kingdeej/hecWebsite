@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;700&display=swap");
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+* {
+  font-family: "Signika Negative", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Typogrophy*/
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-700: 700;
+}
+
+/* Styling Presets*/
+.primary-bg {
+  background-color: var(--primary-bg);
+}
+
+.secondary-bg {
+  background: var(--secondary-bg);
+}
+
+.primary-acc {
+  background: var(--primary-acc);
+}
+
+.secondary-acc {
+  background: var(--secondary-acc);
+}
+
+/*Utitlity Classes*/
+.hide {
+  display: block !important;
+}
+
+.page-inline-padding {
+  width: min(1050px, 100% - 2rem);
+  margin-inline: auto;
+}
+
+.page-block-padding {
+  padding-top: 80px;
+  padding-bottom: 180px;
+}
+
+.position-center {
+  margin: auto;
+  inset: 0;
+  position: absolute;
+}
+
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-direction-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+}/*# sourceMappingURL=App.css.map */
