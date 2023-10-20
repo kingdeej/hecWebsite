@@ -16,7 +16,7 @@ export default function Testimonials() {
                     <h3 className='testimonial-card-header'>"</h3>
                     <p className='testimonial-card-paragraph'>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.</p>
                     <div className="testimonial-profile">
-                        <div className="profile-picture"><img src="" alt="profile-picture" /></div>
+                        <div className="profile-picture"><img src="" alt="profile" /></div>
                         <p className="profile-name">Jason Brown</p>
                     </div>
                 </li>
@@ -24,7 +24,7 @@ export default function Testimonials() {
                     <h3 className='testimonial-card-header'>"</h3>
                     <p className='testimonial-card-paragraph'>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.</p>
                     <div className="testimonial-profile">
-                        <div className="profile-picture"><img src="" alt="profile-picture" /></div>
+                        <div className="profile-picture"><img src="" alt="profile" /></div>
                         <p className="profile-name">Jason Brown</p>
                     </div>
                 </li>
@@ -32,7 +32,7 @@ export default function Testimonials() {
                     <h3 className='testimonial-card-header'>"</h3>
                     <p className='testimonial-card-paragraph'>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.</p>
                     <div className="testimonial-profile">
-                        <div className="profile-picture"><img src="" alt="profile-picture" /></div>
+                        <div className="profile-picture"><img src="" alt="profile" /></div>
                         <p className="profile-name">Jason Brown</p>
                     </div>
                 </li>
