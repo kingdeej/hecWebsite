@@ -85,6 +85,11 @@ button {
   display: flex;
 }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .space-between {
   display: flex;
   justify-content: space-between;
@@ -116,9 +121,12 @@ button {
   background: var(--Background-clr-dark-50);
   color: var(--primary-clr-400);
   padding: 7px 1.25rem;
-  border-radius: 1px;
+  border-radius: 3px;
   font-weight: bold;
   font-size: var(--fs-300);
+}
+.primary-button:hover {
+  background: var(--Background-clr-dark-100);
 }
 
 .secondary-button {
@@ -132,6 +140,17 @@ button {
   text-decoration: underline;
   font-weight: var(--fw-light);
   color: var(--accent-clr-400);
+}
+
+.heading-line-style::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  height: 3px;
+  background: var(--accent-clr-400);
+  border-radius: 5px;
 }
 
 body {
@@ -182,11 +201,27 @@ body {
   justify-content: space-between;
   padding-top: 5rem;
 }
+.hero .hero-wrapper .left-hero {
+  gap: 1rem;
+}
+.hero .hero-wrapper .left-hero .hero-header {
+  position: relative;
+}
 .hero .hero-wrapper .left-hero .event-info-wrapper li {
   gap: 0.75rem;
 }
 .hero .hero-wrapper .left-hero .event-info-wrapper li img {
   fill: white;
+}
+.hero .hero-wrapper .left-hero .base-text {
+  color: var(--Background-clr-dark-300);
+  font-size: var(--fs-100);
+}
+.hero .hero-wrapper .left-hero .hero-button-wrapper {
+  gap: 1rem;
+}
+.hero .hero-wrapper .left-hero .hero-button-wrapper p {
+  color: var(--accent-clr-400);
 }
 .hero .hero-wrapper .right-hero .hero-img-cont {
   max-width: 350px;

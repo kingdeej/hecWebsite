@@ -62,6 +62,7 @@ button{
     font-size: var(--fs-700);
     font-weight: var(--fw-bold);
     color: var(--Background-clr-dark-50);
+
 }
 
 /*Utitlity Classes*/
@@ -87,6 +88,10 @@ button{
 }
 .flex{
     display: flex;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
 }
 .space-between{
     display: flex;
@@ -114,9 +119,12 @@ button{
     background: var(--Background-clr-dark-50);
     color: var(--primary-clr-400);
     padding: 7px 1.25rem;
-    border-radius: 1px;
+    border-radius: 3px;
     font-weight: bold;
     font-size: var(--fs-300);
+    &:hover{
+        background: var(--Background-clr-dark-100);
+    }
 }
 .secondary-button{
     background: var(--primary-clr-400);
@@ -124,13 +132,22 @@ button{
     padding: 4px 1rem;
     border-radius: 1px;
 }
-.icon-button{
 
-}
 .eyebrow{
     text-decoration: underline;
     font-weight: var(--fw-light);
     color: var(--accent-clr-400);
+}
+
+.heading-line-style::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 15%;
+    height: 3px;
+    background: var(--accent-clr-400);
+    border-radius: 5px;
 }
 //General Syling
 body{
@@ -178,12 +195,26 @@ body{
         justify-content: space-between;
         padding-top: 5rem;
         .left-hero{
+            gap: 1rem;
+        .hero-header{
+            position: relative;
+        }
             .event-info-wrapper{
                 li{
                     gap: .75rem;
                     img{
                         fill: white;
                     }
+                }
+            }
+            .base-text{
+                color: var(--Background-clr-dark-300);
+                font-size: var(--fs-100);
+            }
+            .hero-button-wrapper{
+                gap: 1rem;
+                p{
+                    color: var(--accent-clr-400);
                 }
             }
         }
