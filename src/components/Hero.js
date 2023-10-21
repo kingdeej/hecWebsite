@@ -6,7 +6,7 @@ import flyImg1 from '../images/flyImg1.jpg'
 
 export default function Hero() {
   return (
-    <section className='hero'>
+    <section className='hero | vertical-align'>
       <div className="hero-wrapper | page-inline-padding flex">
         <div className="left-hero | flex-column">
           <span className='eyebrow'>Featured Events</span>
@@ -26,9 +26,8 @@ export default function Hero() {
           <p className='base-text'>Get exclusive tickets here and also purchase food and drinks.</p>
         </div>
         <div className="right-hero">
-          <div className="hero-img-cont">
-            <img src={flyImg1} alt="hero-img" className="hero-img" />
-          </div>
+          <img src={flyImg1} alt="hero-img" className="hero-img" />
+          <div className='hero-img-cont'></div>
         </div>
       </div>
     </section>

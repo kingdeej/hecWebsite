@@ -28,8 +28,8 @@ button {
 :root {
   /* Typogrophy*/
   --fs-100: 0.625rem;
-  --fs-200: .0813rem;
-  --fs-300: 1rem;
+  --fs-200: .813rem;
+  --fs-250: 1rem;
   --fs-300: 1.094rem;
   --fs-350: 1.25rem;
   --fs-400: 1.5rem;
@@ -53,7 +53,7 @@ button {
 .primary-header {
   font-size: var(--fs-700);
   font-weight: var(--fw-bold);
-  color: var(--Background-clr-dark-50);
+  color: var(--Background-clr-dark-100);
 }
 
 /*Utitlity Classes*/
@@ -115,6 +115,7 @@ button {
   border: none;
   outline: none;
   background: none;
+  cursor: pointer;
 }
 
 .primary-button {
@@ -123,7 +124,7 @@ button {
   padding: 7px 1.25rem;
   border-radius: 3px;
   font-weight: bold;
-  font-size: var(--fs-300);
+  font-size: var(--fs-250);
 }
 .primary-button:hover {
   background: var(--Background-clr-dark-100);
@@ -169,6 +170,7 @@ body {
 .nav .nav-links .link {
   display: flex;
   align-items: center;
+  font-size: var(--fs-200);
 }
 .nav .nav-links .link a {
   color: var(--Background-clr-dark-100);
@@ -191,7 +193,47 @@ body {
 .nav .right-nav {
   gap: 0.5rem;
 }
+.nav .right-nav .close-button {
+  display: none;
+}
 
+@media (max-width: 50em) {
+  .nav-links-wrapper {
+    display: none;
+  }
+  .nav-active {
+    display: flex !important;
+    background: var(--Background-clr-dark-50);
+    position: fixed;
+    right: 0;
+    height: 100%;
+    width: 85%;
+    z-index: 100;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 1rem;
+  }
+  .nav-active .link {
+    margin-bottom: 1.2rem;
+  }
+  .nav-active .link > a {
+    font-size: var(--fs-250);
+    color: var(--Background-clr-dark-300) !important;
+  }
+  .nav-links {
+    flex-direction: column;
+  }
+  .menu-button {
+    display: block !important;
+  }
+  .close-button {
+    top: 2rem;
+    right: 1rem;
+    position: absolute;
+    width: 1.2rem;
+    display: block !important;
+  }
+}
 .hero {
   min-height: 80svh;
   background: linear-gradient(102deg, #2D5873 0.31%, rgba(45, 88, 115, 0.71) 80.02%);
@@ -199,13 +241,21 @@ body {
 .hero .hero-wrapper {
   align-items: center;
   justify-content: space-between;
-  padding-top: 5rem;
 }
 .hero .hero-wrapper .left-hero {
   gap: 1rem;
 }
+.hero .hero-wrapper .left-hero .eyebrow {
+  text-align: center;
+  margin-bottom: -10px;
+  font-size: var(--fs-200);
+  font-weight: var(--fw-light);
+}
 .hero .hero-wrapper .left-hero .hero-header {
   position: relative;
+}
+.hero .hero-wrapper .left-hero .event-info-wrapper {
+  color: var(--Background-clr-dark-200);
 }
 .hero .hero-wrapper .left-hero .event-info-wrapper li {
   gap: 0.75rem;
@@ -223,6 +273,20 @@ body {
 .hero .hero-wrapper .left-hero .hero-button-wrapper p {
   color: var(--accent-clr-400);
 }
+.hero .hero-wrapper .hero-img-cont, .hero .hero-wrapper .hero-img {
+  border-radius: 5px;
+}
+.hero .hero-wrapper .right-hero {
+  max-width: 300px;
+  position: relative;
+  margin-right: 20px;
+}
 .hero .hero-wrapper .right-hero .hero-img-cont {
-  max-width: 350px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 20px;
+  top: 20px;
+  background: hsla(203, 44%, 31%, 0.73);
+  z-index: -100;
 }/*# sourceMappingURL=App.css.map */
