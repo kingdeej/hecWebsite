@@ -76,7 +76,7 @@ export default function Hero() {
           {events.map((x, key)=>{
             const activeFlyer = key === currentFlyer ? 'active-button': 'inactive-button'
             return(
-              <li onClick={() => {handleChangeflyer(key) }}  key={key} className={`${activeFlyer} hero-flyer-button`}>
+              <li onClick={() => {handleChangeflyer(key) }}  key={key} className={`${activeFlyer} button hero-flyer-button`}>
               </li>
             )
           })}
