@@ -13,14 +13,16 @@ export default function Hero() {
           <h1 className="hero-header heading-line-style | primary-header">
             Pelican Party
           </h1>
-          <ul className="event-info-wrapper">
-            <li className='flex'><img src={locationIcon1} alt="location" />Ocho Rios</li>
-            <li className='flex'><img src={dateIcon1} alt="date" />Sat July 25</li>
-          </ul>
-          <div className="hero-button-wrapper | vertical-align">
-            <button className="button | primary-button ">Get Tickets</button>
-            <div className="price-wrapper | flex"><img src={ticketIcon} alt="ticket" />
-            <p className='vertical-align'>$500</p>
+          <div className='wrapper flex-direction-col'>
+            <ul className="event-info-wrapper">
+              <li className='flex primary-paragraph'><img src={locationIcon1} alt="location" />Ocho Rios</li>
+              <li className='flex primary-paragraph'><img src={dateIcon1} alt="date" />Sat July 25</li>
+            </ul>
+            <div className="hero-button-wrapper | vertical-align">
+              <button className="button | primary-button ">Get Tickets</button>
+              <div className="price-wrapper | flex"><img src={ticketIcon} alt="ticket" />
+              <p className='vertical-align'>$500</p>
+              </div>
             </div>
           </div>
           <p className='base-text'>Get exclusive tickets here and also purchase food and drinks.</p>
