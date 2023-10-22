@@ -152,6 +152,7 @@ button{
     background: var(--accent-clr-400);
     border-radius: 5px;
 }
+
 //General Syling
 body{
     background-color: var(--Background-clr-dark-50);
@@ -261,6 +262,7 @@ body{
     min-height: 80svh;
     background: linear-gradient(102deg, #2D5873 0.31%, rgba(45, 88, 115, 0.71) 80.02%);;
     .hero-wrapper{
+        position: relative;
         align-items: center;
         justify-content: space-between;
         .left-hero{
@@ -320,6 +322,29 @@ body{
             }
         }
 
+    }
+    .active-flyer{
+        display: flex !important;
+    }
+    .inactive-flyer{
+        display: none;
+    }
+    .hero-flyer-buttons{
+        position: absolute;
+        bottom: -4rem;
+        gap: .5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        .hero-flyer-button{
+            border-radius: 50%;
+            background-color: var(--Background-clr-dark-50);
+            aspect-ratio: 1;
+            width: .4rem;
+        }
+        .inactive-button{
+            opacity: .5;
+        }
+        
     }
 }
 @media (max-width: 50em) {

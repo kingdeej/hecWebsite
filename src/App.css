@@ -266,6 +266,7 @@ body {
   background: linear-gradient(102deg, #2D5873 0.31%, rgba(45, 88, 115, 0.71) 80.02%);
 }
 .hero .hero-wrapper {
+  position: relative;
   align-items: center;
   justify-content: space-between;
 }
@@ -324,6 +325,28 @@ body {
   top: 4%;
   background: hsla(203, 44%, 31%, 0.73);
   z-index: -100;
+}
+.hero .active-flyer {
+  display: flex !important;
+}
+.hero .inactive-flyer {
+  display: none;
+}
+.hero .hero-flyer-buttons {
+  position: absolute;
+  bottom: -4rem;
+  gap: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hero .hero-flyer-buttons .hero-flyer-button {
+  border-radius: 50%;
+  background-color: var(--Background-clr-dark-50);
+  aspect-ratio: 1;
+  width: 0.4rem;
+}
+.hero .hero-flyer-buttons .inactive-button {
+  opacity: 0.5;
 }
 
 @media (max-width: 50em) {
