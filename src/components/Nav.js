@@ -26,7 +26,7 @@ export default function Nav() {
         <div className="logo">
           <img src={logo} alt="Logo" />
         </div>
-        <ul className={`nav-links-wrapper ${hideMenu}`}>
+        <ul className={`nav-links-wrapper flex ${hideMenu}`}>
           <img onClick={() => { toggleNav(1) }} className={`close-button button | icon-button`} src={close} alt="" />
           <div className='nav-links | flex'>
             <li className="link"><a href="/#">All events</a></li>
@@ -35,9 +35,8 @@ export default function Nav() {
             <li className="link"><a href="/#">Get Tickets</a></li>
             <li className="link"><a href="/#">About Us</a></li>
           </div>
-          <div className="nav-footer">
-            <div className="nav-footer | flex">
-              <div className="socials ">
+          <div className="nav-footer | flex">
+              <div className="socials">
                 <h3 className="secondary-header ">
                     Socials
                 </h3>
@@ -62,7 +61,6 @@ export default function Nav() {
                   </li>  
                 </ul>
               </div>
-            </div>
 
           </div>
         </ul>

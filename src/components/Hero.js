@@ -20,7 +20,7 @@ export default function Hero() {
           <div className="hero-button-wrapper | vertical-align">
             <button className="button | primary-button ">Get Tickets</button>
             <div className="price-wrapper | flex"><img src={ticketIcon} alt="ticket" />
-            <p>$500</p>
+            <p className='vertical-align'>$500</p>
             </div>
           </div>
           <p className='base-text'>Get exclusive tickets here and also purchase food and drinks.</p>
