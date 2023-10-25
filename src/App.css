@@ -9,6 +9,7 @@ svg {
 a {
   cursor: pointer;
   text-decoration: none;
+  color: var(--Background-clr-dark-300);
 }
 
 li {
@@ -78,7 +79,7 @@ button {
 
 .page-block-padding {
   padding-top: 7.5rem;
-  padding-bottom: 7.5;
+  padding-bottom: 7.5rem;
 }
 
 .position-center {
@@ -147,6 +148,13 @@ button {
   border-radius: 1px;
 }
 
+.secondary-a-tag {
+  color: var(--Background-clr-dark-100);
+}
+.secondary-a-tag:hover {
+  color: var(--Background-clr-dark-200);
+}
+
 .eyebrow {
   text-decoration: underline;
   font-weight: var(--fw-light);
@@ -173,6 +181,9 @@ body {
   width: 100%;
   height: 5rem;
   position: absolute;
+}
+.nav .logo {
+  padding-top: 0.2rem;
 }
 .nav .nav-links-wrapper {
   align-items: center;
@@ -393,6 +404,7 @@ body {
   overflow-x: auto;
 }
 .testimonials .testimonials-wrapper .testimonials-card-wrapper .testimonial-card {
+  margin-bottom: 1rem;
   text-align: center;
   min-width: 280px;
 }
@@ -409,6 +421,7 @@ body {
 }
 .testimonials .testimonials-wrapper .testimonials-card-wrapper .testimonial-card p {
   color: var(--Background-clr-dark-300);
+  font-size: var(--fs-200);
 }
 .testimonials .testimonials-wrapper .testimonials-card-wrapper .testimonial-card .testimonial-profile .profile-picture {
   margin-bottom: 0.5rem;
@@ -423,7 +436,8 @@ body {
 .testimonials .testimonials-wrapper .testimonials-card-wrapper .testimonial-card .testimonial-profile .profile-picture img {
   margin-inline: auto;
 }
-.testimonials .testimonials-wrapper .testimonials-card-wrapper .testimonial-wrapper:focus {
+.testimonials .testimonials-wrapper .testimonials-card-wrapper .active-testimonial {
+  cursor: pointer;
   box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.25);
   background-color: var(--accent-clr-400) !important;
   transition: box-shadow 250ms, background-color 250ms;
@@ -438,10 +452,12 @@ body {
 }
 .hot-events .hot-events-wrapper .hot-events-header .primary-paragraph {
   text-decoration: underline;
+  color: var(--Background-clr-dark-300);
 }
 .hot-events .hot-events-wrapper .flyers-wrapper {
   gap: 1rem;
   overflow-x: auto;
+  scroll-padding-top: 1rem;
 }
 .hot-events .hot-events-wrapper .flyers-wrapper::-webkit-scrollbar {
   display: none;
@@ -450,7 +466,7 @@ body {
   margin-bottom: 2rem;
   width: 250px;
   min-width: 250px;
-  box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.08);
 }
 .hot-events .hot-events-wrapper .flyers-wrapper .flyer .flyer-info-cont {
   padding: 0.5rem 0.75rem;
@@ -486,4 +502,64 @@ body {
   color: var(--Background-clr-dark-50);
   padding-block: 0.1rem;
   font-size: var(--fs-250);
+}
+
+.all-event-style .flyers-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+@media (max-width: 1075px) {
+  .all-event-style .flyers-wrapper {
+    display: flex;
+  }
+}
+
+.promote-cta {
+  background: linear-gradient(96deg, #2D5873 0.55%, rgba(45, 88, 115, 0.58) 100%);
+}
+.promote-cta .primary-header {
+  max-width: 16ch;
+}
+.promote-cta .button {
+  margin-block: 1rem;
+  width: 100%;
+}
+.promote-cta p {
+  color: var(--Background-clr-dark-50);
+  line-height: 1.5rem;
+  font-size: var(--fs-300);
+}
+.promote-cta p a {
+  font-size: var(--fs-300);
+  text-decoration: underline;
+}
+
+@media (max-width: 50em) {
+  .promote-cta .promote-cta-wrapper {
+    flex-direction: column;
+  }
+  .promote-cta .promote-cta-wrapper .left-cta {
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 1.5px solid var(--Background-clr-dark-300);
+  }
+}
+footer {
+  background-color: var(--Background-clr-dark-300);
+  color: var(--Background-clr-dark-100);
+}
+footer .logo {
+  margin-bottom: 3rem;
+}
+footer .secondary-header {
+  margin-bottom: 1.5rem;
+  font-size: var(--fs-250);
+}
+footer label {
+  font-size: var(--fs-200);
+}
+footer a, footer p {
+  color: var(--Background-clr-dark-100);
+  font-size: var(--fs-100);
+  font-weight: var(--fw-light);
 }/*# sourceMappingURL=App.css.map */

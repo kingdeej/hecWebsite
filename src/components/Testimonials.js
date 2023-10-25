@@ -1,15 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import profileIcon from '../images/profileIcon.svg'
-import { useRef } from 'react';
-import { useEffect } from 'react';
 
 export default function Testimonials() {
-    const testimonialInput = useRef(null);
-    useEffect(() => {
-        if (testimonialInput.current) {
-            testimonialInput.current.focus();
-        }
-      }, []);
+    const [activeTestimonial, setActiveTestimonial] = useState(1);
+
     const testimonials = [
         {
             id: 0,
@@ -43,13 +37,13 @@ export default function Testimonials() {
             </ul>
             <ul className="testimonials-card-wrapper | flex">
                 {testimonials.map((x, key)=>{
-                    const testimonialRef = key === 1 ? testimonialInput : undefined
+                    const active = activeTestimonial === key ? 'active-testimonial' : ''
                     return(
-                    <li key={key}  className= {` testimonial-card`}>
-                        <button ref={testimonialRef} className='testimonial-wrapper button' >
+                    <li key={key}  className='testimonial-card'>
+                        <div onClick={() => {setActiveTestimonial(key) }}  className= {`${active} testimonial-wrapper button`} >
                             <h3 className='testimonial-card-header'>''</h3>
                             <p className='testimonial-card-paragraph'>{x.testimonialText}</p>
-                        </button>
+                        </div>
                         <div className="testimonial-profile">
                             <div className="profile-picture"><img className='position-center' src={x.testimonialProfile} alt="profile" /></div>
                             <p className="profile-name">{x.testimonialName}</p>
