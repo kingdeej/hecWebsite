@@ -12,6 +12,7 @@ import whatsapp1 from '../images/whatsapp1.svg'
 export default function Nav() {
   const [hideMenu, setHideMenu] = useState('')
 
+
   function toggleNav(e) {
     if (e === 0) {
       setHideMenu('nav-active')
@@ -21,12 +22,13 @@ export default function Nav() {
     }
   }
   return (
-    <nav className='nav | '>
+    <nav className='nav'>
       <div className="nav-wrapper | space-between page-inline-padding">
         <div className="logo">
           <img src={logo} alt="Logo" />
         </div>
         <ul className={`nav-links-wrapper flex ${hideMenu}`}>
+          <div onClick={() => { toggleNav(1) }} className='nav-side'></div>
           <img onClick={() => { toggleNav(1) }} className={`close-button button | icon-button`} src={close} alt="" />
           <div className='nav-links | flex'>
             <li className="link"><a href="/#">All events</a></li>

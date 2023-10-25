@@ -23,7 +23,6 @@ button{
     cursor: pointer;
 }
 :root{
-
     /* Typogrophy*/
 
     // Font Sizes
@@ -174,9 +173,10 @@ button{
 
 //General Syling
 body{
-    background-color: var(--Background-clr-dark-50);
-    color: var(--Background-clr-dark-100)
+    background-color: var(--Background-clr-dark-100);
+    color: var(--Background-clr-dark-100);
 }
+
 .nav{
     width: 100%;
     height: 5rem;
@@ -238,7 +238,23 @@ body{
         justify-content: space-around;
         padding-left: 1rem;
         padding-top: 2rem;
-        
+        animation: navActive 250ms;
+        @keyframes navActive {
+            0%{
+                transform: translateX(100%);     
+            }
+            100%{
+                transform: translateX(0%);     
+            }
+        }
+        .nav-side{
+            width: 15%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.46);
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
         .link{
             margin-bottom: 1.2rem;
         }
