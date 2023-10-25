@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
 img,
 svg{
     max-width: 100%;
@@ -63,9 +64,14 @@ button{
     font-weight: var(--fw-bold);
     color: var(--Background-clr-dark-100);
 }
+.secondary-header{
+    font-size: clamp(var(--fs-250), 10vw, var(--fs-500)); 
+    font-weight: var(--fw-regular);
+}
 .primary-paragraph{
     font-size: clamp(var(--fs-200), 4vw, var(--fs-300)); 
 }
+
 
 /*Utitlity Classes*/
 .hide{
@@ -77,9 +83,12 @@ button{
     margin-inline: auto;
 }
 .page-block-padding{
-    padding-top: 80px;
-    padding-bottom: 180px;
+    padding-top: 7.5rem;
+    padding-bottom: 7.5;
 }
+
+//Displays and positions
+
 .position-center{
     margin:auto;
     inset: 0;
@@ -112,8 +121,10 @@ button{
     display: flex;
     align-items: center;
 }
+
+// BUTTONS
 .button{
-    border: none;
+    border-color: transparent;
     outline: none;
     background: none;
     cursor: pointer;
@@ -356,7 +367,7 @@ body{
             .left-hero{
                 .hero-header{
                     text-align: center;
-                    margin: auto;
+                    margin-inline: auto;
                 }
                 .wrapper{
                     flex-direction: row;
@@ -368,4 +379,126 @@ body{
         }
     }
 }
+.testimonials{
+    .testimonials-wrapper{
+        .primary-header{
+            color: var(--Background-clr-dark-300);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header-buttons{
+            gap: 1.5rem;
+            border-radius: 2px;
+            .button{
+                background-color: var(--Background-clr-dark-100);
+                padding: .2rem .3rem;
+                font-size: var(--fs-100);
+            }
+        }
+        .testimonials-card-wrapper{
+            gap: 1rem;
+            overflow-x: auto;
+            .testimonial-card{
+                text-align: center;
+                min-width: 280px;
+                .testimonial-wrapper{
+                    background-color: var(--Background-clr-dark-100);
+                    padding: 2.5rem .8rem;
+                    margin: 1rem 0;
+                }
+                .testimonial-card-header{
+                    color: var(--Background-clr-dark-300);
+                    font-family: 'Passion One', sans-serif;
+                    font-size: 64px;
+                    line-height: 2.5rem;
+                }
+                p{
+                    color: var(--Background-clr-dark-300);
+                }
+                .testimonial-profile{
+                    .profile-picture{
+                        margin-bottom: .5rem;
+                        position: relative;
+                        border-radius: 50%;
+                        width: 2rem;
+                        aspect-ratio: 1;
+                        margin-inline: auto;
+                        overflow: hidden;
+                        background-color: var(--Background-clr-dark-300);
+                        img{
+                            margin-inline: auto;
+                        }
+                    }
+                }
+            }
+            .testimonial-wrapper:focus{
+                box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.25);
+                background-color: var(--accent-clr-400) !important;
+                transition: box-shadow 250ms, background-color 250ms;
+            }
+        }
+    }
+}
+.hot-events{
+    .hot-events-wrapper{
+        color: var(--Background-clr-dark-300);
+        .hot-events-header{
+            color: var(--Background-clr-dark-300);
+            margin-bottom: 1.5rem;
+            .primary-paragraph{
+                text-decoration: underline;
+            }
+        }
+        .flyers-wrapper{
+            gap: 1rem;
+            overflow-x: auto;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            .flyer{
+                margin-bottom: 2rem;
+                width: 250px;
+                min-width: 250px;
+                box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.15);
 
+                .flyer-img{
+                }
+                .flyer-info-cont{
+                    padding: .5rem .75rem;
+                    flex-direction: column;
+                    &>:not(:last-child){
+                        margin-bottom: .5rem;
+                    }
+                    .flyer-header{
+                        font-size: var(--fs-400);
+                        margin-inline: auto;
+                        position: relative;
+                    }
+                    .event-info-wrapper{
+                        align-self: flex-start;
+                        li{
+                            gap: .75rem;
+                            font-size: var(--fs-300);
+                            font-weight: var(--fw-light);
+                            img{
+                                width: .8rem;
+                            }
+                        }
+                    }
+                    .ticket-wrapper{
+                        color: var(--accent-clr-400);
+                        font-weight: var(--fw-bold);
+                        font-size: var(--fs-350);
+                    }
+                    .get-tickets-button{
+                        width: 100%;
+                        background-color: var(--primary-clr-400);
+                        color: var(--Background-clr-dark-50);
+                        padding-block: .1rem;
+                        font-size: var(--fs-250);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Passion+One&display=swap");
 img,
 svg {
   max-width: 100%;
@@ -56,6 +57,11 @@ button {
   color: var(--Background-clr-dark-100);
 }
 
+.secondary-header {
+  font-size: clamp(var(--fs-250), 10vw, var(--fs-500));
+  font-weight: var(--fw-regular);
+}
+
 .primary-paragraph {
   font-size: clamp(var(--fs-200), 4vw, var(--fs-300));
 }
@@ -71,8 +77,8 @@ button {
 }
 
 .page-block-padding {
-  padding-top: 80px;
-  padding-bottom: 180px;
+  padding-top: 7.5rem;
+  padding-bottom: 7.5;
 }
 
 .position-center {
@@ -116,7 +122,7 @@ button {
 }
 
 .button {
-  border: none;
+  border-color: transparent;
   outline: none;
   background: none;
   cursor: pointer;
@@ -359,7 +365,7 @@ body {
   }
   .hero .hero-wrapper .left-hero .hero-header {
     text-align: center;
-    margin: auto;
+    margin-inline: auto;
   }
   .hero .hero-wrapper .left-hero .wrapper {
     flex-direction: row;
@@ -367,4 +373,117 @@ body {
   .hero .hero-wrapper .right-hero {
     max-width: 200px !important;
   }
+}
+.testimonials .testimonials-wrapper .primary-header {
+  color: var(--Background-clr-dark-300);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.testimonials .testimonials-wrapper .header-buttons {
+  gap: 1.5rem;
+  border-radius: 2px;
+}
+.testimonials .testimonials-wrapper .header-buttons .button {
+  background-color: var(--Background-clr-dark-100);
+  padding: 0.2rem 0.3rem;
+  font-size: var(--fs-100);
+}
+.testimonials .testimonials-wrapper .testimonials-card-wrapper {
+  gap: 1rem;
+  overflow-x: auto;
+}
+.testimonials .testimonials-wrapper .testimonials-card-wrapper .testimonial-card {
+  text-align: center;
+  min-width: 280px;
+}
+.testimonials .testimonials-wrapper .testimonials-card-wrapper .testimonial-card .testimonial-wrapper {
+  background-color: var(--Background-clr-dark-100);
+  padding: 2.5rem 0.8rem;
+  margin: 1rem 0;
+}
+.testimonials .testimonials-wrapper .testimonials-card-wrapper .testimonial-card .testimonial-card-header {
+  color: var(--Background-clr-dark-300);
+  font-family: "Passion One", sans-serif;
+  font-size: 64px;
+  line-height: 2.5rem;
+}
+.testimonials .testimonials-wrapper .testimonials-card-wrapper .testimonial-card p {
+  color: var(--Background-clr-dark-300);
+}
+.testimonials .testimonials-wrapper .testimonials-card-wrapper .testimonial-card .testimonial-profile .profile-picture {
+  margin-bottom: 0.5rem;
+  position: relative;
+  border-radius: 50%;
+  width: 2rem;
+  aspect-ratio: 1;
+  margin-inline: auto;
+  overflow: hidden;
+  background-color: var(--Background-clr-dark-300);
+}
+.testimonials .testimonials-wrapper .testimonials-card-wrapper .testimonial-card .testimonial-profile .profile-picture img {
+  margin-inline: auto;
+}
+.testimonials .testimonials-wrapper .testimonials-card-wrapper .testimonial-wrapper:focus {
+  box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.25);
+  background-color: var(--accent-clr-400) !important;
+  transition: box-shadow 250ms, background-color 250ms;
+}
+
+.hot-events .hot-events-wrapper {
+  color: var(--Background-clr-dark-300);
+}
+.hot-events .hot-events-wrapper .hot-events-header {
+  color: var(--Background-clr-dark-300);
+  margin-bottom: 1.5rem;
+}
+.hot-events .hot-events-wrapper .hot-events-header .primary-paragraph {
+  text-decoration: underline;
+}
+.hot-events .hot-events-wrapper .flyers-wrapper {
+  gap: 1rem;
+  overflow-x: auto;
+}
+.hot-events .hot-events-wrapper .flyers-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.hot-events .hot-events-wrapper .flyers-wrapper .flyer {
+  margin-bottom: 2rem;
+  width: 250px;
+  min-width: 250px;
+  box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.15);
+}
+.hot-events .hot-events-wrapper .flyers-wrapper .flyer .flyer-info-cont {
+  padding: 0.5rem 0.75rem;
+  flex-direction: column;
+}
+.hot-events .hot-events-wrapper .flyers-wrapper .flyer .flyer-info-cont > :not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+.hot-events .hot-events-wrapper .flyers-wrapper .flyer .flyer-info-cont .flyer-header {
+  font-size: var(--fs-400);
+  margin-inline: auto;
+  position: relative;
+}
+.hot-events .hot-events-wrapper .flyers-wrapper .flyer .flyer-info-cont .event-info-wrapper {
+  align-self: flex-start;
+}
+.hot-events .hot-events-wrapper .flyers-wrapper .flyer .flyer-info-cont .event-info-wrapper li {
+  gap: 0.75rem;
+  font-size: var(--fs-300);
+  font-weight: var(--fw-light);
+}
+.hot-events .hot-events-wrapper .flyers-wrapper .flyer .flyer-info-cont .event-info-wrapper li img {
+  width: 0.8rem;
+}
+.hot-events .hot-events-wrapper .flyers-wrapper .flyer .flyer-info-cont .ticket-wrapper {
+  color: var(--accent-clr-400);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-350);
+}
+.hot-events .hot-events-wrapper .flyers-wrapper .flyer .flyer-info-cont .get-tickets-button {
+  width: 100%;
+  background-color: var(--primary-clr-400);
+  color: var(--Background-clr-dark-50);
+  padding-block: 0.1rem;
+  font-size: var(--fs-250);
 }/*# sourceMappingURL=App.css.map */

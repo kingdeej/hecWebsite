@@ -1,41 +1,62 @@
 import React from 'react'
+import profileIcon from '../images/profileIcon.svg'
+import { useRef } from 'react';
+import { useEffect } from 'react';
 
 export default function Testimonials() {
+    const testimonialInput = useRef(null);
+    useEffect(() => {
+        if (testimonialInput.current) {
+            testimonialInput.current.focus();
+        }
+      }, []);
+    const testimonials = [
+        {
+            id: 0,
+            testimonialText: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.',
+            testimonialProfile: profileIcon,
+            testimonialName: 'Jason Brown',
+        },
+        {
+            id: 1,
+            testimonialText: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.',
+            testimonialProfile: profileIcon,
+            testimonialName: 'Jason Brown',
+        },
+        {
+            id: 2,
+            testimonialText: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.',
+            testimonialProfile: profileIcon,
+            testimonialName: 'Jason Brown',
+        },
+    ]
+    
   return (
-    <section className="testimonials">
-        <div className="testimonials-wrapper">
+    <section className="testimonials | page-block-padding">
+        <div className="testimonials-wrapper | page-inline-padding">
             <h2 className="primary-header">
                 What our clients say
             </h2>
-            <ul className="header-buttons">
-                <li><button>Testimonials</button></li>
-                <li><button>Questions</button></li>
+            <ul className="header-buttons | flex">
+                <li><button className='button'>Testimonials</button></li>
+                <li><button className='button'>Questions</button></li>
             </ul>
-            <ul className="testimonials-card-wrapper">
-                <li className="testimonial-card">
-                    <h3 className='testimonial-card-header'>"</h3>
-                    <p className='testimonial-card-paragraph'>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.</p>
-                    <div className="testimonial-profile">
-                        <div className="profile-picture"><img src="" alt="profile" /></div>
-                        <p className="profile-name">Jason Brown</p>
-                    </div>
-                </li>
-                <li className="testimonial-card">
-                    <h3 className='testimonial-card-header'>"</h3>
-                    <p className='testimonial-card-paragraph'>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.</p>
-                    <div className="testimonial-profile">
-                        <div className="profile-picture"><img src="" alt="profile" /></div>
-                        <p className="profile-name">Jason Brown</p>
-                    </div>
-                </li>
-                <li className="testimonial-card">
-                    <h3 className='testimonial-card-header'>"</h3>
-                    <p className='testimonial-card-paragraph'>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.</p>
-                    <div className="testimonial-profile">
-                        <div className="profile-picture"><img src="" alt="profile" /></div>
-                        <p className="profile-name">Jason Brown</p>
-                    </div>
-                </li>
+            <ul className="testimonials-card-wrapper | flex">
+                {testimonials.map((x, key)=>{
+                    const testimonialRef = key === 1 ? testimonialInput : undefined
+                    return(
+                    <li key={key}  className= {` testimonial-card`}>
+                        <button ref={testimonialRef} className='testimonial-wrapper button' >
+                            <h3 className='testimonial-card-header'>''</h3>
+                            <p className='testimonial-card-paragraph'>{x.testimonialText}</p>
+                        </button>
+                        <div className="testimonial-profile">
+                            <div className="profile-picture"><img className='position-center' src={x.testimonialProfile} alt="profile" /></div>
+                            <p className="profile-name">{x.testimonialName}</p>
+                        </div>
+                    </li>
+                    )
+                })}
             </ul>
         </div>
     </section>
