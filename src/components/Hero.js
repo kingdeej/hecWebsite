@@ -4,6 +4,7 @@ import dateIcon1 from '../images/dateIcon1.svg'
 import locationIcon1 from '../images/locationIcon1.svg'
 import flyImg1 from '../images/flyImg1.jpg'
 import flyImg2 from '../images/flyImg2.jpg'
+import { useEffect } from 'react'
 
 export default function Hero() {
 
@@ -29,7 +30,20 @@ export default function Hero() {
   ]
   function handleChangeflyer(e) {
     setCurrentFlyer(e)
+    flyerAnimations()
   }
+  const flyerAnimations = () => { 
+    setInterval(() => {
+      if (currentFlyer < events.length-1) {
+        setCurrentFlyer(currentFlyer + 1)
+      }
+      if (currentFlyer >= events.length-1) {
+        setCurrentFlyer(0)
+      }
+    }, 7000); 
+   }
+  
+
   
   return (
     <section className='hero | vertical-align'>

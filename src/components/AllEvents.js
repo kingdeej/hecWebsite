@@ -79,7 +79,7 @@ export default class HotEvents extends Component {
         <div className="hot-events-wrapper | page-inline-padding">
             <div className="hot-events-header | space-between">
                 <h4 className='secondary-header'>{this.props.FlyersType} Events</h4>
-                <a href='/seeAll' className='primary-paragraph'>See all</a>
+                <a href='/eventspage' className='primary-paragraph'>See all</a>
             </div>
             <ul className="flyers-wrapper | flex">
               {this.events.map((x, key)=>{

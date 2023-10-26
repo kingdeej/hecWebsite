@@ -173,7 +173,7 @@ button{
 
 //General Syling
 body{
-    background-color: var(--Background-clr-dark-100);
+    background-color: var(--Background-clr-dark-50);
     color: var(--Background-clr-dark-100);
 }
 
@@ -183,6 +183,9 @@ body{
     position: absolute;
     .logo{
         padding-top: .2rem;
+        img{
+            height: 85%;
+        }
     }
     .nav-links-wrapper{
         align-items: center;
@@ -299,6 +302,7 @@ body{
 .hero{
     min-height: 80svh;
     background: linear-gradient(102deg, #2D5873 0.31%, rgba(45, 88, 115, 0.71) 80.02%);;
+    overflow-x: hidden;
     .hero-wrapper{
         position: relative;
         align-items: center;
@@ -363,9 +367,20 @@ body{
     }
     .active-flyer{
         display: flex !important;
+        animation: activeFlyer 350ms;
+    }
+    @keyframes activeFlyer {
+        0%{
+            transform: translateX(100%);
+        }
+        100%{
+            transform: translateX(0%);
+        }
     }
     .inactive-flyer{
         display: none;
+        transform: translateX(100%);
+
     }
     .hero-flyer-buttons{
         position: absolute;
@@ -595,5 +610,43 @@ footer{
         color: var(--Background-clr-dark-100);
         font-size: var(--fs-100);
         font-weight: var(--fw-light);
+    }
+}
+.events-page-wrapper{
+    padding-bottom: 0px;
+}
+.events-page{
+    .filter-wrapper{
+        flex-wrap: wrap-reverse;
+        background-color: var(--Background-clr-dark-100) ;
+        padding: .75rem;
+        align-items: center;
+        .secondary-header{
+            font-size: var(--fs-400);
+            color: var(--accent-clr-400);
+        }
+        .filters-wrapper{
+            gap: 2rem;
+            .filter{
+                label{
+                    color: var(--Background-clr-dark-300);
+                }
+
+                select{
+                    background: transparent;
+                    outline: transparent;
+                    border: transparent;
+                }
+            }
+        }
+    }
+    .events-page-navigation{
+        background-color: var(--Background-clr-dark-100) ;
+        padding: 1rem;
+        color: var(--Background-clr-dark-300);
+        margin-bottom: 6rem;
+        .page-navigation-button{
+            font-size: 1rem;
+        }
     }
 }

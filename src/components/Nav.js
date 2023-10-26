@@ -9,7 +9,7 @@ import instagram1 from '../images/instagram1.svg'
 import whatsapp1 from '../images/whatsapp1.svg'
 
 
-export default function Nav() {
+export default function Nav(props) {
   const [hideMenu, setHideMenu] = useState('')
 
 
@@ -22,11 +22,11 @@ export default function Nav() {
     }
   }
   return (
-    <nav className='nav'>
+    <nav className='nav' style={{background: props.background}}>
       <div className="nav-wrapper | space-between page-inline-padding">
-        <div className="logo">
+        <a href='/' className="logo">
           <img src={logo} alt="Logo" />
-        </div>
+        </a>
         <ul className={`nav-links-wrapper flex ${hideMenu}`}>
           <div onClick={() => { toggleNav(1) }} className='nav-side'></div>
           <img onClick={() => { toggleNav(1) }} className={`close-button button | icon-button`} src={close} alt="" />
