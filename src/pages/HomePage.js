@@ -13,9 +13,7 @@ export default function HomePage() {
         <AllEvents eventAmount={4} eventStyle='hot-event-style' FlyersType='Hot'/>
         <PromoteCta color='#F28080' />
         <AllEvents eventAmount={8} eventStyle='all-event-style' FlyersType='All' />
-        <PromoteCta />
-        <Footer />
-        
+        <PromoteCta />        
     </main>
   )
 }

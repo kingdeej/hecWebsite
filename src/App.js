@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import Nav from './components/Nav';
 import {Route, BrowserRouter, Router, Routes} from 'react-router-dom'
 import Footer from './components/Footer';
+import EventPage from './pages/EventPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes >
           <Route exact path='/' Component={HomePage}/>
           <Route path='/eventsPage' Component={EventsPage}/>
+          <Route path='/eventsPage/1' Component={EventPage}/>
         </Routes>
       </BrowserRouter>
       <Footer />

@@ -14,15 +14,15 @@ export class EventsPage extends Component {
                     Filter
                 </h3>
                 <ul className="filters-wrapper flex">
-                    <li className="filter"><label htmlFor="select"> Price</label><select name="price" id="price"></select></li>
+                    <li className="filter"><label htmlFor="price"> Price</label><select name="price" id="price"></select></li>
                     <li className="filter"><label htmlFor="select"> Location</label><select name="location" id="location"></select></li>
                     <li className="filter"><label htmlFor="select"> Date</label><select name="date" id="date"></select></li>
                 </ul>
-                <button className="button">
+                <button className="button search-button">
                     <img src={searchIcon} alt="" className="search-icon" />
                 </button>
             </div>
-            <AllEvents eventAmount={8} eventStyle='all-event-style' FlyersType='All' />
+            <AllEvents eventAmount={8} eventStyle='all-event-style events-page-style' FlyersType='All' />
             <div className="events-page-navigation | page-inline-padding space-between">
                 <div className="left-page-navigation">
                     <p><span>{1}</span> out of <span>{1}</span></p>
