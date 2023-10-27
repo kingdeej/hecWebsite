@@ -25,7 +25,7 @@ export default class HotEvents extends Component {
                 if (key < this.props.eventAmount) {
                   return(
                     <li key={key} className="flyer">
-                       {this.state.redirect && <Navigate to={`/eventId/:${x.eventId}`} />}
+                       {this.state.redirect && <Navigate replace={true} to={`/eventId/:${x.eventId}`} />}
                         <img onClick={this.handleEventClick} src={x.eventImg} className='flyer-img' alt="flyer" />
                         <div className="flyer-info-cont | flex-center">
                             <h4 className='flyer-header | heading-line-style'>{x.eventName}</h4>

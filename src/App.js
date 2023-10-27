@@ -12,7 +12,7 @@ function App() {
       <Nav background='#2D5873' />
       <BrowserRouter >
         <Routes >
-          <Route exact path='/' Component={HomePage}/>
+          <Route path='/' Component={HomePage}/>
           <Route path='/eventsPage' Component={EventsPage}/>
           <Route path='/eventId/:eventId' Component={EventPage}/>
         </Routes>

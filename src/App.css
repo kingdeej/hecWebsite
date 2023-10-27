@@ -358,6 +358,7 @@ body {
 }
 .hero .hero-wrapper .hero-img-cont, .hero .hero-wrapper .hero-img {
   border-radius: 5px;
+  cursor: pointer;
 }
 .hero .hero-wrapper .right-hero {
   max-width: 300px;

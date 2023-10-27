@@ -30,10 +30,10 @@ export default function Nav(props) {
         <ul className={`nav-links-wrapper flex ${hideMenu}`}>
           <img onClick={() => { toggleNav(1) }} className={`close-button button | icon-button`} src={close} alt="" />
           <div className='nav-links | flex'>
-            <li className="link"><a href="/#">All events</a></li>
-            <li className="link"><a href="/#">Hot Events</a></li>
+            <li className="link"><a href="/eventsPage">All events</a></li>
+            <li className="link"><a href="/eventsPage">Hot Events</a></li>
             <li className="link"><a href="/#">Top Locations</a></li>
-            <li className="link"><a href="/#">Get Tickets</a></li>
+            <li className="link"><a href="/eventsPage">Get Tickets</a></li>
             <li className="link"><a href="/#">About Us</a></li>
           </div>
           <div className="nav-footer | flex">

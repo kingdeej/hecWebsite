@@ -12,6 +12,7 @@ export default function EventPage() {
     let { eventId } = useParams()
     const id = parseInt(eventId[1])
     useEffect(() => {
+        window.scrollTo(0, 0)
         const getInfo = events.filter((x)=>x.eventId === id)
         setEventInfo(getInfo[0])
     }, [])
