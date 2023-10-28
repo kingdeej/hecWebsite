@@ -170,6 +170,33 @@ button {
   color: var(--Background-clr-dark-200);
 }
 
+.dropdown-button-wrapper {
+  position: relative;
+}
+.dropdown-button-wrapper .dropdown-button {
+  width: 1.5rem;
+}
+.dropdown-button-wrapper .dropdown-options {
+  display: none;
+}
+.dropdown-button-wrapper .active-dropdown {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.6rem;
+  position: absolute;
+  transform: translateX(calc(-100% + 1.5rem));
+  background-color: var(--Background-clr-dark-50);
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.1);
+  padding: 0.2rem;
+}
+.dropdown-button-wrapper .active-dropdown .dropdown {
+  background-color: var(--Background-clr-dark-50);
+  text-align: left;
+}
+.dropdown-button-wrapper .active-dropdown .dropdown:hover {
+  background-color: var(--Background-clr-dark-100);
+}
+
 .eyebrow {
   text-decoration: underline;
   font-weight: var(--fw-light);
@@ -740,4 +767,48 @@ footer a, footer p {
   .event-page .secondary-header {
     font-size: var(--fs-400);
   }
+}
+.login-page {
+  min-height: 100dvh;
+  gap: 2rem;
+  background-color: var(--Background-clr-dark-50);
+  color: var(--Background-clr-dark-300);
+}
+.login-page .primary-header {
+  color: var(--Background-clr-dark-300);
+}
+.login-page .login-page-wrapper {
+  background: linear-gradient(90deg, hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0.77));
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.1);
+  padding-block: 4rem;
+  padding-inline: min(5rem, 5vw);
+  gap: 1.75rem;
+}
+.login-page .login-page-wrapper input[type=checkbox] {
+  margin-right: 0.5rem;
+}
+.login-page .login-page-wrapper .top-wrapper .inputs-wrapper {
+  gap: 1.5rem;
+}
+.login-page .login-page-wrapper .top-wrapper .inputs-wrapper input {
+  padding-block: min(1rem, 5vw);
+  padding-inline: 1rem;
+  border: var(--Background-clr-dark-200) 2px solid;
+  outline: transparent;
+  border-radius: 0.3rem;
+  color: var(--Background-clr-dark-300);
+}
+.login-page .login-page-wrapper .top-wrapper .inputs-wrapper input:focus {
+  border: var(--primary-clr-300) 2px solid;
+}
+.login-page .login-page-wrapper .top-wrapper, .login-page .login-page-wrapper .bottom-wrapper {
+  gap: 1.25rem;
+}
+.login-page .login-page-wrapper .button {
+  background-color: var(--primary-clr-300);
+  width: 100%;
+  color: var(--Background-clr-dark-100);
+}
+.login-page .login-page-wrapper .button:hover {
+  opacity: 0.9;
 }/*# sourceMappingURL=App.css.map */

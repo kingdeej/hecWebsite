@@ -11,6 +11,7 @@ select{
     border: transparent;
     cursor: pointer;
 }
+
 a{
     cursor: pointer;
     text-decoration: none;
@@ -167,6 +168,37 @@ button{
     }
 }
 
+// Dropdown
+
+.dropdown-button-wrapper{
+    position: relative;
+    .dropdown-button{
+        width: 1.5rem;
+    }
+    .dropdown-options{
+        display: none;
+    }
+    .active-dropdown{
+        display: flex;
+        flex-direction: column;  
+        margin-top: 1.6rem;
+        position: absolute;
+        transform: translateX( calc(-100% + 1.5rem));
+        background-color: var(--Background-clr-dark-50);
+        box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.10);
+        padding: .2rem;
+        .dropdown{
+            background-color: var(--Background-clr-dark-50);
+            text-align: left;
+            &:hover{
+                background-color: var(--Background-clr-dark-100);
+            } 
+        }
+        
+    }
+
+}
+
 .eyebrow{
     text-decoration: underline;
     font-weight: var(--fw-light);
@@ -233,7 +265,6 @@ body{
     }
     .right-nav{
         gap: .5rem;
-
     }
     .nav-footer, .close-button, .menu-button{
         display: none;
@@ -770,6 +801,55 @@ footer{
         }
         .secondary-header{
             font-size: var(--fs-400);
+        }
+    }
+}
+
+.login-page{
+    min-height: 100dvh;
+    gap: 2rem;
+    background-color: var(--Background-clr-dark-50);
+    color: var(--Background-clr-dark-300);
+    .primary-header{
+        color: var(--Background-clr-dark-300);
+    }
+    .login-page-wrapper{
+        background: linear-gradient(90deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,.77));
+        box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.10);
+        padding-block: 4rem;
+        padding-inline: min(5rem, 5vw);
+        gap: 1.75rem;
+        input[type=checkbox]{
+            margin-right: .5rem;
+        }
+        .top-wrapper{
+            .inputs-wrapper{
+                gap: 1.5rem;
+                input{
+                    padding-block: min(1rem, 5vw);
+                    padding-inline: 1rem;
+                    border: var(--Background-clr-dark-200) 2px solid;
+                    outline: transparent;
+                    border-radius: .3rem;
+                    color: var(--Background-clr-dark-300);
+                    &:focus{
+                        border: var(--primary-clr-300) 2px solid;
+                    }
+                }
+
+            }
+        }
+        .top-wrapper, .bottom-wrapper{
+            gap: 1.25rem;
+        }
+
+        .button{
+            background-color: var(--primary-clr-300);
+            width: 100%;
+            color: var(--Background-clr-dark-100);
+            &:hover{
+                opacity: .9;
+            }
         }
     }
 }

@@ -7,18 +7,26 @@ import close from '../images/close.svg'
 import facebook1 from '../images/facebook1.svg'
 import instagram1 from '../images/instagram1.svg'
 import whatsapp1 from '../images/whatsapp1.svg'
+import {Link} from 'react-router-dom'
 
 
 export default function Nav(props) {
   const [hideMenu, setHideMenu] = useState('')
-
-
+  const [count, setCount] = useState(false)
+  const dropdown = count ? 'active-dropdown' : '' 
   function toggleNav(e) {
     if (e === 0) {
       setHideMenu('nav-active')
     }
     if (e === 1) {
       setHideMenu('')
+    }
+  }
+  function toggleDropdown(e) {
+    if (count) {
+      setCount(false)
+    }else{
+      setCount(true)
     }
   }
   return (
@@ -28,7 +36,7 @@ export default function Nav(props) {
           <img src={logo} alt="Logo" />
         </a>
         <ul className={`nav-links-wrapper flex ${hideMenu}`}>
-          <img onClick={() => { toggleNav(1) }} className={`close-button button | icon-button`} src={close} alt="" />
+          <img onClick={() => { toggleNav(1) }} className={`close-button button | icon-button `} src={close} alt="" />
           <div className='nav-links | flex'>
             <li className="link"><a href="/eventsPage">All events</a></li>
             <li className="link"><a href="/eventsPage">Hot Events</a></li>
@@ -68,7 +76,14 @@ export default function Nav(props) {
         <div className="right-nav | vertical-align">
           {/* <button className="button | secondary-button">Contact Us</button> */}
           <button className="button | icon-button"><img src={searchIcon} alt="search" /></button>
-          <button className="button | icon-button"><img src={profileIcon} alt="profile" /></button>
+          <div className='dropdown-button-wrapper'>
+            <img onClick={toggleDropdown} className="button | icon-button dropdown-button" src={profileIcon} alt="profile" />
+            <div className={`dropdown-options ${dropdown}`}>
+            <button className='button dropdown'>Logout</button>
+            <Link className='dropdown' to='/login'><button className='button'>Sign In</button></Link>
+              
+            </div>
+          </div>
           <img onClick={() => { toggleNav(0) }} className={`menu-button button | icon-button`} src={menu} alt="" />
         </div>
       </div>
