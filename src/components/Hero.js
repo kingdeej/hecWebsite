@@ -3,20 +3,19 @@ import ticketIcon from '../images/ticketIcon.svg'
 import dateIcon1 from '../images/dateIcon1.svg'
 import locationIcon1 from '../images/locationIcon1.svg'
 import events from '../components/Events'
-import { Navigate } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 export default function Hero() {
 
   const [currentFlyer, setCurrentFlyer] = useState(0)
-  const [redirect, setredirect] = useState(false)
 
   function handleChangeflyer(e) {
     setCurrentFlyer(e)
     flyerAnimations()
   }
   const handleEventClick = () => { 
-    setredirect(true)
-   }
+    // setredirect(true)
+  }
   const flyerAnimations = () => { 
     setInterval(() => {
       if (currentFlyer < events.length-1) {
@@ -39,7 +38,6 @@ export default function Hero() {
 
             return(
               <li key={key} className={`${activeFlyer} left-hero | flex-column`}>
-                {redirect && <Navigate replace={true} to={`/eventId/:${x.eventId}`} />}
                 <span className='eyebrow'>Featured Events</span>
                 <h1 className="hero-header heading-line-style | primary-header">
                   {x.eventName}
@@ -50,7 +48,7 @@ export default function Hero() {
                     <li className='flex primary-paragraph'><img src={dateIcon1} alt="date" />{x.eventDate}</li>
                   </ul>
                   <div className="hero-button-wrapper | vertical-align">
-                    <button onClick={handleEventClick} className="button | primary-button ">Get Tickets</button>
+                     <Link to={'/:' + x.eventId}><button onClick={handleEventClick} className="button | primary-button ">Get Tickets</button></Link>
                     <div className="price-wrapper | flex"><img src={ticketIcon} alt="ticket" />
                     <p className='vertical-align'>${x.eventPrice}</p>
                     </div>
@@ -66,7 +64,9 @@ export default function Hero() {
           const activeFlyer = key === currentFlyer ? 'active-flyer': 'inactive-flyer'
           return(
             <li key={key} className={activeFlyer}>
-              <img onClick={handleEventClick} src={x.eventImg} alt="hero-img" className="hero-img" />
+              <Link to={'/:' + x.eventId}>
+                <img onClick={handleEventClick} src={x.eventImg} alt="hero-img" className="hero-img" />
+              </Link>
             </li>
           )
         })}
@@ -76,8 +76,8 @@ export default function Hero() {
           {events.map((x, key)=>{
             const activeFlyer = key === currentFlyer ? 'active-button': 'inactive-button'
             return(
-              <li onClick={() => {handleChangeflyer(key) }}  key={key} className={`${activeFlyer} button hero-flyer-button`}>
-              </li>
+                <li onClick={() => {handleChangeflyer(key) }}  key={key} className={`${activeFlyer} button hero-flyer-button`}>
+                </li>
             )
           })}
         </ul>

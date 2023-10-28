@@ -2,7 +2,7 @@ import './App.css';
 import EventsPage from './pages/EventsPage';
 import HomePage from './pages/HomePage';
 import Nav from './components/Nav';
-import {Route, BrowserRouter, Routes, Params} from 'react-router-dom'
+import {Route, BrowserRouter, Routes } from 'react-router-dom'
 import Footer from './components/Footer';
 import EventPage from './pages/EventPage';
 
@@ -14,7 +14,7 @@ function App() {
         <Routes >
           <Route path='/' Component={HomePage}/>
           <Route path='/eventsPage' Component={EventsPage}/>
-          <Route path='/eventId/:eventId' Component={EventPage}/>
+          <Route path='/:eventId' Component={EventPage}/>
         </Routes>
       </BrowserRouter>
       <Footer />
