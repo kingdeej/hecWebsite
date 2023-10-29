@@ -14,9 +14,9 @@ export class EventsPage extends Component {
                     Filter
                 </h3>
                 <ul className="filters-wrapper flex">
-                    <li className="filter"><label htmlFor="price"> Price</label><select name="price" id="price"></select></li>
-                    <li className="filter"><label htmlFor="select"> Location</label><select name="location" id="location"></select></li>
-                    <li className="filter"><label htmlFor="select"> Date</label><select name="date" id="date"></select></li>
+                    <li className="filter"><select name="price" id="price"><option value="Price">Price</option></select></li>
+                    <li className="filter"><select name="location" id="location"><option value="Location">Location</option></select></li>
+                    <li className="filter"><select name="date" id="date"><option value="Date">Date</option></select></li>
                 </ul>
                 <button className="button search-button">
                     <img src={searchIcon} alt="" className="search-icon" />

@@ -62,7 +62,7 @@ button {
 .primary-header {
   font-size: clamp(var(--fs-500), 10vw, var(--fs-700));
   font-weight: var(--fw-bold);
-  color: var(--Background-clr-dark-100);
+  color: var(--Background-clr-dark-300);
 }
 
 .secondary-header {
@@ -87,6 +87,10 @@ button {
 .page-block-padding {
   padding-top: 7.5rem;
   padding-bottom: 7.5rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .position-center {
@@ -358,6 +362,7 @@ body {
 }
 .hero .hero-wrapper .left-hero .hero-header {
   position: relative;
+  color: var(--Background-clr-dark-100);
 }
 .hero .hero-wrapper .left-hero .event-info-wrapper {
   color: var(--Background-clr-dark-200);
@@ -454,7 +459,6 @@ body {
   }
 }
 .testimonials .testimonials-wrapper .primary-header {
-  color: var(--Background-clr-dark-300);
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -581,6 +585,7 @@ body {
 }
 .promote-cta .primary-header {
   max-width: 16ch;
+  color: var(--Background-clr-dark-100);
 }
 .promote-cta .button {
   margin-block: 1rem;
@@ -645,7 +650,7 @@ footer a, footer p {
 }
 .events-page .filter-wrapper .filters-wrapper {
   width: 65%;
-  gap: 2rem;
+  gap: min(2rem, 2vw);
 }
 .events-page .filter-wrapper .filters-wrapper .filter label {
   color: var(--Background-clr-dark-300);
@@ -683,7 +688,6 @@ footer a, footer p {
   width: 100%;
 }
 .event-page .event-page-info-wrapper .right-wrapper .primary-header {
-  color: var(--Background-clr-dark-300);
   position: relative;
 }
 .event-page .event-page-info-wrapper .right-wrapper .secondary-header {
@@ -811,4 +815,29 @@ footer a, footer p {
 }
 .login-page .login-page-wrapper .button:hover {
   opacity: 0.9;
+}
+
+.admin-page h1 {
+  margin-bottom: 4rem;
+}
+.admin-page .admin-buttons-wrapper {
+  gap: 1rem;
+}
+.admin-page .admin-buttons-wrapper li {
+  box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.17);
+  width: 100%;
+  padding-block: min(3rem, 5vw);
+  padding-inline: min(2rem, 5vw);
+}
+.admin-page .admin-buttons-wrapper li:hover {
+  box-shadow: 4px 4px 20px 0px rgba(45, 88, 115, 0.2);
+}
+.admin-page .admin-buttons-wrapper li:hover > .button {
+  color: var(--primary-clr-300);
+}
+.admin-page .admin-buttons-wrapper li .button {
+  gap: 1rem;
+}
+.admin-page .admin-buttons-wrapper li .button .button-img {
+  font-size: min(4rem, 10vw);
 }/*# sourceMappingURL=App.css.map */

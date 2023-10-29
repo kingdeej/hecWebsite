@@ -10,11 +10,12 @@ export default function LoginPage() {
     const [remember, setRemember] = useState(false)
     const [step, setStep] = useState(0)
     const [redirect, setRedirect] = useState(false)
-    
     const navigate = useNavigate()
+
     if (redirect) {
         navigate('/admin-page')
     }
+    
     function handleSubmit(e) {
         e.preventDefault()
         if (step === 0) {
@@ -78,7 +79,7 @@ export default function LoginPage() {
     }
   return (
     <main className="login-page | page-block-padding flex-center flex-column">
-        <h1 className='primary-header'>LoginPage</h1>
+        <h1 className='primary-header'>Login</h1>
         <form onSubmit={(e) => {handleSubmit(e) }} className="login-page-wrapper | page-inline-padding space-between flex-column">
             <div className="top-wrapper flex-column">
                 <div className="inputs-wrapper | flex-column">
