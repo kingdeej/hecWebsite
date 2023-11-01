@@ -10,6 +10,7 @@ export default function LoginPage() {
     const [remember, setRemember] = useState(false)
     const [step, setStep] = useState(0)
     const [redirect, setRedirect] = useState(false)
+    const [loginErrorText, setLoginErrorText] = useState('Login')
     const navigate = useNavigate()
 
     if (redirect) {
@@ -33,7 +34,8 @@ export default function LoginPage() {
                     setRedirect(true)
                 })
                 .catch((error)=>{
-                    console.log(error);
+                    setLoginErrorText(error.code)
+                    console.log(error.code);
                 })
                 
             
@@ -49,7 +51,8 @@ export default function LoginPage() {
                     setRedirect(true)
                 })
                 .catch((error)=>{
-                    console.log(error);
+                    setLoginErrorText(error.code)
+                    console.log(error.code);
                 })
                 
             
@@ -77,14 +80,19 @@ export default function LoginPage() {
                 break;
         }
     }
+    const loginError = (e) => {
+        return(
+            setLoginErrorText('error')
+        )
+    }
   return (
     <main className="login-page | page-block-padding flex-center flex-column">
-        <h1 className='primary-header'>Login</h1>
+        <h1 className='primary-header'>{loginErrorText}</h1>
         <form onSubmit={(e) => {handleSubmit(e) }} className="login-page-wrapper | page-inline-padding space-between flex-column">
             <div className="top-wrapper flex-column">
                 <div className="inputs-wrapper | flex-column">
-                    <input required onChange={(e) => {setEmail(e.target.value)}} type="email" name="email" id="email" />
-                    <input required onChange={(e) => {setPassword(e.target.value)}} type="password" name="password" id="password" />
+                    <input className='text-input' required onChange={(e) => {setEmail(e.target.value)}} type="email" name="email" id="email" />
+                    <input className='text-input' required onChange={(e) => {setPassword(e.target.value)}} type="password" name="password" id="password" />
                 </div>
                 <div className='flex'>
                     <input type="checkbox" onChange={(e) => { setShowPassword(e.target.value)}} name="show-password" id="show-password" />
