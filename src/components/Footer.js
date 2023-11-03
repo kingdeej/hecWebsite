@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../images/logo.svg'
 import instagram from '../images/instagram.svg'
 import facebook from '../images/facebook.svg'
@@ -38,6 +38,7 @@ export default function Footer() {
          </ul>
         </div>
       </div>
+      <button>click me</button>
     </footer>
   )
 }

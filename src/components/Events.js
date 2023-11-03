@@ -1,5 +1,29 @@
 import flyImg1 from '../images/flyImg1.jpg'
 import flyImg2 from '../images/flyImg2.jpg'
+import {db} from '../firebase/firebase'
+import {doc, collection, getDocs, getDoc} from 'firebase/firestore'
+import { useEffect } from 'react';
+import React from 'react'
+
+
+// export default function Events() {
+//   const docRef = collection(db, 'flyerData')
+//   // const docId = getDocs(db, )
+//   try {
+//     getDocs(docRef)
+//     .then((docData)=>{
+//       console.log(
+//         docData.docs.map((doc)=>({...doc.data(), id: doc.id}))
+//       )
+//     })
+//   } catch (error) {
+    
+//   }
+  
+  
+// }
+
+
 
 const events = [
     {
@@ -68,4 +92,4 @@ const events = [
     },
 
   ]
-export default events
+  export default events

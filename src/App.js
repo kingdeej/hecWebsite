@@ -8,6 +8,7 @@ import EventPage from './pages/EventPage';
 import LoginPage from './pages/LoginPage';
 import AdminPage from './pages/AdminPage';
 import AddAdmin from './pages/AdminPages/AddAdmin';
+import SendEvent from './components/SendEvent';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
           <Route path='/:eventId' Component={EventPage}/>
           <Route path='/login' Component={LoginPage}/>
           <Route path='/Admin-page' Component={AdminPage}/>
-          <Route path='/Admin-page/add-event' Component={AddAdmin}/>
+          {/* <Route path='/send-event' Component={SendEvent}/> */}
+          <Route path='/Admin-page/add-event/:step' Component={AddAdmin}/>
         </Routes>
         <Footer />
       </BrowserRouter>
