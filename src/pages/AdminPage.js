@@ -3,15 +3,20 @@ import { Link, useNavigate } from "react-router-dom";
 import {AiOutlinePlus, AiOutlineEdit} from 'react-icons/ai'
 import {VscSignOut} from 'react-icons/vsc'
 import { auth } from "../firebase/firebase";
+import Events from "../components/Events";
 
 export default function AdminPage() {
   const navigate = useNavigate();
+  const [event, setEvent] = useState({})
 
   // useEffect(() => {
   //   if (!auth.currentUser) {
   //       navigate('/')
   //   }
   // }, [])
+  const getEvents = (e) => {
+    Events((e) => { setEvent(e) } )
+  }
 
   return (
     <div className="admin-page | page-block-padding">

@@ -3,29 +3,23 @@ import dateIcon from '../images/dateIcon.svg'
 import locationIcon from '../images/locationIcon.svg'
 import ticketIcon from '../images/ticketIcon.svg'
 import {Link} from 'react-router-dom'
-import GetData from './GetData'
-import GetImage from './GetImage'
+import Events from './Events'
 
 export default class HotEvents extends Component {
   state={
     redirect: false,
     events: [],
-    images: []
   }
   
   getEvents = (e)=>{
     this.setState({events: new Array(e[0])})
   }
   getImageList = (e)=>{
-    this.setState({images: [...this.state.images,e]})
-    const poster = this.state.images.map((x)=>{return x.poster})
-    const photos = this.state.images.map((x)=>{return x.poster})
-    console.log(this.state.images.includes(photos));
+    this.setState({images: e})
   }
 
   componentDidMount(){
-    GetData(this.getEvents)
-    GetImage((e) => {this.getImageList(e)} )
+    Events((e) => { this.getEvents(e) } )
   }
   render() {
     return (
@@ -36,11 +30,11 @@ export default class HotEvents extends Component {
                 <a href='/events-page' className='primary-paragraph'>See all</a>
             </div>
             <ul className="flyers-wrapper | flex">
-              {this.state.events.map((x, key)=>{
+              {this.state.events?.map((x, key)=>{
                 if (key < this.props.eventAmount) {
                   return(
                     <li key={key} className="flyer">
-                        <Link to={'/:' + x.eventId}><img src='' className='flyer-img' alt="flyer" /></Link>
+                        <Link to={'/:' + x.id}><img src={x.poster} className='flyer-img' alt="flyer" /></Link>
                         <div className="flyer-info-cont | flex-center">
                             <h4 className='flyer-header | heading-line-style'>{x.eventName}</h4>
                             <ul className="event-info-wrapper">

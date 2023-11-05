@@ -38,7 +38,6 @@ export default function Footer() {
          </ul>
         </div>
       </div>
-      <button>click me</button>
     </footer>
   )
 }

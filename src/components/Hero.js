@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ticketIcon from '../images/ticketIcon.svg'
 import dateIcon1 from '../images/dateIcon1.svg'
 import locationIcon1 from '../images/locationIcon1.svg'
-import events from '../components/Events'
 import {Link} from 'react-router-dom'
+import Events from './Events'
 
 export default function Hero() {
-
   const [currentFlyer, setCurrentFlyer] = useState(0)
+  const [events, setEvents] = useState([])
 
   function handleChangeflyer(e) {
     setCurrentFlyer(e)
@@ -16,6 +16,13 @@ export default function Hero() {
   const handleEventClick = () => { 
     // setredirect(true)
   }
+  const getInfo = (e) => {
+    Events ((e) => { setEvents(e) } )
+}
+  useEffect(() => {
+    getInfo()
+  }, [])
+
   const flyerAnimations = () => { 
     setInterval(() => {
       if (currentFlyer < events.length-1) {
@@ -33,7 +40,7 @@ export default function Hero() {
     <section className='hero | vertical-align'>
       <div className="hero-wrapper | page-inline-padding flex">
         <ul className="left-hero-wrapper | flex-carousel">
-          {events.map((x, key)=>{
+          {events?.map((x, key)=>{
             const activeFlyer = key === currentFlyer ? 'active-flyer': 'inactive-flyer'
 
             return(
@@ -64,8 +71,8 @@ export default function Hero() {
           const activeFlyer = key === currentFlyer ? 'active-flyer': 'inactive-flyer'
           return(
             <li key={key} className={activeFlyer}>
-              <Link to={'/:' + x.eventId}>
-                <img onClick={handleEventClick} src={x.eventImg} alt="hero-img" className="hero-img" />
+              <Link to={'/:' + x.id}>
+                <img onClick={handleEventClick} src={x.poster} alt="hero-img" className="hero-img" />
               </Link>
             </li>
           )
