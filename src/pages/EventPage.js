@@ -51,13 +51,13 @@ export default function EventPage() {
                                     </ul>
                                 </div>
                             </li>
-                            <li><a href="tel:+8505555555">850-555-5555</a></li>
-                            <li><p>promoter@email.com</p></li>
+                            <li><a href={`tel:+${event.promoterNumber}`}>{event.promoterNumber}</a></li>
+                            <li><p>{event.promoterEmail}</p></li>
                         </ul>
                     </div>
                     <div className=''>
                         <ul className="event-info-wrapper">
-                            <li className='flex'><ImLocation />{event.eventLocation}</li>
+                            <li className='flex'><ImLocation />{event.eventStreet}, {event.eventParish}</li>
                             <li className='flex'><FiCalendar />{event.eventDate}</li>
                         </ul>
                         <select name="quantity" id="quantity">
@@ -80,10 +80,10 @@ export default function EventPage() {
                     </div>
                     <ul className='images-carousel | flex'>
                         {event.photos.map((photo, photoKey)=>{
+                            const eventPhoto = photo ? photo : ''
                             console.log(photo);
                             return(
-                                <li key={photoKey}><img src={photo} alt="event" /></li>
-
+                                <li key={photoKey}><img src={eventPhoto} alt="event" /></li>
                             )
                             })}
                     </ul>

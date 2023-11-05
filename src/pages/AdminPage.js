@@ -4,16 +4,21 @@ import {AiOutlinePlus, AiOutlineEdit} from 'react-icons/ai'
 import {VscSignOut} from 'react-icons/vsc'
 import { auth } from "../firebase/firebase";
 import Events from "../components/Events";
+import { signOut } from "@firebase/auth";
 
 export default function AdminPage() {
   const navigate = useNavigate();
   const [event, setEvent] = useState({})
 
-  // useEffect(() => {
-  //   if (!auth.currentUser) {
-  //       navigate('/')
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (!auth.currentUser) {
+        navigate('/')
+    }
+  }, [])
+  const onSignOut = (e) => {
+    signOut(auth)
+    navigate('/')
+  }
   const getEvents = (e) => {
     Events((e) => { setEvent(e) } )
   }
@@ -24,7 +29,7 @@ export default function AdminPage() {
         <h1 className="primary-header | text-center">Admin</h1>
         <ul className="admin-buttons-wrapper flex-center">
           <li className="flex-center">
-            <Link to={'/Admin-page/add-event'} className="admin-button button flex-center flex-column">
+            <Link to={'/Admin-page/add-event/0'} className="admin-button button flex-center flex-column">
               <AiOutlinePlus className="button-img" />
               <h2 className="secondary-header">Add Event</h2>
             </Link>
@@ -37,8 +42,8 @@ export default function AdminPage() {
           </li>
           <li className="flex-center">
             <button className="admin-button button flex-center flex-column">
-              <VscSignOut className="button-img" />
-              <h2 className="secondary-header">Add Events</h2>
+              <VscSignOut onClick={(e) => { onSignOut() }} className="button-img" />
+              <h2 className="secondary-header">Sign Out</h2>
             </button>
           </li>
         </ul>

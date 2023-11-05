@@ -38,7 +38,7 @@ export default class HotEvents extends Component {
                         <div className="flyer-info-cont | flex-center">
                             <h4 className='flyer-header | heading-line-style'>{x.eventName}</h4>
                             <ul className="event-info-wrapper">
-                                <li className='flex'><img src={locationIcon} alt="location" />{x.eventLocation}</li>
+                                <li className='flex'><img src={locationIcon} alt="location" />{x.eventStreet}, {x.eventParish}</li>
                                 <li className='flex'><img src={dateIcon} alt="date" />{x.eventDate}</li>
                             </ul>
                             <p className='ticket-wrapper flex-center'><img src={ticketIcon} alt="ticket-img" />${x.eventPrice}</p>

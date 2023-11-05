@@ -51,11 +51,11 @@ export default function Hero() {
                 </h1>
                 <div className='wrapper flex-direction-col'>
                   <ul className="event-info-wrapper">
-                    <li className='flex primary-paragraph'><img src={locationIcon1} alt="location" />{x.eventLocation}</li>
+                    <li className='flex primary-paragraph'><img src={locationIcon1} alt="location" />{x.eventStreet}, {x.eventParish}</li>
                     <li className='flex primary-paragraph'><img src={dateIcon1} alt="date" />{x.eventDate}</li>
                   </ul>
                   <div className="hero-button-wrapper | vertical-align">
-                     <Link to={'/:' + x.eventId}><button onClick={handleEventClick} className="button | primary-button ">Get Tickets</button></Link>
+                     <Link to={'/:' + x.id}><button onClick={handleEventClick} className="button | primary-button ">Get Tickets</button></Link>
                     <div className="price-wrapper | flex"><img src={ticketIcon} alt="ticket" />
                     <p className='vertical-align'>${x.eventPrice}</p>
                     </div>

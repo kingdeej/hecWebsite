@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom'
 export default function LoginPage() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [showPassword, setShowPassword] = useState()
+    const [showPassword, setShowPassword] = useState('password')
     const [remember, setRemember] = useState(false)
     const [step, setStep] = useState(0)
     const [redirect, setRedirect] = useState(false)
@@ -92,10 +92,10 @@ export default function LoginPage() {
             <div className="top-wrapper flex-column">
                 <div className="inputs-wrapper | flex-column">
                     <input className='text-input' required onChange={(e) => {setEmail(e.target.value)}} type="email" name="email" id="email" />
-                    <input className='text-input' required onChange={(e) => {setPassword(e.target.value)}} type="password" name="password" id="password" />
+                    <input className='text-input' required onChange={(e) => {setPassword(e.target.value)}} type={showPassword} name="password" id="password" />
                 </div>
                 <div className='flex'>
-                    <input type="checkbox" onChange={(e) => { setShowPassword(e.target.value)}} name="show-password" id="show-password" />
+                    <input type="checkbox" onChange={(e) => { showPassword === 'password' ? setShowPassword('text'): setShowPassword('password')}} name="show-password" id="show-password" />
                      <p>show/hide password</p>
                 </div>
             </div>
