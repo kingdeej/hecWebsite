@@ -22,7 +22,7 @@ export default function AddAdmin() {
     const data = eventDetails
     const getId = v4()
     const id = {'id': getId}
-    const objData = {0:{...data[0],...e,...id}}
+    const objData = {...data[0],...e,...id}
 
     //photos
     const posterImage = eventImages.eventPoster
@@ -34,7 +34,7 @@ export default function AddAdmin() {
     const posterObj = {photoName: posterImageName, eventPhotos: posterImage, mediaType:'poster'}
     const photosObj = {photoName: eventPhotosName, eventPhotos: posterImage, mediaType:'photos'}
     SendImage(getId, posterObj,  photosObj)
-    SendEvent(objData)
+    SendEvent(objData, getId)
   }
 
   
@@ -46,7 +46,7 @@ export default function AddAdmin() {
     if (nextStep < urlParams) {
       setStep(0)
       setNextStep(0)
-      navigate('/Admin-page/add-event/' + 0)
+      navigate('/admin-page/add-event/' + 0)
     }else{
       setStep(urlParams)
     }
@@ -57,7 +57,7 @@ export default function AddAdmin() {
   
   const handleButtonClick = (e) => {
     const nextParams = parseInt(params.step) +1
-    navigate('/Admin-page/add-event/' + nextParams)
+    navigate('/admin-page/add-event/' + nextParams)
     setStep(step + 1)
     setNextStep(step + 1)
   }

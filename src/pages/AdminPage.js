@@ -14,6 +14,7 @@ export default function AdminPage() {
     if (!auth.currentUser) {
         navigate('/')
     }
+    console.log(auth.currentUser);
   }, [])
   const onSignOut = (e) => {
     signOut(auth)
@@ -29,16 +30,16 @@ export default function AdminPage() {
         <h1 className="primary-header | text-center">Admin</h1>
         <ul className="admin-buttons-wrapper flex-center">
           <li className="flex-center">
-            <Link to={'/Admin-page/add-event/0'} className="admin-button button flex-center flex-column">
+            <Link to={'/admin-page/add-event/0'} className="admin-button button flex-center flex-column">
               <AiOutlinePlus className="button-img" />
               <h2 className="secondary-header">Add Event</h2>
             </Link>
           </li>
           <li className="flex-center">
-            <button className="admin-button button flex-center flex-column">
+            <Link to={'/admin-page/events'} className="admin-button button flex-center flex-column">
               <AiOutlineEdit className="button-img" />
               <h2 className="secondary-header">Edit Events</h2>
-            </button>
+            </Link>
           </li>
           <li className="flex-center">
             <button className="admin-button button flex-center flex-column">

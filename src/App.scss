@@ -969,3 +969,21 @@ footer{
         }
     }
 }
+.admin-events-list{
+    gap: 1rem;
+    .admin-event{
+        box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.10);
+        height: 3rem;
+        padding-inline-end: 1.5rem;
+        div{
+            gap: 1rem;
+        }
+        img{
+            aspect-ratio: 1.75/2;
+            max-height: 3rem;
+        }
+    }
+}
+.admin-event-page{
+    color: var(--Background-clr-dark-300);
+}

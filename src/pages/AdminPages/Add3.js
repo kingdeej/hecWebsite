@@ -45,27 +45,26 @@ export class Add3 extends Component {
           name="promoterName"
           id="promoterName"
         />
+          <input
+            onChange={(e) => {
+              this.handleChange(e);
+            }}
+            className="text-input"
+            required
+            placeholder="Promoter Phone Number"
+            type="number"
+            name="promoterNumber"
+            id="promoterNumber"
+          />
         <input
           onChange={(e) => {
             this.handleChange(e);
           }}
           className="text-input"
-          required
           placeholder="Promoter Email"
           type="email"
           name="promoterEmail"
           id="promoterEmail"
-        />
-        <input
-          onChange={(e) => {
-            this.handleChange(e);
-          }}
-          className="text-input"
-          required
-          placeholder="Promoter Phone Number"
-          type="number"
-          name="promoterNumber"
-          id="promoterNumber"
         />
         <label htmlFor="">Additional Photos</label>
 

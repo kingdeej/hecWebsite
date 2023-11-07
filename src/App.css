@@ -921,4 +921,24 @@ footer a, footer p {
      object-fit: fill;
   width: 100%;
   height: 100%;
+}
+
+.admin-events-list {
+  gap: 1rem;
+}
+.admin-events-list .admin-event {
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.1);
+  height: 3rem;
+  padding-inline-end: 1.5rem;
+}
+.admin-events-list .admin-event div {
+  gap: 1rem;
+}
+.admin-events-list .admin-event img {
+  aspect-ratio: 1.75/2;
+  max-height: 3rem;
+}
+
+.admin-event-page {
+  color: var(--Background-clr-dark-300);
 }/*# sourceMappingURL=App.css.map */

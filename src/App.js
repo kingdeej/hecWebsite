@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import AdminPage from './pages/AdminPage';
 import AddAdmin from './pages/AdminPages/AddAdmin';
 import SendEvent from './components/SendEvent';
+import EditAdmin from './pages/AdminPages/EditAdmin';
 
 function App() {
   return (
@@ -20,9 +21,10 @@ function App() {
           <Route path='/events-page' Component={EventsPage}/>
           <Route path='/:eventId' Component={EventPage}/>
           <Route path='/login' Component={LoginPage}/>
-          <Route path='/Admin-page' Component={AdminPage}/>
+          <Route path='/admin-page' Component={AdminPage}/>
           {/* <Route path='/send-event' Component={SendEvent}/> */}
-          <Route path='/Admin-page/add-event/:step' Component={AddAdmin}/>
+          <Route path='/admin-page/add-event/:step' Component={AddAdmin}/>
+          <Route path='/admin-page/events' Component={EditAdmin}/>
         </Routes>
         <Footer />
       </BrowserRouter>

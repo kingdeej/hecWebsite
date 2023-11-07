@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {auth} from '../firebase/firebase'
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth'
 import {useNavigate} from 'react-router-dom'
+import { admins } from '../components/admins'
 
 export default function LoginPage() {
     const [email, setEmail] = useState('')
@@ -12,9 +13,12 @@ export default function LoginPage() {
     const [redirect, setRedirect] = useState(false)
     const [loginErrorText, setLoginErrorText] = useState('Login')
     const navigate = useNavigate()
-
-    if (redirect) {
-        navigate('/admin-page')
+    if (admins.includes(auth?.currentUser?.email)) {
+        if (redirect) {
+            navigate('/admin-page')
+        }
+    }else if (redirect) {
+        navigate('/')
     }
     
     function handleSubmit(e) {
@@ -96,7 +100,7 @@ export default function LoginPage() {
                 </div>
                 <div className='flex'>
                     <input type="checkbox" onChange={(e) => { showPassword === 'password' ? setShowPassword('text'): setShowPassword('password')}} name="show-password" id="show-password" />
-                     <p>show/hide password</p>
+                     <label htmlFor='show-password'>show/hide password</label>
                 </div>
             </div>
             <div className="bottom-wrapper flex-column">
