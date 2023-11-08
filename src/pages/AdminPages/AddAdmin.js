@@ -16,6 +16,7 @@ export default function AddAdmin() {
   const [nextStep, setNextStep] = useState(0);
   const [eventDetails, setEventDetails] = useState([]);
   const [eventImages, setEventImages] = useState([]);
+  //url pathname
   const pathname = window.location.pathname
   const newPathname =  pathname.slice(0, -1)
   
@@ -57,11 +58,9 @@ export default function AddAdmin() {
   }, [urlParams])
   
   
-  
-  
   const handleButtonClick = (e) => {
     const nextParams = parseInt(params.step) +1
-    navigate('/admin-page/add-event/' + nextParams)
+    navigate(newPathname + nextParams)
     setStep(step + 1)
     setNextStep(step + 1)
   }

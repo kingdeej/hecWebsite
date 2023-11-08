@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import {AiOutlinePlus, AiOutlineEdit} from 'react-icons/ai'
 import {VscSignOut} from 'react-icons/vsc'
 import { auth } from "../firebase/firebase";
-import Events from "../components/Events";
 import { signOut } from "@firebase/auth";
 
 export default function AdminPage() {

@@ -19,7 +19,7 @@ export default function LoginPage() {
             navigate('/admin-page')
         }
     }else if (redirect) {
-        navigate('/')
+        navigate('/promoter/add-event/0')
     }
     if (redirect) {
         sessionStorage.setItem('user', auth.currentUser.uid)
