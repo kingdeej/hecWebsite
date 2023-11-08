@@ -50,7 +50,6 @@ export class Add3 extends Component {
               this.handleChange(e);
             }}
             className="text-input"
-            required
             placeholder="Promoter Phone Number"
             type="number"
             name="promoterNumber"

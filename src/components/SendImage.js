@@ -2,7 +2,7 @@ import React from "react";
 import { storage } from "../firebase/firebase";
 import { ref, uploadBytes } from "firebase/storage";
 
-export default function sendImage(id, posterInfo, photosInfo) {
+export default function sendImage(id, posterInfo, photosInfo, videoInfo) {
   const sendImage = async () => {
     //sendlfyers
     const sendPoster = () => {
@@ -13,8 +13,7 @@ export default function sendImage(id, posterInfo, photosInfo) {
       try {
         uploadBytes(imagePosterRef, posterInfo.eventPhotos)
           .then((response) => {
-            sendPhotos();
-            console.log(response);
+            sendVideo();
           })
           .catch((error) => {
             console.log(error);
@@ -23,9 +22,28 @@ export default function sendImage(id, posterInfo, photosInfo) {
         console.log(error);
       }
     };
+
+    //send Videos
+    const sendVideo = () => {
+      const videoRef = ref(
+        storage,
+        `eventFlyers/${id}/video/${videoInfo.photoName + id}`
+      );
+      try {
+        uploadBytes(videoRef, videoInfo.eventPhotos)
+          .then((response) => {
+            sendPhotos();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     //send photos
     const sendPhotos = () => {
-      console.log(photosInfo.photoName);
       photosInfo.photoName.map((x, key) => {
         const imagePhotosRef = ref(
           storage,

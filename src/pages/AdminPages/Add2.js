@@ -4,14 +4,23 @@ import { stringify } from "json5";
 
 export default function Add2(props) {
     const [eventImage, setEventImage] = useState('')
+    const [eventVideo, setEventVideo] = useState('')
     const [eventImages, setEventImages] = useState([])
 
     
     const addPosterImg = (event) => {
-        if (event.target.files[0] === eventImage) {
-            setEventImage('')
+      console.log(event);
+      if (event.target.files[0] === eventImage) {
+        setEventImage('')
+      }else{
+        setEventImage(event.target.files[0])
+      }
+    }
+    const addVideo = (event) => {
+        if (event.target.files[0] === eventVideo) {
+            setEventVideo('')
         }else{
-            setEventImage(event.target.files[0])
+            setEventVideo(event.target.files[0])
         }
     }
     const addPostersImg = (event) => {
@@ -46,11 +55,12 @@ export default function Add2(props) {
     const handleButtonClick = (event) => {
         event.preventDefault()
         props.handleButtonClick()
-        const EventImg = {
+        const EventMedia = {
             'eventPoster': eventImage, 
-            'eventPhotos': eventImages
+            'eventPhotos': eventImages,
+            'eventVideo': eventVideo
         }
-        props.setEventImages(EventImg)
+        props.setEventImages(EventMedia)
     }
   return (
     <form onSubmit={(e) => { handleButtonClick(e) }} className="add-event | flex-column space-between">
@@ -66,12 +76,34 @@ export default function Add2(props) {
               required
                 onChange={(e) => {addPosterImg(e) }}
                 onClick={(e) => { addPosterImg(e)}}
+                onDrop={(e) => { addPosterImg(e)}}
                 accept="image/png, image/jpeg"
                 type="file"
                 name="poster"
                 id='0'
               />
             </div>
+
+            <label htmlFor="">Add video</label>
+            <div className="add-img-wrapper flex-center">
+              <div className="position-center">
+                {
+                  !eventVideo ? <HiPlus className="add-img-button position-center" /> : <video src={URL.createObjectURL(eventVideo)} alt="" /> 
+                }
+              </div>
+              <input
+              required
+                onChange={(e) => {addVideo(e) }}
+                onClick={(e) => { addVideo(e)}}
+                onDrop={(e) => { addVideo(e)}}
+                accept="video/mp4,video/x-m4v,video/*"
+                type="file"
+                name="poster"
+                id='0'
+              />
+            </div>
+
+            
             <label htmlFor="">Additional Photos</label>
             <div className="add-imgs-wrapper flex">
               {[...Array(addImagesCount())].map((x, key)=>{
@@ -88,6 +120,7 @@ export default function Add2(props) {
                   <input
                     onChange={(e) => {addPostersImg(e) }}
                     onClick={(e) => { addPostersImg(e)}}
+                    onDrop={(e) => { addPostersImg(e)}}
                     accept="image/png, image/jpeg"
                     type="file"
                     name="poster"

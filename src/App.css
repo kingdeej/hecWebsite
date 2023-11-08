@@ -760,11 +760,12 @@ footer a, footer p {
 .event-page .entertainment-wrapper .video-wrapper {
   background: var(--Background-clr-dark-200);
   aspect-ratio: 3/1.5;
+  height: 350px;
   width: 100%;
   margin-bottom: 3rem;
 }
 .event-page .entertainment-wrapper .images-carousel {
-  gap: 2rem;
+  gap: 1.5rem;
   overflow-x: auto;
 }
 .event-page .entertainment-wrapper .images-carousel li {
@@ -923,7 +924,7 @@ footer a, footer p {
   font-size: clamp(3rem, 10vw, 5rem);
   aspect-ratio: 1;
 }
-.add-event-page .add-event-page-wrapper .add-event-wrapper .add-event .add-img-wrapper img {
+.add-event-page .add-event-page-wrapper .add-event-wrapper .add-event .add-img-wrapper img, .add-event-page .add-event-page-wrapper .add-event-wrapper .add-event .add-img-wrapper video {
   pointer-events: none;
   -o-object-fit: fill;
      object-fit: fill;

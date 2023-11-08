@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ticketIcon from '../images/ticketIcon.svg'
 import {AiOutlineInstagram, AiFillFacebook, AiOutlineWhatsApp,} from 'react-icons/ai'
 import {ImLocation} from 'react-icons/im'
 import {FiCalendar} from 'react-icons/fi'
 import { useParams } from 'react-router-dom'
 import Events from '../components/Events'
+import ReactPlayer from 'react-player'
+import { IKContext, IKVideo } from 'imagekitio-react'
 
 
 export default function EventPage() {
     const [eventInfo, setEventInfo] = useState([])
+    const [photoArray] = useState(Array(4).fill(0))
     let { eventId } = useParams()
-    // const id = parseInt(eventId)
     const getInfo = (e) => {
         Events((e) => { setEventInfo(e) } )
     }
@@ -18,12 +20,9 @@ export default function EventPage() {
     useEffect(() => {
         window.scrollTo(0, 0) 
         getInfo()
-        // console.log(eventInfo);
-        // const getInfo = eventInfo?.filter((x)=>x.eventId === id)
-        // setEventInfo(getInfo[0])
     }, [])
     
-    
+      
   return (
     <main className="event-page">
        { eventInfo.map((event, key)=>{
@@ -77,16 +76,19 @@ export default function EventPage() {
                         Videos and Images
                     </h2>
                         <div className='video-wrapper'>
-                            <video  src=''></video>
+                            <video src=""></video>
+                            {/* <button>PLAY</button>
+                            <ReactPlayer controls={true} url={event.video}/> */}
                         </div>
                         <ul className='images-carousel | flex'>
-                            {event.photos.map((photo, photoKey)=>{
-                                const eventPhoto = photo ? photo : ''
-                                console.log(photo);
+                            {
+                            photoArray.map((x, key)=>{
                                 return(
-                                    <li key={photoKey}><img src={eventPhoto} alt="event" /></li>
+                                    <li key={key}><img src={event.photos[key]} alt="" /></li>
                                 )
-                                })}
+                            })
+                                
+                            }
                         </ul>
                     </div>
                 </div>                           

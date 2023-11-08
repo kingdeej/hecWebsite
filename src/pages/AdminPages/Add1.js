@@ -60,6 +60,17 @@ export default class Add1 extends Component {
           id="eventDate"
         />
         <hr />
+          <input
+            onChange={(e) => {
+              this.handleChange(e);
+            }}
+            className="text-input"
+            required
+            placeholder="Street Address"
+            type="text"
+            name="streetAddress"
+            id="streetAddress"
+          />
         <div className="location-wrapper space-between">
           <input
             onChange={(e) => {
@@ -84,17 +95,6 @@ export default class Add1 extends Component {
             id="Parish"
           />
         </div>
-        <input
-          onChange={(e) => {
-            this.handleChange(e);
-          }}
-          className="text-input"
-          required
-          placeholder="Street Address"
-          type="text"
-          name="streetAddress"
-          id="streetAddress"
-        />
         <button 
         // onClick={(e) => {
         //     this.handleButtonClick(e);

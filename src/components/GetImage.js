@@ -4,6 +4,7 @@ import {storage} from '../firebase/firebase'
 export default function GetImage(getImageList) {
     let poster = []
     let photos = []
+    let video = []
     let ids = []
     const imageRef = ref(storage, 'eventFlyers/')
     const getImages = () => {
@@ -22,18 +23,31 @@ export default function GetImage(getImageList) {
                     })
                 })
                 .then(()=>{
-                    listAll(ref(storage, `eventFlyers/${prefixes.name}/poster`))
+                    listAll(ref(storage, `eventFlyers/${prefixes.name}/video`))
                     .then((items)=>{
                         items.items.forEach((item)=>{
                             getDownloadURL(item)
-                            .then((url)=>{
-                                    const photosId = prefixes.name
-                                    const image = {[photosId]:url}
-                                    poster.push(image)
-                                    const posterObj = {'poster': poster}
-                                    const photosObj = {'photos': photos}
-                                    getImageList([photosObj, posterObj])
+                                .then((url)=>{
+                                    const videoId = prefixes.name
+                                    const videoUrl = url
+                                    video.push({[videoId]:videoUrl})
                                 })
+                        })
+                    }).then(()=>{
+                        listAll(ref(storage, `eventFlyers/${prefixes.name}/poster`))
+                        .then((items)=>{
+                            items.items.forEach((item)=>{
+                                getDownloadURL(item)
+                                .then((url)=>{
+                                        const photosId = prefixes.name
+                                        const image = {[photosId]:url}
+                                        poster.push(image)
+                                        const posterObj = {'poster': poster}
+                                        const photosObj = {'photos': photos}
+                                        const videoObj = {'video': video}
+                                        getImageList([photosObj, posterObj, videoObj])
+                                    })
+                            })
                         })
                     })
 

@@ -8,6 +8,7 @@ import Events from './Events'
 export default function Hero() {
   const [currentFlyer, setCurrentFlyer] = useState(0)
   const [events, setEvents] = useState([])
+  const heroNumber = 3
 
   function handleChangeflyer(e) {
     setCurrentFlyer(e)
@@ -25,10 +26,10 @@ export default function Hero() {
 
   const flyerAnimations = () => { 
     setInterval(() => {
-      if (currentFlyer < events.length-1) {
+      if (currentFlyer < events.length-1 || currentFlyer < heroNumber) {
         setCurrentFlyer(currentFlyer + 1)
       }
-      if (currentFlyer >= events.length-1) {
+      if (currentFlyer >= events.length-1 || currentFlyer >= heroNumber) {
         setCurrentFlyer(0)
       }
     }, 7000); 
@@ -42,50 +43,58 @@ export default function Hero() {
         <ul className="left-hero-wrapper | flex-carousel">
           {events?.map((x, key)=>{
             const activeFlyer = key === currentFlyer ? 'active-flyer': 'inactive-flyer'
-
-            return(
-              <li key={key} className={`${activeFlyer} left-hero | flex-column`}>
-                <span className='eyebrow'>Featured Events</span>
-                <h1 className="hero-header heading-line-style | primary-header">
-                  {x.eventName}
-                </h1>
-                <div className='wrapper flex-direction-col'>
-                  <ul className="event-info-wrapper">
-                    <li className='flex primary-paragraph'><img src={locationIcon1} alt="location" />{x.eventStreet}, {x.eventParish}</li>
-                    <li className='flex primary-paragraph'><img src={dateIcon1} alt="date" />{x.eventDate}</li>
-                  </ul>
-                  <div className="hero-button-wrapper | vertical-align">
-                     <Link to={'/:' + x.id}><button onClick={handleEventClick} className="button | primary-button ">Get Tickets</button></Link>
-                    <div className="price-wrapper | flex"><img src={ticketIcon} alt="ticket" />
-                    <p className='vertical-align'>${x.eventPrice}</p>
+            if (key<heroNumber) {
+              
+              return(
+                <li key={key} className={`${activeFlyer} left-hero | flex-column`}>
+                  <span className='eyebrow'>Featured Events</span>
+                  <h1 className="hero-header heading-line-style | primary-header">
+                    {x.eventName}
+                  </h1>
+                  <div className='wrapper flex-direction-col'>
+                    <ul className="event-info-wrapper">
+                      <li className='flex primary-paragraph'><img src={locationIcon1} alt="location" />{x.eventStreet}, {x.eventParish}</li>
+                      <li className='flex primary-paragraph'><img src={dateIcon1} alt="date" />{x.eventDate}</li>
+                    </ul>
+                    <div className="hero-button-wrapper | vertical-align">
+                       <Link to={'/:' + x.id}><button onClick={handleEventClick} className="button | primary-button ">Get Tickets</button></Link>
+                      <div className="price-wrapper | flex"><img src={ticketIcon} alt="ticket" />
+                      <p className='vertical-align'>${x.eventPrice}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <p className='base-text'>Get exclusive tickets here and also purchase food and drinks.</p>
-              </li>
-            )
+                  <p className='base-text'>Get exclusive tickets here and also purchase food and drinks.</p>
+                </li>
+              )
+            }
           })}
         </ul>
         <ul className="right-hero | flex-carousel">
         {events.map((x,key)=>{
           const activeFlyer = key === currentFlyer ? 'active-flyer': 'inactive-flyer'
-          return(
-            <li key={key} className={activeFlyer}>
-              <Link to={'/:' + x.id}>
-                <img onClick={handleEventClick} src={x.poster} alt="hero-img" className="hero-img" />
-              </Link>
-            </li>
-          )
+          if (key < heroNumber) {
+            return(
+              <li key={key} className={activeFlyer}>
+                <Link to={'/:' + x.id}>
+                  <img onClick={handleEventClick} src={x.poster} alt="hero-img" className="hero-img" />
+                </Link>
+              </li>
+            )
+            
+          }
         })}
           <div className='hero-img-cont'></div>
         </ul>
         <ul className="hero-flyer-buttons | flex">
           {events.map((x, key)=>{
             const activeFlyer = key === currentFlyer ? 'active-button': 'inactive-button'
-            return(
-                <li onClick={() => {handleChangeflyer(key) }}  key={key} className={`${activeFlyer} button hero-flyer-button`}>
-                </li>
-            )
+            if (key < heroNumber) {
+              return(
+                  <li onClick={() => {handleChangeflyer(key) }}  key={key} className={`${activeFlyer} button hero-flyer-button`}>
+                  </li>
+              )
+              
+            }
           })}
         </ul>
       </div>

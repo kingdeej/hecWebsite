@@ -794,11 +794,12 @@ footer{
         .video-wrapper{
             background: var(--Background-clr-dark-200);
             aspect-ratio: 3/1.5;
+            height: 350px;
             width: 100%;
             margin-bottom: 3rem;
         }
         .images-carousel{
-            gap: 2rem;
+            gap: 1.5rem;
             overflow-x: auto;
             li{
                 background-color: var(--Background-clr-dark-200);
@@ -962,7 +963,7 @@ footer{
                         font-size: clamp(3rem, 10vw, 5rem);
                         aspect-ratio: 1;
                     }
-                    img{
+                    img, video{
                         pointer-events: none;
                         object-fit: fill;
                         width: 100%;
