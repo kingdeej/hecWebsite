@@ -13,12 +13,16 @@ export default function LoginPage() {
     const [redirect, setRedirect] = useState(false)
     const [loginErrorText, setLoginErrorText] = useState('Login')
     const navigate = useNavigate()
+
     if (admins.includes(auth?.currentUser?.email)) {
         if (redirect) {
             navigate('/admin-page')
         }
     }else if (redirect) {
         navigate('/')
+    }
+    if (redirect) {
+        sessionStorage.setItem('user', auth.currentUser.uid)
     }
     
     function handleSubmit(e) {

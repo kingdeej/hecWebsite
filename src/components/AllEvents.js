@@ -12,7 +12,7 @@ export default class HotEvents extends Component {
   }
   
   getEvents = (e)=>{
-    this.setState({events: new Array(e[0])})
+    this.setState({events: e})
   }
   getImageList = (e)=>{
     this.setState({images: e})
@@ -34,7 +34,7 @@ export default class HotEvents extends Component {
                 if (key < this.props.eventAmount) {
                   return(
                     <li key={key} className="flyer">
-                        <Link to={'/:' + x.id}><img src={x.poster} className='flyer-img' alt="flyer" /></Link>
+                        <Link to={'/' + x.id}><img src={x.poster} className='flyer-img' alt="flyer" /></Link>
                         <div className="flyer-info-cont | flex-center">
                             <h4 className='flyer-header | heading-line-style'>{x.eventName}</h4>
                             <ul className="event-info-wrapper">
@@ -42,7 +42,7 @@ export default class HotEvents extends Component {
                                 <li className='flex'><img src={dateIcon} alt="date" />{x.eventDate}</li>
                             </ul>
                             <p className='ticket-wrapper flex-center'><img src={ticketIcon} alt="ticket-img" />${x.eventPrice}</p>
-                            <Link className="get-tickets-button | button" to={'/:' + x.eventId}><button className='button get-tickets-button'  >Get Tickets</button></Link>
+                            <Link className="get-tickets-button | button" to={'/' + x.id}><button className='button get-tickets-button'  >Get Tickets</button></Link>
                         </div>
                     </li>
                   )

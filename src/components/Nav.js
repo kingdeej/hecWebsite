@@ -7,7 +7,7 @@ import close from '../images/close.svg'
 import facebook1 from '../images/facebook1.svg'
 import instagram1 from '../images/instagram1.svg'
 import whatsapp1 from '../images/whatsapp1.svg'
-import {Link, redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import { signOut } from 'firebase/auth'
 import { auth } from '../firebase/firebase'
 import {useNavigate} from 'react-router-dom'
@@ -16,7 +16,9 @@ import {useNavigate} from 'react-router-dom'
 export default function Nav(props) {
   const [hideMenu, setHideMenu] = useState('')
   const [count, setCount] = useState(false)
+  const [redirect, setRedirect] = useState(false)
   const dropdown = count ? 'active-dropdown' : '' 
+  const navigate = useNavigate()
 
   function toggleNav(e) {
     if (e === 0) {
@@ -36,6 +38,12 @@ export default function Nav(props) {
   function logout() {
     setCount(false)
     signOut(auth)
+    sessionStorage.removeItem('user')
+    setRedirect(true)
+  }
+  if (redirect) {
+    navigate('/')
+    setRedirect(false)
   }
   return (
     <nav className='nav' style={{background: props.background}}>
@@ -87,8 +95,16 @@ export default function Nav(props) {
           <div className='dropdown-button-wrapper'>
             <img onClick={toggleDropdown} className="button | icon-button dropdown-button" src={profileIcon} alt="profile" />
             <div className={`dropdown-options ${dropdown}`}>
-              <button onClick={logout} className='button dropdown'>Logout</button>
-              <Link onClick={() => { setCount(false) }} className='dropdown' to='/login'><button className='button'>Sign In</button></Link>
+              {
+                auth?.currentUser ?
+                <div>
+                  <button onClick={logout} className='button dropdown'>Logout</button>
+                  <Link className='dropdown' to='/admin-page'><button className='button'>Admin</button></Link>
+
+                </div>
+                :
+                <Link onClick={() => { setCount(false) }} className='dropdown' to='/login'><button className='button'>Sign In</button></Link>
+              }
             </div>
           </div>
           <img onClick={() => { toggleNav(0) }} className={`menu-button button | icon-button`} src={menu} alt="" />

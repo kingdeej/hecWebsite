@@ -12,7 +12,7 @@ export default function HomePage() {
         <Testimonials />
         <AllEvents eventAmount={4} eventStyle='hot-event-style' FlyersType='Hot'/>
         <PromoteCta color='#F28080' />
-        {/* <AllEvents eventAmount={8} eventStyle='all-event-style' FlyersType='All' /> */}
+        <AllEvents eventAmount={8} eventStyle='all-event-style' FlyersType='All' />
         <PromoteCta />        
     </main>
   )

@@ -1,5 +1,6 @@
 import React from 'react'
 import promoteImg from '../images/promoteImg.svg'
+import { Link } from 'react-router-dom'
 
 export default function PromoteCta(props) {
   return (
@@ -9,8 +10,10 @@ export default function PromoteCta(props) {
                 <h2 className="primary-header">
                     Want to promote an event?
                 </h2>
-                <button className="primary-button button">
-                    Promote Event
+                <button  className="primary-button button">
+                    <Link to={'/login'}>
+                        Promote Event
+                    </Link>
                 </button>
                 <p>or <br /> Call us at <a href="tel:+850-555-5555">850-555-5555</a></p>
             </div>

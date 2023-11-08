@@ -16,14 +16,16 @@ export default function AddAdmin() {
   const [nextStep, setNextStep] = useState(0);
   const [eventDetails, setEventDetails] = useState([]);
   const [eventImages, setEventImages] = useState([]);
-
-
+  const pathname = window.location.pathname
+  const newPathname =  pathname.slice(0, -1)
+  
+  
   const onSubmitEvent = (e)=>{
     const data = eventDetails
     const getId = v4()
     const id = {'id': getId}
     const objData = {...data[0],...e,...id}
-
+    
     //photos
     const posterImage = eventImages.eventPoster
     const eventPhotos = eventImages.eventPhotos
@@ -35,25 +37,27 @@ export default function AddAdmin() {
     const photosObj = {photoName: eventPhotosName, eventPhotos: posterImage, mediaType:'photos'}
     SendImage(getId, posterObj,  photosObj)
     SendEvent(objData, getId)
+    // navigate to admin
+    navigate('/admin-page')
   }
-
+  
   
   function getEventDetails(e) {
     setEventDetails((prev)=>[...prev, e])
   }
-
+  
   useEffect(() => {
     if (nextStep < urlParams) {
       setStep(0)
       setNextStep(0)
-      navigate('/admin-page/add-event/' + 0)
+      navigate(newPathname + 0)
     }else{
       setStep(urlParams)
     }
   }, [urlParams])
   
   
-
+  
   
   const handleButtonClick = (e) => {
     const nextParams = parseInt(params.step) +1

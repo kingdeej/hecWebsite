@@ -8,22 +8,17 @@ import { signOut } from "@firebase/auth";
 
 export default function AdminPage() {
   const navigate = useNavigate();
-  const [event, setEvent] = useState({})
 
   useEffect(() => {
-    if (!auth.currentUser) {
+    if (!sessionStorage.getItem('user')) {
         navigate('/')
     }
-    console.log(auth.currentUser);
   }, [])
   const onSignOut = (e) => {
     signOut(auth)
+    sessionStorage.removeItem('user')
     navigate('/')
   }
-  const getEvents = (e) => {
-    Events((e) => { setEvent(e) } )
-  }
-
   return (
     <div className="admin-page | page-block-padding">
       <div className="admin-page-wrapper | page-inline-padding">

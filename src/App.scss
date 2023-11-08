@@ -212,6 +212,8 @@ button{
         box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.10);
         padding: .2rem;
         .dropdown{
+            min-width: 2.7rem;
+            line-break:strict;
             background-color: var(--Background-clr-dark-50);
             text-align: left;
             &:hover{
@@ -573,8 +575,10 @@ body{
                 width: 250px;
                 min-width: 250px;
                 box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.08);
-                
                 .flyer-img{
+                    height: 300px;
+                    width: 100%;
+                    object-fit: cover;
                 }
                 .flyer-info-cont{
                     padding: .5rem .75rem;

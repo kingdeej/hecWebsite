@@ -209,6 +209,8 @@ button {
   padding: 0.2rem;
 }
 .dropdown-button-wrapper .active-dropdown .dropdown {
+  min-width: 2.7rem;
+  line-break: strict;
   background-color: var(--Background-clr-dark-50);
   text-align: left;
 }
@@ -555,6 +557,12 @@ body {
   width: 250px;
   min-width: 250px;
   box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.08);
+}
+.hot-events .hot-events-wrapper .flyers-wrapper .flyer .flyer-img {
+  height: 300px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .hot-events .hot-events-wrapper .flyers-wrapper .flyer .flyer-info-cont {
   padding: 0.5rem 0.75rem;
