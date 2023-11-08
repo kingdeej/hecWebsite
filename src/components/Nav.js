@@ -96,10 +96,10 @@ export default function Nav(props) {
             <img onClick={toggleDropdown} className="button | icon-button dropdown-button" src={profileIcon} alt="profile" />
             <div className={`dropdown-options ${dropdown}`}>
               {
-                sessionStorage.getItem('auth')?
+                sessionStorage.getItem('user')?
                 <div>
-                  <button onClick={logout} className='button dropdown'>Logout</button>
                   <Link className='dropdown' to='/admin-page'><button className='button'>Admin</button></Link>
+                  <button onClick={logout} className='button dropdown'>Logout</button>
                 </div>
                 :
                 <Link onClick={() => { setCount(false) }} className='dropdown' to='/login'><button className='button'>Sign In</button></Link>
