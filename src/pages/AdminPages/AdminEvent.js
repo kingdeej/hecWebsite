@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import UpdateEvent from "../../components/events/UpdateEvent";
 import DeleteEvent from "../../components/events/DeleteEvent";
+import sendImage from "../../components/SendImage";
 
 export class AdminEvent extends Component {
   state = {
     events: this.props.event,
-    eventInfo: {} 
+    eventInfo: {} ,
+    image: ''
   };
   onChangeEvent = (e) => {
     const name = e.target.name;
@@ -14,7 +16,9 @@ export class AdminEvent extends Component {
     this.setState({eventInfo: {...this.state.eventInfo, [name]: value}})
   };
   handleUpdate = (e) => {
-    UpdateEvent(this.state.eventInfo, this.props.id)
+    const posterObj = {photoName: this.state.image.name, eventPhotos: this.state.image, mediaType:'poster'}
+    // UpdateEvent(this.state.eventInfo, this.props.id)
+    sendImage(this.state.events.id, posterObj)
   }
   handleDelete = (e) => {
     DeleteEvent(this.props.id)
@@ -90,6 +94,7 @@ export class AdminEvent extends Component {
               </ul>        
               </div>
           </li>
+        <input type="file" accept="image/png, image/jpeg" onChange={(e) => { this.setState({image: e.target.files[0]}) }}/>
         <button onClick={(e) => { this.handleDelete() }}>Delete</button>
         <button onClick={(e) => { this.handleUpdate() }}>Submit</button>
         </ul>

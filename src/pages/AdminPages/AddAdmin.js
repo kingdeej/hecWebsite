@@ -39,8 +39,7 @@ export default function AddAdmin() {
     const posterObj = {photoName: posterImageName, eventPhotos: posterImage, mediaType:'poster'}
     const photosObj = {photoName: eventPhotosName, eventPhotos: posterImage, mediaType:'photos'}
     const videoObj = {photoName: eventvideoName, eventPhotos: eventvideo, mediaType:'video'}
-    SendImage(getId, posterObj,  photosObj, videoObj)
-    SendEvent(objData, getId)
+    SendImage(getId, posterObj,  photosObj, videoObj, objData, getId)
     // navigate to admin
     navigate('/admin-page')
   }

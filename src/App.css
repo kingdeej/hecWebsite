@@ -763,6 +763,10 @@ footer a, footer p {
   height: 350px;
   width: 100%;
   margin-bottom: 3rem;
+  position: relative;
+}
+.event-page .entertainment-wrapper .video-wrapper .react-player {
+  width: 100% !important;
 }
 .event-page .entertainment-wrapper .images-carousel {
   gap: 1.5rem;

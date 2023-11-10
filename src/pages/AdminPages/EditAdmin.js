@@ -13,6 +13,7 @@ export class EditAdmin extends Component {
 
     getEvents = (e) => {
         this.setState({events: e})
+        console.log(e);
     }
     handleEventClick = (e) => {
         this.setState({eventId: e.target.id})

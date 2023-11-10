@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
 import {db} from '../firebase/firebase'
-import {collection, doc, getDoc, getDocs} from 'firebase/firestore'
+import {collection,getDocs} from 'firebase/firestore'
 
 export default function GetData(props) {
     const docRef = collection(db, 'flyerData')
@@ -10,7 +9,7 @@ export default function GetData(props) {
             await getDocs(docRef)
             .then((documentDatas)=>{
                 documentDatas.forEach((documentData)=>{
-                    eventData = [...eventData, documentData.data()]
+                    eventData = [...eventData, documentData.data(), ]
                     props(eventData) 
                 });
             })

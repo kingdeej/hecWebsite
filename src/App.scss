@@ -797,6 +797,16 @@ footer{
             height: 350px;
             width: 100%;
             margin-bottom: 3rem;
+            position: relative;
+            .react-player{
+                width: 100% !important;
+            }
+            // .react-player video {
+            //     position: relative;
+            //     left: 0;
+            //     top: 0;
+            //     transform: none;
+            // }
         }
         .images-carousel{
             gap: 1.5rem;

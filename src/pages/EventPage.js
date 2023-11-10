@@ -76,9 +76,7 @@ export default function EventPage() {
                         Videos and Images
                     </h2>
                         <div className='video-wrapper'>
-                            <video src=""></video>
-                            {/* <button>PLAY</button>
-                            <ReactPlayer controls={true} url={event.video}/> */}
+                            <ReactPlayer className='react-player' controls={true} url={event.video}/>
                         </div>
                         <ul className='images-carousel | flex'>
                             {

@@ -9,7 +9,6 @@ export default function Add2(props) {
 
     
     const addPosterImg = (event) => {
-      console.log(event);
       if (event.target.files[0] === eventImage) {
         setEventImage('')
       }else{
@@ -92,7 +91,6 @@ export default function Add2(props) {
                 }
               </div>
               <input
-              required
                 onChange={(e) => {addVideo(e) }}
                 onClick={(e) => { addVideo(e)}}
                 onDrop={(e) => { addVideo(e)}}
