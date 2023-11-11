@@ -179,6 +179,7 @@ button{
 
 // Inputs
 .text-input{
+    width: 100%;
     padding-block: min(1rem, 5vw);
     padding-inline: 1rem;
     border: var(--Background-clr-dark-200) 2px solid;
@@ -1001,4 +1002,14 @@ footer{
 }
 .admin-event-page{
     color: var(--Background-clr-dark-300);
+}
+.loading{
+    gap: .3rem;
+    // .loading-dot{
+    //     width: 1rem;
+    //     aspect-ratio: 1;
+    //     background-color: #F28080;
+    //     border-radius: 50vw;
+    // }
+    font-size: .5rem;
 }

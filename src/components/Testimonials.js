@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import profileIcon from '../images/profileIcon.svg'
+import Loading from './Loading';
 
 export default function Testimonials() {
     const [activeTestimonial, setActiveTestimonial] = useState(1);
@@ -52,6 +53,7 @@ export default function Testimonials() {
                     )
                 })}
             </ul>
+            <Loading/>
         </div>
     </section>
   )

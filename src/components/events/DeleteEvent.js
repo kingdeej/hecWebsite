@@ -1,10 +1,11 @@
 import { deleteDoc, doc } from 'firebase/firestore'
 import { db, storage } from '../../firebase/firebase'
-import {deleteObject, ref} from 'firebase/storage'
+import {deleteObject, ref, getMetadata} from 'firebase/storage'
 
-export default function DeleteEvent(id) {
+export default function DeleteEvent(id, media) {
+    console.log(media);
     const docRef = doc(db, 'flyerData', id)
-    const imageRef = ref(storage, 'ae42bfb0-8e14-438c-b347-9ecdba0eb66f/poster/IMG-20231105-WA0005.jpgae42bfb0-8e14-438c-b347-9ecdba0eb66f')
+    const imageRef = ref(storage, `${media}`)
     const handleDeleteEvent = async (e) => {
         try {
             await deleteDoc(docRef)
@@ -15,7 +16,7 @@ export default function DeleteEvent(id) {
                 console.log(error);
             })
         } catch (error) {
-            
+            console.log(error);
         }
     }
     const handleDeleteMedia = async (e) => {
@@ -32,6 +33,6 @@ export default function DeleteEvent(id) {
         }
         console.log();
     }
-    handleDeleteMedia()
-    // handleDeleteEvent()
+    // handleDeleteMedia()
+    handleDeleteEvent()
 }

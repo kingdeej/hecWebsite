@@ -25,8 +25,8 @@ export default function EventPage() {
       
   return (
     <main className="event-page">
-       { eventInfo.map((event, key)=>{
-        if (event.id === eventId) {
+       { eventInfo?.map((event, key)=>{
+        if (event?.id === eventId) {
             return (
                 <div key={key} className="event-page-wrapper | page-block-padding">
                 <div className="event-page-info-wrapper | page-inline-padding flex">
@@ -82,7 +82,7 @@ export default function EventPage() {
                             {
                             photoArray.map((x, key)=>{
                                 return(
-                                    <li key={key}><img src={event.photos[key]} alt="" /></li>
+                                    <li key={key}><img src={event.photos} alt="" /></li>
                                 )
                             })
                                 

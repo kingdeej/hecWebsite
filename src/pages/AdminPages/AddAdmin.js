@@ -3,7 +3,6 @@ import {useParams, useNavigate} from 'react-router-dom'
 import Add1 from "./Add1";
 import Add2 from "./Add2";
 import Add3 from "./Add3";
-import SendEvent from "../../components/SendEvent";
 import {v4} from 'uuid'
 import SendImage from "../../components/SendImage";
 
@@ -33,7 +32,7 @@ export default function AddAdmin() {
     const eventvideo = eventImages.eventVideo
     //photo names
     const posterImageName = posterImage.name
-    const eventvideoName = posterImage.name
+    const eventvideoName = eventvideo?.name
     const eventPhotosName = eventPhotos.map((x)=>x.name)
     //objects to pass
     const posterObj = {photoName: posterImageName, eventPhotos: posterImage, mediaType:'poster'}

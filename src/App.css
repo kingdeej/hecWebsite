@@ -176,6 +176,7 @@ button {
 }
 
 .text-input {
+  width: 100%;
   padding-block: min(1rem, 5vw);
   padding-inline: 1rem;
   border: var(--Background-clr-dark-200) 2px solid;
@@ -954,4 +955,9 @@ footer a, footer p {
 
 .admin-event-page {
   color: var(--Background-clr-dark-300);
+}
+
+.loading {
+  gap: 0.3rem;
+  font-size: 0.5rem;
 }/*# sourceMappingURL=App.css.map */

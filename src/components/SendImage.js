@@ -1,13 +1,15 @@
-import React from "react";
 import { storage } from "../firebase/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import SendEvent from "./SendEvent";
 
 export default function sendImage(id, posterInfo, photosInfo, videoInfo, objData, getId) {
   const sendImage = async () => {
-    let newObjects = {}
+    let poster = {}
+    let photos = {}
+    let video = {}
     //sendlfyers
     const sendPoster = () => {
+      sendVideo()
       const imagePosterRef = ref(
         storage,
         `eventFlyers/${id}/poster-${posterInfo?.photoName + id}`
@@ -17,7 +19,7 @@ export default function sendImage(id, posterInfo, photosInfo, videoInfo, objData
           .then((response) => {
             getDownloadURL(imagePosterRef)
             .then((url)=>{
-              newObjects = {'poster': url}
+              poster = {'poster': url}
               sendVideo()
             })
           })
@@ -31,7 +33,7 @@ export default function sendImage(id, posterInfo, photosInfo, videoInfo, objData
 
     //send Videos
     const sendVideo = () => {
-      if (videoInfo?.photoName.length === 0) {
+      if (!videoInfo?.photoName) {
         sendPhotos()
       }else{
         const videoRef = ref(
@@ -43,7 +45,7 @@ export default function sendImage(id, posterInfo, photosInfo, videoInfo, objData
           .then((response) => {
             getDownloadURL(videoRef)
             .then((url)=>{
-              newObjects = {newObjects, 'video': url}
+              video = {'video': url}
               sendPhotos()
             })
           })
@@ -52,14 +54,16 @@ export default function sendImage(id, posterInfo, photosInfo, videoInfo, objData
             });
         } catch (error) {
           console.log(error);
-        }      
+        }    
+      
       }
     };
 
     //send photos
     const sendPhotos = () => {
       if (photosInfo?.photoName.length === 0) {
-        SendEvent({objData, newObjects }, getId)
+        const getObj = {...poster, ...video, ...objData}
+        SendEvent(getObj, getId)
       }else{
         photosInfo?.photoName.map((x, key) => {
           const imagePhotosRef = ref(
@@ -71,8 +75,9 @@ export default function sendImage(id, posterInfo, photosInfo, videoInfo, objData
               .then((response) => {
                 getDownloadURL(imagePhotosRef)
                   .then((url)=>{
-                    newObjects = {newObjects, 'photos': url}
-                    SendEvent({objData, newObjects }, getId)
+                    photos = {...photos, 'photos': url}
+                    const newObj = {photos, poster, video}
+                    SendEvent(newObj, getId)
                   })
               })
               .catch((error) => {
