@@ -1,6 +1,7 @@
 import React from 'react'
 import promoteImg from '../images/promoteImg.svg'
 import { Link } from 'react-router-dom'
+import Loading from './Loading'
 
 export default function PromoteCta(props) {
   return (

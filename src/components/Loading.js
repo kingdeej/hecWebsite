@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Loading() {
     return(
-        <div className='loading'>Loading</div>
+        <div className='loading | position-center'></div>
     )
 }

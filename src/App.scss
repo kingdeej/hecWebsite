@@ -591,6 +591,9 @@ body{
                         font-size: var(--fs-400);
                         margin-inline: auto;
                         position: relative;
+                        white-space: nowrap;                        
+                        text-overflow: ellipsis;
+                        overflow: hidden;
                     }
                     .event-info-wrapper{
                         align-self: flex-start;
@@ -603,7 +606,11 @@ body{
                             }
                         }
                     }
-                    .ticket-wrapper{
+                    .tickets-wrapper{
+                        width: 100%;
+                        justify-self: flex-end;
+                    }
+                    .ticket-price{
                         color: var(--accent-clr-400);
                         font-weight: var(--fw-bold);
                         font-size: var(--fs-350);
@@ -727,6 +734,7 @@ footer{
 
 }
 .event-page{
+    min-height: 100dvh;
     color: var(--Background-clr-dark-300);
     .event-page-info-wrapper{
         box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.10);
@@ -1004,12 +1012,20 @@ footer{
     color: var(--Background-clr-dark-300);
 }
 .loading{
-    gap: .3rem;
-    // .loading-dot{
-    //     width: 1rem;
-    //     aspect-ratio: 1;
-    //     background-color: #F28080;
-    //     border-radius: 50vw;
-    // }
-    font-size: .5rem;
+    width: 3rem;
+    aspect-ratio: 1;
+    border: 5px solid var(--accent-clr-400);
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    animation: infinite rotating 1000ms linear;
+
+    @keyframes rotating {
+        0%{
+            rotate: 0deg;
+        }
+        100%{
+            rotate: 360deg;
+        }
+    }
 }

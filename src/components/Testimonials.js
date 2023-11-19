@@ -53,7 +53,6 @@ export default function Testimonials() {
                     )
                 })}
             </ul>
-            <Loading/>
         </div>
     </section>
   )

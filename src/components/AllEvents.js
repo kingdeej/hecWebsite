@@ -33,7 +33,7 @@ export default class HotEvents extends Component {
               {this.state.events?.map((x, key)=>{
                 if (key < this.props.eventAmount) {
                   return(
-                    <li key={key} className="flyer">
+                    <li key={key} className="flyer | flex-column">
                         <Link to={'/' + x.id}><img src={x.poster} className='flyer-img' alt="flyer" /></Link>
                         <div className="flyer-info-cont | flex-center">
                             <h4 className='flyer-header | heading-line-style'>{x.eventName}</h4>
@@ -41,8 +41,10 @@ export default class HotEvents extends Component {
                                 <li className='flex'><img src={locationIcon} alt="location" />{x.eventStreet}, {x.eventParish}</li>
                                 <li className='flex'><img src={dateIcon} alt="date" />{x.eventDate}</li>
                             </ul>
-                            <p className='ticket-wrapper flex-center'><img src={ticketIcon} alt="ticket-img" />${x.eventPrice}</p>
-                            <Link className="get-tickets-button | button" to={'/' + x.id}><button className='button get-tickets-button'  >Get Tickets</button></Link>
+                            <div className='tickets-wrapper'>
+                              <p className='ticket-price flex-center'><img src={ticketIcon} alt="ticket-img" />${x.eventPrice}</p>
+                              <Link className="get-tickets-button | button" to={'/' + x.id}><button className='button get-tickets-button'  >Get Tickets</button></Link>
+                            </div>
                         </div>
                     </li>
                   )

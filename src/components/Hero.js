@@ -13,7 +13,7 @@ export default function Hero() {
 
   function handleChangeflyer(e) {
     setCurrentFlyer(e)
-    flyerAnimations()
+    // flyerAnimations()
   }
   const handleEventClick = () => { 
     // setredirect(true)
@@ -22,22 +22,20 @@ export default function Hero() {
     Events ((e) => { setEvents(e) } )
   }
   useEffect(() => {
-    getInfo()
-  }, [])
-  
-  const flyerAnimations = () => { 
-    console.log(!events);
-    setInterval(() => {
-      if (currentFlyer < events.length-1 || currentFlyer < heroNumber) {
-        setCurrentFlyer(currentFlyer + 1)
-      }
-      if (currentFlyer >= events.length-1 || currentFlyer >= heroNumber) {
+    if (events?.length === 0) {
+      getInfo()
+    }
+    const flyerAnimations = setInterval(() => {
+      setCurrentFlyer(currentFlyer + 1)
+      if (currentFlyer >= heroNumber-1) {
         setCurrentFlyer(0)
       }
-    }, 7000); 
-   }
-  
+    }, 5000);    
 
+
+    return()=>{clearInterval(flyerAnimations)}
+  }, [currentFlyer])
+  
   
   return (
     <section className='hero | vertical-align'>
@@ -46,7 +44,7 @@ export default function Hero() {
           {events?.length === 0 ? <Loading /> : 
             events?.map((x, key)=>{
               const activeFlyer = key === currentFlyer ? 'active-flyer': 'inactive-flyer'
-              if (key<heroNumber) {
+              if (x.featured === true) {
                 return(
                   <li key={key} className={`${activeFlyer} left-hero | flex-column`}>
                     <span className='eyebrow'>Featured Events</span>
@@ -73,10 +71,10 @@ export default function Hero() {
           }
         </ul>
         <ul className="right-hero | flex-carousel">
-        {events?.length === 0 ? <Loading /> : 
+        {
           events.map((x,key)=>{
             const activeFlyer = key === currentFlyer ? 'active-flyer': 'inactive-flyer'
-            if (key < heroNumber) {
+            if (x.featured === true) {
               return(
                 <li key={key} className={activeFlyer}>
                   <Link to={'/' + x.id}>
@@ -93,7 +91,7 @@ export default function Hero() {
         <ul className="hero-flyer-buttons | flex">
           {events.map((x, key)=>{
             const activeFlyer = key === currentFlyer ? 'active-button': 'inactive-button'
-            if (key < heroNumber) {
+            if (x.featured === true) {
               return(
                   <li onClick={() => {handleChangeflyer(key) }}  key={key} className={`${activeFlyer} button hero-flyer-button`}>
                   </li>

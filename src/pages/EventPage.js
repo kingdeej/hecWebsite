@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ticketIcon from '../images/ticketIcon.svg'
 import {AiOutlineInstagram, AiFillFacebook, AiOutlineWhatsApp,} from 'react-icons/ai'
 import {ImLocation} from 'react-icons/im'
@@ -6,7 +6,7 @@ import {FiCalendar} from 'react-icons/fi'
 import { useParams } from 'react-router-dom'
 import Events from '../components/Events'
 import ReactPlayer from 'react-player'
-import { IKContext, IKVideo } from 'imagekitio-react'
+import Loading from '../components/Loading'
 
 
 export default function EventPage() {
@@ -25,7 +25,7 @@ export default function EventPage() {
       
   return (
     <main className="event-page">
-       { eventInfo?.map((event, key)=>{
+       {eventInfo?.length === 0 ? <Loading /> : eventInfo?.map((event, key)=>{
         if (event?.id === eventId) {
             return (
                 <div key={key} className="event-page-wrapper | page-block-padding">
