@@ -7,6 +7,7 @@ export default class Add1 extends Component {
     eventDate: "",
     eventStreet: "",
     streetAddress: "",
+    placeName: "",
   };
   handleButtonClick = (e) => {
     e.preventDefault()
@@ -66,6 +67,17 @@ export default class Add1 extends Component {
             }}
             className="text-input"
             required
+            placeholder="Place Name"
+            type="text"
+            name="placeName"
+            id="placeName"
+          />
+          <input
+            onChange={(e) => {
+              this.handleChange(e);
+            }}
+            className="text-input"
+            required
             placeholder="Street Address"
             type="text"
             name="streetAddress"
@@ -96,9 +108,6 @@ export default class Add1 extends Component {
           />
         </div>
         <button 
-        // onClick={(e) => {
-        //     this.handleButtonClick(e);
-        //     }} 
         type="submit" className="button get-tickets-button">
           Next
         </button>

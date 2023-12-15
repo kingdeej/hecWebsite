@@ -26,6 +26,7 @@ export default function EventPage() {
   return (
     <main className="event-page">
        {eventInfo?.length === 0 ? <Loading /> : eventInfo?.map((event, key)=>{
+        const location = `${event.streetAddress},${event.eventStreet},${event.eventParish},Jamaica`
         if (event?.id === eventId) {
             return (
                 <div key={key} className="event-page-wrapper | page-block-padding">
@@ -57,7 +58,7 @@ export default function EventPage() {
                         </div>
                         <div className=''>
                             <ul className="event-info-wrapper">
-                                <li className='flex'><ImLocation /> {event.streetAddress}, {event.eventStreet}, {event.eventParish}</li>
+                                <li className='flex'><ImLocation />{event.placeName}{event.placeName ? ',': ''} {event.streetAddress}, {event.eventStreet}, {event.eventParish}</li>
                                 <li className='flex'><FiCalendar />{event.eventDate}</li>
                             </ul>
                             <select name="quantity" id="quantity">
@@ -89,33 +90,24 @@ export default function EventPage() {
                             }
                         </ul>
                     </div>
-                </div>                           
+                <div className='google-map-event | page-block-padding page-inline-padding'>
+                    <iframe
+                    width="100%"
+                    height="450"
+                    style={{border:"0"}}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBDtxL86RCBORJRuX2snPFvGBCVtSXwYlk
+                        &q=${location}`}>
+                </iframe>
+                </div>                         
+                </div>  
             </div>
             )
             
         }
        })}
-        
       </main>
   )
 }
-
-
-// export class EventPage extends Component {
-//     state = {
-//         eventInfo:{}
-//     }
-//     componentDidMount(){
-//         const eventId = window.location.pathname.split('/')[3]
-//         const getInfo = events.filter((x)=>x.eventId === 0)
-//         this.setState({eventInfo: getInfo[0]})
-//         console.log(eventId);
-//     }
-//   render() {
-//     return (
-      
-//     )
-//   }
-// }
-
-// export default EventPage
