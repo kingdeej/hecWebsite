@@ -376,25 +376,24 @@ body{
     .hero-nav-button-wrapper{
         z-index: 1;
         position: absolute;
+        margin: auto;
         inset: 0;        
-        div{
-            width: 15%;
-            opacity: .1;
-            transition: opacity 350ms;
-            &:hover{
-                opacity: 1;
-            }
+        width: 10%;
+        opacity: .1;
+        transition: opacity 350ms;
+        &:hover{
+            opacity: 1;
         }
         .hero-nav-button{
             cursor: pointer;
             font-size: min(2.5rem, 3.5vw) ;
         }
-        #left-button{
-            margin-inline-start: 5px;
-        }
-        #right-button{
-            margin-inline-end:5px;
-        }
+    }
+    #left-button{
+        margin-inline-start: 5px;
+    }
+    #right-button{
+        margin-inline-end:5px;
     }
     .hero-wrapper{
         position: relative;

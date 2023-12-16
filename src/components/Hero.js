@@ -17,6 +17,7 @@ export default function Hero() {
   const heroNumber = 3
 
   function handleChangeflyer(e) {
+    console.log(e);
     setCurrentFlyer(e)
   }
   const handleEventClick = () => { 
@@ -33,7 +34,7 @@ export default function Hero() {
       if (currentFlyer >= heroNumber-1) {
         setCurrentFlyer(0)
       }
-    }, 5000);   
+    }, 7000);   
 
  
 
@@ -68,14 +69,12 @@ export default function Hero() {
   
   return (
     <section className='hero | vertical-align' onTouchStart={(e) => { setFirstTouchPosition(e.changedTouches); }} onTouchEnd={(e) => { endTouch(e.changedTouches); }} >
-      <div className="hero-nav-button-wrapper space-between ">
-        <div>
-            <BiChevronLeftCircle onClick={moveLeft} id='left-button' className='hero-nav-button position-center'/>
+        <div id='left-button' className='hero-nav-button-wrapper space-between '>
+            <BiChevronLeftCircle onClick={moveLeft}  className='hero-nav-button position-center'/>
         </div>
-        <div>
-            <BiChevronRightCircle onClick={moveRight}id='right-button' className='hero-nav-button position-center'/> 
+        <div id='right-button' className='hero-nav-button-wrapper space-between '>
+            <BiChevronRightCircle onClick={moveRight} className='hero-nav-button position-center'/> 
         </div>
-      </div>
       <div className="hero-wrapper | page-inline-padding flex">
         <ul className="left-hero-wrapper | flex-carousel">
           {events?.length === 0 ? <Loading /> : 
