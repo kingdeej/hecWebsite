@@ -5,6 +5,9 @@ svg{
     max-width: 100%;
     display: block;
 }
+html{
+    scroll-behavior: smooth;
+}
 select{
     background: transparent;
     outline: transparent;
@@ -26,11 +29,6 @@ li{
     padding: 0;
     box-sizing: border-box;
 }
-// input::-webkit-outer-spin-button,
-// input::-webkit-inner-spin-button {
-//     -webkit-appearance: none;
-//     margin: 0;
-// }
 button{
     cursor: pointer;
 }
@@ -136,6 +134,9 @@ button{
 .vertical-align{
     display: flex;
     align-items: center;
+}
+.position-relative{
+    position: relative;
 }
 
 // BUTTONS
@@ -370,6 +371,31 @@ body{
     min-height: 80svh;
     background: linear-gradient(102deg, #2D5873 0.31%, rgba(45, 88, 115, 0.71) 80.02%);;
     overflow-x: hidden;
+    position: relative;
+
+    .hero-nav-button-wrapper{
+        z-index: 1;
+        position: absolute;
+        inset: 0;        
+        div{
+            width: 15%;
+            opacity: .1;
+            transition: opacity 350ms;
+            &:hover{
+                opacity: 1;
+            }
+        }
+        .hero-nav-button{
+            cursor: pointer;
+            font-size: min(2.5rem, 3.5vw) ;
+        }
+        #left-button{
+            margin-inline-start: 5px;
+        }
+        #right-button{
+            margin-inline-end:5px;
+        }
+    }
     .hero-wrapper{
         position: relative;
         align-items: center;
@@ -472,6 +498,9 @@ body{
 @media (max-width: 50em) {
     .hero{
         height: 100dvh;
+        .hero-nav-button-wrapper{
+            display: none;
+        }
         .hero-wrapper{
             flex-direction: column-reverse;
             gap: 3rem;

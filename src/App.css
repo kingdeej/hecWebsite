@@ -6,6 +6,10 @@ svg {
   display: block;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 select {
   background: transparent;
   outline: transparent;
@@ -132,6 +136,10 @@ button {
 .vertical-align {
   display: flex;
   align-items: center;
+}
+
+.position-relative {
+  position: relative;
 }
 
 .button {
@@ -360,6 +368,30 @@ body {
   min-height: 80svh;
   background: linear-gradient(102deg, #2D5873 0.31%, rgba(45, 88, 115, 0.71) 80.02%);
   overflow-x: hidden;
+  position: relative;
+}
+.hero .hero-nav-button-wrapper {
+  z-index: 1;
+  position: absolute;
+  inset: 0;
+}
+.hero .hero-nav-button-wrapper div {
+  width: 15%;
+  opacity: 0.1;
+  transition: opacity 350ms;
+}
+.hero .hero-nav-button-wrapper div:hover {
+  opacity: 1;
+}
+.hero .hero-nav-button-wrapper .hero-nav-button {
+  cursor: pointer;
+  font-size: min(2.5rem, 3.5vw);
+}
+.hero .hero-nav-button-wrapper #left-button {
+  margin-inline-start: 5px;
+}
+.hero .hero-nav-button-wrapper #right-button {
+  margin-inline-end: 5px;
 }
 .hero .hero-wrapper {
   position: relative;
@@ -460,6 +492,9 @@ body {
 @media (max-width: 50em) {
   .hero {
     height: 100dvh;
+  }
+  .hero .hero-nav-button-wrapper {
+    display: none;
   }
   .hero .hero-wrapper {
     flex-direction: column-reverse;
