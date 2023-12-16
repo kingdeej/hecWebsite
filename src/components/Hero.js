@@ -56,7 +56,7 @@ export default function Hero() {
   const endTouch = (e) => { 
     const firstLat = firstTouchPosition[0].clientX/10
     const lastLat = e[0].clientX/10
-    const swipeAmount = 15
+    const swipeAmount = 10
 
     if (lastLat >= firstLat + swipeAmount) {
       moveLeft()
