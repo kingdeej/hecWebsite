@@ -1,0 +1,5 @@
+@mixin flow-reset{
+    &>:where(:not(:first-child)){
+        margin-top: 0;
+    }
+}

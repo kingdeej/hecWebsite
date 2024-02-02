@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Merriweather+Sans:wght@300;400;700&display=swap');
+
+$clr-primary-300: hsla(203, 44%, 31%, 1);
+$clr-primary-800: hsla(203, 84%, 19%, 1);
+
+$clr-accent-400: hsla(0, 81%, 73%, 1);
+
+$clr-light-300: hsla(0, 0%, 100%, 1);
+$clr-light-400: hsla(60, 7%, 95%, 1);
+$clr-light-500: hsla(0, 0%, 79%, 1);
+$clr-dark-300: hsla(0, 0%, 17%, 1);
+$clr-dark-400: hsla(0, 0%, 0%, 1);
+
+$fs-100: 0.625rem; //10px
+$fs-200: .813rem; //13px
+$fs-250: 1rem; //16px
+$fs-300: 1.094rem; //17.5px
+$fs-350: 1.25rem; //20px
+$fs-400: 1.5rem; //24px
+$fs-500: 1.875rem; //30px
+$fs-600: 2.25rem;  //36px
+$fs-700: 2.5rem; //40px
+
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-bold: 700;
+
+$ff-primary:'Signika Negative', sans-serif;
+
+
+$line-height: 1.4;
+$letter-spacing: 0;
+
+$size-0: .3125rem;
+$size-1: .625rem;
+$size-2: .9375rem;
+$size-3: 1.25rem;
+$size-4: 1.5625rem;
+$size-5: 1.875rem;
+$size-6: 2.1875rem;
+$size-7: 2.5rem;
+$size-8: 2.8125rem;
+$size-9: 3.125rem;
+$size-10: 3.4375rem;
+$size-11: 4.375rem;
+$size-12: 6.25rem;
+$size-13: 7.5rem;
+$size-14: 9.375rem;
+$size-15: 10.625rem;
+
+$breakpoint-small: 50em;
+$breakpoint-medium: 65rem;
+$breakpoint-large: 90rem;
+
+$screen-max-width: 66rem;
+

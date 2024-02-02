@@ -1,0 +1,47 @@
+html{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $ff-primary;
+}
+body{
+    min-height: 100dvh;
+    letter-spacing: $letter-spacing;
+    font-family: $ff-primary;
+    overflow-x: hidden;
+    background-color: $clr-light-300;
+    color: $clr-light-400;
+    
+}
+svg,img,video{
+    max-width: 100%;
+    display: block;
+}
+a{
+    text-decoration: none;
+    color: $clr-dark-300;
+
+}
+input, select, textarea{
+    background-color: $input-background-color;
+    color: $input-color;
+    padding-inline: $input-padding-inline;
+    padding-block: $input-padding-block;
+    border: $input-border;
+    outline: transparent;
+    border-radius: $input-border-radius;
+    resize: none;
+}
+option{
+    background-color: $clr-dark-400 ;
+}
+select{
+    background: transparent;
+    outline: transparent;
+    border: transparent;
+    cursor: pointer;
+}

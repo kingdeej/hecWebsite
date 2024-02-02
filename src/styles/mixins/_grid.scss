@@ -1,0 +1,15 @@
+@mixin even-columns{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+}
+// @mixin even-columns-mobile{
+//     display: grid;
+//     grid-auto-flow: column;
+//     grid-auto-columns: 1fr;
+// }
+@mixin even-row{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+}

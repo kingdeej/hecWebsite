@@ -1,0 +1,84 @@
+@import "../base/mixins";
+.nav{
+    height: 80px;
+    position: relative;
+    .nav-wrapper{
+    }
+    .nav-links-wrapper{
+        z-index: 999;
+        position: fixed;
+        right: 0;
+        width: 100vw;
+        background-color: $clr-light-300;
+        height: 100dvh;
+        padding: 2rem;
+        transform: translateX(100%);
+        transition: transform 250ms;
+        &[datatype-nav="nav-active"]{
+            transform: translateX(0);
+        }
+        .nav-links{
+            a{
+                font-weight: $fw-medium;
+                position: relative;
+                &::after{
+                    content: '';
+                    width: 0px;
+                    transition: width 250ms;
+                }
+            }
+            a:hover::after{
+                content: '';
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: $clr-accent-400;
+            }
+        }
+        .nav-footer{
+            margin-inline: -2rem;
+            padding: 2rem;
+            border-top: 1px solid $divider-color;
+            label{
+                font-weight: $fw-bold;
+            }
+        }
+
+    }
+    @include min-mobile{
+        .menu-button, .close-button{
+            display: none;
+        }
+        .nav-links-wrapper{
+            position: relative;
+            height: initial;
+            padding: 0;
+            width: initial;
+            background-color: transparent;
+            transform: translateX(0);
+            transition: transform 0ms;
+            align-items: center;
+            display: flex;
+            .nav-links{
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1.5rem;
+                li{
+                    margin: 0;
+                }
+                a{
+                    color: $clr-light-400;
+                    font-size: $fs-200;
+                }
+            }
+            .nav-footer{
+                display: none;
+            }
+        }
+        // display: none;
+    }
+}

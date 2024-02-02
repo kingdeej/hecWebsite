@@ -1,0 +1,9 @@
+@each $size-name, $size-value in $sizes{
+    .flow{
+        &-#{$size-name}{
+            &>:where(:not(:first-child)){
+                margin-top: $size-value;
+            }
+        }
+    }
+}

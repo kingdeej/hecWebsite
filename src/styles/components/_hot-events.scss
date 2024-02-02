@@ -1,0 +1,68 @@
+.hot-events{
+    .hot-events-wrapper{
+        color: $clr-dark-300;
+        .hot-events-header{
+            color: $clr-dark-300;
+            margin-bottom: 1.5rem;
+            .primary-paragraph{
+                text-decoration: underline;
+                color: $clr-dark-300;
+            }
+        }
+        .flyers-wrapper{
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-padding-top: 1rem;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            .flyer{
+                cursor: pointer;
+                margin-bottom: 2rem;
+                width: 250px;
+                min-width: 250px;
+                box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.08);
+                .flyer-img{
+                    height: 300px;
+                    width: 100%;
+                    object-fit: cover;
+                }
+                .flyer-info-cont{
+                    padding: .5rem .75rem;
+                    flex-direction: column;
+                    &>:not(:last-child){
+                        margin-bottom: .5rem;
+                    }
+                    .flyer-header{
+                        font-size: $fs-400;
+                        margin-inline: auto;
+                        position: relative;
+                        white-space: nowrap;                        
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                    .event-info-wrapper{
+                        align-self: flex-start;
+                        li{
+                            gap: .75rem;
+                            font-size: $fs-300;
+                            font-weight: $fw-light;
+                            img{
+                                width: .8rem;
+                            }
+                        }
+                    }
+                    .tickets-wrapper{
+                        width: 100%;
+                        justify-self: flex-end;
+                    }
+                    .ticket-price{
+                        color: $clr-accent-400;
+                        font-weight: var(--fw-bold);
+                        font-size: var(--fs-350);
+                    }
+                }
+            }
+        }
+    }
+}

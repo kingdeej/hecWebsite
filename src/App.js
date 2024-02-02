@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/Main.css';
 import EventsPage from './pages/EventsPage';
 import HomePage from './pages/HomePage';
 import Nav from './components/Nav';

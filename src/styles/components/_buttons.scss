@@ -1,0 +1,41 @@
+// BUTTONS
+.button{
+    border-color: transparent;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+button{
+    cursor: pointer;
+}
+.primary-button{
+    background: $clr-light-300;
+    color: $clr-primary-300;
+    padding: 7px 1.25rem;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: clamp($fs-100, 2vw, $fs-250);
+    &:hover{
+        background: $clr-light-400;
+    }
+}
+.secondary-button{
+    background: $clr-primary-300;
+    color: $clr-light-400;
+    padding: 4px 1rem;
+    border-radius: 1px;
+}
+.get-tickets-button{
+    width: 100%;
+    background-color: $clr-primary-300;
+    color: $clr-light-300;
+    padding-block: .1rem;
+    font-size: $fs-250;
+}
+
+.secondary-a-tag{
+    color: $clr-light-400;
+    &:hover{
+        color: $clr-light-500;
+    }
+}

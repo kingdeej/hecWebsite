@@ -1,0 +1,66 @@
+$flex:(
+    'jc':(
+        'c':center,
+        'sb': space-between,
+        'sa': space-around,
+        'se': space-evenly,
+        's': start,
+        'e': end,
+    ),
+    'al':(
+        'c':center,
+        'sb': space-between,
+        'sa': space-around,
+        'se': space-evenly,
+        's': start,
+        'e': end,
+    ),
+    'ac':(
+        'c':center,
+        'sb': space-between,
+        'sa': space-around,
+        'se': space-evenly,
+        's': start,
+        'e': end,
+    ),
+);
+@mixin flex-center($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin flex-jc ($flex-names, $direction){
+    @each $flex-type, $flex-array in $flex{
+        @each $flex-name, $flex-value in $flex-array{
+            @if ($flex-names == $flex-name){
+                display: flex;
+                justify-content: $flex-value;
+                flex-direction: $direction;
+            }
+        }
+    }
+}
+@mixin flex-al ($flex-names, $direction){
+    @each $flex-type, $flex-array in $flex{
+        @each $flex-name, $flex-value in $flex-array{
+            @if ($flex-names == $flex-name){
+                display: flex;
+                justify-content: $flex-value;
+                flex-direction: $direction;
+            }
+        }
+    }
+}
+@mixin flex-ac ($flex-names, $direction){
+    @each $flex-type, $flex-array in $flex{
+        @each $flex-name, $flex-value in $flex-array{
+            @if ($flex-names == $flex-name){
+                display: flex;
+                justify-content: $flex-value;
+                flex-direction: $direction;
+            }
+        }
+    }
+}

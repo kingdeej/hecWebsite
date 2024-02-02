@@ -1,0 +1,76 @@
+@mixin button-hover ($background, $color){
+    opacity: .75;
+    transition: opacity 250ms;
+}
+
+//mobile
+@mixin hide-for-mobile {
+    @media (max-width: $breakpoint-small) {
+        display: none;
+    }
+
+}
+@mixin show-for-mobile ($display-type) {
+    @media (min-width:  calc($breakpoint-small + 1px) ) {
+        display: $display-type;
+    }
+
+}
+@mixin max-mobile {
+    @media (max-width: $breakpoint-small) {
+        @content;
+    }
+}
+@mixin min-mobile{
+    @media (min-width:  calc($breakpoint-small + 1px) ) {
+        @content;
+    }
+}
+
+
+//tablet
+@mixin hide-for-tablet {
+    @media (max-width: $breakpoint-small) {
+        display: none;
+    }
+}
+@mixin show-for-tablet ($display-type) {
+    @media (min-width:  calc($breakpoint-medium + 1px) ) {
+        display: $display-type;
+    }
+
+}
+@mixin max-tablet {
+    @media (max-width: $breakpoint-small) {
+        @content;
+    }
+}
+@mixin min-tablet {
+    @media (min-width: calc($breakpoint-medium + 1px) ) {
+        @content ;
+    }
+
+}
+
+//desktop
+@mixin hide-for-desktop {
+    @media (min-width: $breakpoint-small) {
+        display: none;
+    }
+}
+@mixin show-for-desktop ($display-type) {
+    @media (max-width: calc($breakpoint-small + 1px)) {
+        display: $display-type;
+    }
+}
+@mixin min-desktop {
+    @media (min-width: $breakpoint-medium) {
+        @content ;
+    }
+}
+@mixin max-desktop {
+    @media (max-width: calc($breakpoint-small + 1px)) {
+        @content ;
+    }
+}
+

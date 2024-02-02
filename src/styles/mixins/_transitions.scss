@@ -1,0 +1,7 @@
+
+//slide
+@mixin slide-left($slide-speed, $slide-value...){
+    transition: $slide-speed $slide-value;
+}
+
+

@@ -89,6 +89,9 @@ export default function EventPage() {
                             }
                         </ul>
                     </div>
+                    <div>
+                        
+                    </div>
                 </div>                           
             </div>
             )

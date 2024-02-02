@@ -1,0 +1,46 @@
+.login-page{
+    min-height: 100dvh;
+    gap: 2rem;
+    background-color: $clr-light-300;
+    color: $clr-dark-300;
+    .primary-header{
+        color: $clr-dark-300;
+    }
+    .login-page-wrapper{
+        background: linear-gradient(90deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,.77));
+        box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.10);
+        padding-block: 4rem;
+        padding-inline: min(5rem, 5vw);
+        gap: 1.75rem;
+        input[type=checkbox]{
+            margin-right: .5rem;
+        }
+        .top-wrapper{
+            .inputs-wrapper{
+                gap: 1.5rem;
+            }
+        }
+        .top-wrapper, .bottom-wrapper{
+            gap: 1.25rem;
+        }
+
+        .button{
+            margin-bottom: 1rem;
+            background-color: var(--primary-clr-300);
+            width: 100%;
+            color: $clr-light-400;
+            &:hover{
+                opacity: .9;
+            }
+        }
+        span{
+            cursor: pointer;
+            color: var(--primary-clr-300);
+            font-weight: var(--fw-bold);
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+
+    }
+}

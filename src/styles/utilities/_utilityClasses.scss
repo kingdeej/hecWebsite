@@ -1,0 +1,108 @@
+//Utility classes
+
+//position
+.relative{
+    position: relative;
+}
+.position-center{
+    margin:auto;
+    inset: 0;
+    position: absolute;
+}
+.max-width{
+    width: 100%;
+}
+//text
+
+.text-center{
+    text-align: center;
+}
+.text-wrap-pretty{
+    text-wrap: pretty;
+}
+.text-wrap-balance{
+    text-wrap: balance;
+}
+//icons
+
+.social-icon{
+    font-size: $size-5;
+}
+
+//divider
+.divider{
+    margin-block: $divider-margin-block;
+    height: $divider-height;
+    width: 100%;
+    background-color: $divider-color;
+}
+.pointer{
+    cursor: pointer;
+}
+
+// Inputs
+.text-input{
+    width: 100%;
+    padding-block: min(1rem, 5vw);
+    padding-inline: 1rem;
+    border: $clr-light-500 2px solid;
+    outline: transparent;
+    border-radius: .3rem;
+    color: $clr-dark-300;
+    &:focus{
+        border: 2px solid #F28080;
+        background: #FFF;
+        box-shadow: 4px 4px 5px 0px rgba(242, 128, 128, 0.17);
+
+    }
+}
+// Dropdown
+
+.dropdown-button-wrapper{
+    position: relative;
+    .dropdown-button{
+        width: 1.5rem;
+    }
+    .dropdown-options{
+        display: none;
+    }
+    .active-dropdown{
+        display: flex;
+        flex-direction: column;  
+        margin-top: 1.6rem;
+        position: absolute;
+        transform: translateX( calc(-100% + 1.5rem));
+        background-color: $clr-light-300;
+        box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.10);
+        padding: .2rem;
+        .dropdown{
+            min-width: 2.7rem;
+            line-break:strict;
+            background-color: $clr-light-300;
+            text-align: left;
+            &:hover{
+                background-color: $clr-light-400;
+            } 
+        }
+        
+    }
+
+}
+
+.eyebrow{
+    text-decoration: underline;
+    font-weight: $fw-light;
+    color: $clr-accent-400;
+}
+
+.heading-line-style::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 15%;
+    max-width: 3rem;
+    height: 3px;
+    background: $clr-accent-400;
+    border-radius: 5px;
+}

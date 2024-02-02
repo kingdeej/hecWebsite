@@ -1,0 +1,18 @@
+.loading{
+    width: 3rem;
+    aspect-ratio: 1;
+    border: 5px solid $clr-accent-400;
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    animation: infinite rotating 1000ms linear;
+
+    @keyframes rotating {
+        0%{
+            rotate: 0deg;
+        }
+        100%{
+            rotate: 360deg;
+        }
+    }
+}

@@ -47,37 +47,38 @@ export default function Nav(props) {
   }
   return (
     <nav className='nav' style={{background: props.background}}>
-      <div className="nav-wrapper | space-between page-inline-padding">
+      <div className="nav-wrapper | space-between container flex-jc-sb">
         <a href='/' className="logo">
           <img src={logo} alt="Logo" />
         </a>
-        <ul className={`nav-links-wrapper flex ${hideMenu}`}>
-          <img onClick={() => { toggleNav(1) }} className={`close-button button | icon-button `} src={close} alt="" />
-          <div className='nav-links | flex'>
+        <ul datatype-nav={hideMenu} className="nav-links-wrapper | clr-dark-300">
+          <img onClick={() => { toggleNav(1) }} className={`close-button button | icon-button flex-js-e `} src={close} alt="" />
+          <div className='nav-links flow-8 pg-block-14'>
             <li className="link"><a href="/events-page">All events</a></li>
             <li className="link"><a href="/events-page">Hot Events</a></li>
             <li className="link"><a href="/#">Top Locations</a></li>
             <li className="link"><a href="/events-page">Get Tickets</a></li>
             <li className="link"><a href="/#">About Us</a></li>
           </div>
-          <div className="nav-footer | flex">
-              <div className="socials">
-                <h3 className="secondary-header ">
+          <div className="nav-footer | even-columns">
+              <div className="socials | flow-2">
+                <h3 className="secondary-header | clr-dark-300 ">
                     Socials
                 </h3>
-                <ul className="social-links | flex">
+                <ul className="social-links | flex-al-c gap-0">
                   <li><img src={instagram1} alt="instagram" /></li>
                   <li><img src={facebook1} alt="facebook" /></li>
                   <li><img src={whatsapp1} alt="whatsapp" /></li>
                 </ul>
               </div>
-              <div className="contact">
-                <h3 className="secondary-header">
+              <div className="contact | flow-2">
+                <h3 className="secondary-header | clr-dark-300">
                   Contact
                 </h3>
-                <ul className="social-links">
+                <ul className="social-links flow-2">
                   <li>
                     <label htmlFor="tel">Tel:</label>
+                    <br />
                     <a href="tel:+850-555-5555">850-555-5555</a>
                   </li>
                   <li>
@@ -89,7 +90,7 @@ export default function Nav(props) {
 
           </div>
         </ul>
-        <div className="right-nav | vertical-align">
+        <div className="right-nav | flex-al-c gap-1">
           {/* <button className="button | secondary-button">Contact Us</button> */}
           <button className="button | icon-button"><img src={searchIcon} alt="search" /></button>
           <div className='dropdown-button-wrapper'>
@@ -108,6 +109,7 @@ export default function Nav(props) {
           </div>
           <img onClick={() => { toggleNav(0) }} className={`menu-button button | icon-button`} src={menu} alt="" />
         </div>
+
       </div>
     </nav>
   )

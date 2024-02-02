@@ -1,0 +1,22 @@
+.grid{
+    display: grid;
+}
+.even-columns{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+}
+.responsive-even-columns{
+    display: grid;
+    @media (min-width:$breakpoint-medium){
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+    }
+}
+.grid-area{
+    display: grid;
+}
+.grid-center{
+    display: grid;
+    justify-items: center;
+}

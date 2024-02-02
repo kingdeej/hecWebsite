@@ -1,0 +1,51 @@
+
+.events-page-wrapper{
+    padding-bottom: 0px;
+}
+.events-page{
+    .filter-wrapper{
+        flex-wrap: wrap;
+        background-color: $clr-light-400;
+        padding: .75rem;
+        align-items: center;
+        position: relative;
+        overflow-x: hidden;
+        .secondary-header{
+            font-size: $fs-400;
+            color: $clr-accent-400;
+            margin-right: 5rem;
+        }
+        .filters-wrapper{
+            width: 65%;
+            gap: min(2rem, 2vw);
+            .filter{
+                label{
+                    color: clr-dark-300;
+                }
+
+
+            }
+        }
+        button{
+            position: absolute;
+            right: .5rem;
+            top: .5rem;
+        }
+    }
+    .events-page-style{
+
+        .primary-paragraph{
+            display: none;
+        }
+    }
+    .events-page-navigation{
+        background-color: $clr-light-400 ;
+        padding: 1rem;
+        color: clr-dark-300;
+        margin-bottom: 6rem;
+        .page-navigation-button{
+            font-size: 1rem;
+        }
+    }
+
+}

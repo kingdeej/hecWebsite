@@ -1,0 +1,10 @@
+@each $size-name, $size-value in $sizes{
+    .border-radius{
+        &-#{$size-name}{
+            border-radius: $size-value;
+        }
+    }
+}
+.border-circle{
+    border-radius: 50vw;
+}

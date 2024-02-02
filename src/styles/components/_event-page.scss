@@ -1,0 +1,119 @@
+.event-page{
+    min-height: 100dvh;
+    color: $clr-dark-300;
+    .event-page-info-wrapper{
+        box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.10);
+        padding: 1.5rem;
+        gap: clamp(1rem, 5vw, 5rem);
+        .left-wrapper{
+            max-width: 300px;
+        }
+        .right-wrapper{
+            width: 100%;
+            .primary-header{
+                position: relative;
+            }
+            .secondary-header{
+                font-size: $fs-250;
+                font-weight: $fw-bold;
+            }
+            .promoter-links{
+                flex-wrap: wrap;
+                &>*{
+                    padding-inline: .5rem;
+                }
+                &>:not(:last-child){
+                    border-right: 2px solid $clr-accent-400;
+                }
+                .social-links {
+                    li{
+                        font-size: 1.5rem;
+                    }
+                } 
+                p, a{
+                    font-size: $fs-250;
+                    font-weight: $fw-light;
+                }
+            }
+            .event-info-wrapper{
+                li{
+                    gap: 1rem;
+                    font-weight: $fw-light;
+                }
+            }
+            select{
+                margin-top: 1rem;
+                color: $clr-light-300;
+                background-color: $clr-dark-300;
+                padding: .3rem;
+            }
+            .button-wrapper{
+                gap: 1.5rem;
+                p{
+                    color: $clr-accent-400;
+                    font-size: $fs-350;
+                    font-weight: $fw-bold;
+                }
+                button{
+                    padding-block: .5rem;
+
+                }
+            }
+        }
+    }
+    .entertainment-wrapper{
+        .secondary-header{
+            margin-bottom: 4rem;
+        }
+        .video-wrapper{
+            background: $clr-light-500;
+            aspect-ratio: 3/1.5;
+            height: 350px;
+            width: 100%;
+            margin-bottom: 3rem;
+            position: relative;
+            .react-player{
+                width: 100% !important;
+            }
+            // .react-player video {
+            //     position: relative;
+            //     left: 0;
+            //     top: 0;
+            //     transform: none;
+            // }
+        }
+        .images-carousel{
+            gap: 1.5rem;
+            overflow-x: auto;
+            li{
+                background-color: $clr-light-500;
+                max-width: 300px;
+                width: 300px;
+                min-width: 200px;
+                aspect-ratio: 1;
+                img{
+                    object-fit: cover;
+
+                }
+            }
+        }
+    }
+}
+@media (max-width: 50em) {
+    .event-page{
+        .event-page-info-wrapper{
+            flex-direction: column;
+            align-items: center;
+            .left-wrapper{
+                max-width: 450px;
+                width: 100%;
+            }
+            .right-wrapper{
+                gap: 2rem;
+            }
+        }
+        .secondary-header{
+            font-size: $fs-400;
+        }
+    }
+}

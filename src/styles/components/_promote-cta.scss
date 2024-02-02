@@ -1,0 +1,32 @@
+.promote-cta{
+    background: linear-gradient(96deg, #2D5873 0.55%, rgba(45, 88, 115, 0.58) 100%);
+    .primary-header{
+        max-width: 16ch;
+        color: $clr-light-400;
+    }
+    .button{
+        display: block;
+        text-align: center;
+    }
+    p{
+        color: $clr-light-300;
+        line-height: 1.5rem;
+        font-size: $fs-300;
+        a{
+            font-size: $fs-300;
+            text-decoration: underline;
+        }
+    }
+}
+@media (max-width: 50em) {
+    .promote-cta{
+        .promote-cta-wrapper{
+            flex-direction: column;
+            .left-cta{
+                padding-bottom: 3rem;
+                margin-bottom: 3rem;
+                border-bottom: 1.5px solid $clr-dark-300;
+            }
+        }
+    }
+}

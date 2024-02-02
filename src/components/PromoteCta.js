@@ -11,11 +11,9 @@ export default function PromoteCta(props) {
                 <h2 className="primary-header">
                     Want to promote an event?
                 </h2>
-                <button  className="primary-button button">
-                    <Link to={'/login'}>
+                    <Link className="primary-button button" to={'/login'}>
                         Promote Event
                     </Link>
-                </button>
                 <p>or <br /> Call us at <a href="tel:+850-555-5555">850-555-5555</a></p>
             </div>
             <div className="right-cta">

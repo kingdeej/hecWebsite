@@ -1,0 +1,13 @@
+
+@mixin position-center{
+    position: absolute;
+    inset: 0;
+    margin: auto;
+}
+@mixin position-absolute($margin-type, $margin-value...){
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    #{$margin-type}: $margin-value;
+    @content;
+}

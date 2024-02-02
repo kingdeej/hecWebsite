@@ -1,0 +1,19 @@
+footer{
+    background-color: $clr-dark-300;
+    color: $clr-light-400;
+    .logo{
+        margin-bottom: 3rem;
+    }
+    .secondary-header{
+        margin-bottom: 1.5rem;
+        font-size: $fs-250;
+    }
+    label{
+        font-size: $fs-200;   
+    }
+    a, p{
+        color: $clr-light-400;
+        font-size: $fs-100;
+        font-weight: $fw-light;
+    }
+}
