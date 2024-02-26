@@ -126,15 +126,30 @@
 
 .hero{
     background: linear-gradient(102deg, #2D5873 0.31%, rgba(45, 88, 115, 0.71) 80.02%);;
+    min-height: calc(100dvh - $header-height);
     .hero-wrapper{
         justify-content: center;
+        flex-direction: column-reverse;
         .right-hero{
+            .hero-img-cont{
+                padding-block-end: 1rem;
+                // padding-inline-end: 1rem;
+                border-radius: 5px;
+                .hero-img{
+                    margin-top: -1rem;
+                    margin-left: -1rem;
+                    border-radius: 5px;
+                }
+            }
             li{
                 .hero-img{
                     max-height: 400px;
                 }
             }
         }
+    }
+    .hero-nav-button{
+        display: none;
     }
 }
 [datatype-flyer='inactive-flyer']{

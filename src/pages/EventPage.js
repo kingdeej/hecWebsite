@@ -26,6 +26,7 @@ export default function EventPage() {
   return (
     <main className="event-page">
        {eventInfo?.length === 0 ? <Loading /> : eventInfo?.map((event, key)=>{
+        const location = `${event.streetAddress},${event.eventStreet},${event.eventParish},Jamaica`
         if (event?.id === eventId) {
             return (
                 <div key={key} className="event-page-wrapper | page-block-padding">
@@ -57,7 +58,7 @@ export default function EventPage() {
                         </div>
                         <div className=''>
                             <ul className="event-info-wrapper">
-                                <li className='flex'><ImLocation /> {event.streetAddress}, {event.eventStreet}, {event.eventParish}</li>
+                                <li className='flex'><ImLocation /> <a href="#google-map-event">{event.placeName}{event.placeName ? ',': ''} {event.streetAddress}, {event.eventStreet}, {event.eventParish}</a> </li>
                                 <li className='flex'><FiCalendar />{event.eventDate}</li>
                             </ul>
                             <select name="quantity" id="quantity">
@@ -70,55 +71,49 @@ export default function EventPage() {
                         </div>
                     </div>
                 </div>
-                <div className="entertainment-wrapper | page-block-padding">
-                    <div className="entertainment | page-inline-padding">
-                    <h2 className="secondary-header">
-                        Videos and Images
-                    </h2>
-                        <div className='video-wrapper'>
-                            <ReactPlayer className='react-player' controls={true} url={event.video}/>
+                {/* if there is no video of photos found then don't show entertainment wrapper */}
+                {event.photos || event.video ? 
+                    <div className="entertainment-wrapper | page-block-padding">
+                        <div className="entertainment | page-inline-padding">
+                            <h2 className="secondary-header">
+                                Videos and Images
+                            </h2>
+                            <div className='video-wrapper'>
+                                {!event.video ? <div>No Media Yet</div>: ''}
+                                <ReactPlayer className='react-player' controls={true} url={event.video}/>
+                            </div>
+                            <ul className='images-carousel | flex'>
+                                {
+                                photoArray.map((x, key)=>{
+                                    return(
+                                        <li className='flex-center' key={key}> {!event.photos ? <p>No Image</p> : ''}<img src={event.photos} alt="" /></li>
+                                    )
+                                })
+                                    
+                                }
+                            </ul>
                         </div>
-                        <ul className='images-carousel | flex'>
-                            {
-                            photoArray.map((x, key)=>{
-                                return(
-                                    <li key={key}><img src={event.photos} alt="" /></li>
-                                )
-                            })
-                                
-                            }
-                        </ul>
-                    </div>
-                    <div>
-                        
-                    </div>
-                </div>                           
+                    </div> 
+                    : '' 
+                }
+
+                <div id='google-map-event' className='google-map-event | page-block-padding page-inline-padding'>
+                    <iframe
+                    width="100%"
+                    height="450"
+                    style={{border:"0"}}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBDtxL86RCBORJRuX2snPFvGBCVtSXwYlk
+                        &q=${location}`}>
+                </iframe>
+                </div>                         
             </div>
             )
             
         }
        })}
-        
       </main>
   )
 }
-
-
-// export class EventPage extends Component {
-//     state = {
-//         eventInfo:{}
-//     }
-//     componentDidMount(){
-//         const eventId = window.location.pathname.split('/')[3]
-//         const getInfo = events.filter((x)=>x.eventId === 0)
-//         this.setState({eventInfo: getInfo[0]})
-//         console.log(eventId);
-//     }
-//   render() {
-//     return (
-      
-//     )
-//   }
-// }
-
-// export default EventPage
