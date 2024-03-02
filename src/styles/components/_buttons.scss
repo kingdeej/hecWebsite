@@ -14,7 +14,7 @@ button{
     padding: 7px 1.25rem;
     border-radius: 3px;
     font-weight: bold;
-    font-size: clamp($fs-100, 2vw, $fs-250);
+    font-size: clamp($fs-250, 2vw, $fs-300);
     &:hover{
         background: $clr-light-400;
     }

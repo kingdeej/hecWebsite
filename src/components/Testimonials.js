@@ -27,9 +27,9 @@ export default function Testimonials() {
     ]
     
   return (
-    <section className="testimonials | page-block-padding">
-        <div className="testimonials-wrapper | page-inline-padding">
-            <h2 className="primary-header">
+    <section className="testimonials |  bg-image">
+        <div className="testimonials-wrapper | container pg-block-12">
+            <h2 className="section-heading | clr-dark-300">
                 What our clients say
             </h2>
             <ul className="header-buttons | flex">

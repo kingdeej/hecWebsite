@@ -94,7 +94,9 @@
     font-weight: $fw-light;
     color: $clr-accent-400;
 }
-
+.heading-line-style{
+    position: relative;
+}
 .heading-line-style::after{
     content: '';
     position: absolute;
@@ -105,4 +107,9 @@
     height: 3px;
     background: $clr-accent-400;
     border-radius: 5px;
+}
+.bg-image{
+    // background-image: url(../images/bg-image.jpg);
+    background: linear-gradient(rgba(255, 255, 255, 0.582), rgba(255, 255, 255, 0.733)), url(../images/bg-image.jpg);
+    background-repeat: repeat;
 }

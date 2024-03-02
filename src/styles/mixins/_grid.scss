@@ -3,6 +3,10 @@
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
 }
+@mixin two-columns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 // @mixin even-columns-mobile{
 //     display: grid;
 //     grid-auto-flow: column;

@@ -11,7 +11,6 @@ export default function Hero() {
   const [currentFlyer, setCurrentFlyer] = useState(0)
   const [events, setEvents] = useState([])
   const [firstTouchPosition, setFirstTouchPosition] = useState(0)
-  const [secondTouchPosition, setSecondTouchPosition] = useState(0)
 
   //the number of hero events to display
   const heroNumber = 3
@@ -69,14 +68,14 @@ export default function Hero() {
   
   return (
     <section className='hero | flex-al-c vertical-align' onTouchStart={(e) => { setFirstTouchPosition(e.changedTouches); }} onTouchEnd={(e) => { endTouch(e.changedTouches); }} >
-        <div id='left-button' className='hero-nav-button-wrapper space-between '>
-            <BiChevronLeftCircle onClick={moveLeft}  className='hero-nav-button position-center'/>
+        <div id='left-button' className='hero-nav-button-wrapper  space-between '>
+            <BiChevronLeftCircle onClick={moveLeft}  className='hero-nav-buttonr'/>
         </div>
         <div id='right-button' className='hero-nav-button-wrapper space-between '>
-            <BiChevronRightCircle onClick={moveRight} className='hero-nav-button position-center'/> 
+            <BiChevronRightCircle onClick={moveRight} className='hero-nav-button'/> 
         </div>
       <div className="hero-wrapper | container page-inline-padding flex gap-8">
-        <ul className="left-hero-wrapper | flex-carousel">
+        <ul className="left-hero-wrapper |">
           {events?.length === 0 ? <Loading /> : 
             events?.map((x, key)=>{
               const activeFlyer = key === currentFlyer ? 'active-flyer': 'inactive-flyer'
@@ -84,29 +83,29 @@ export default function Hero() {
                 return(
                   <li key={key} datatype-flyer={activeFlyer} className="left-hero | text-center    flow-4">
                     <p className='eyebrow '>Featured Events</p>
-                    <h1 className="hero-heading heading-line-style | primary-header | text-center">
+                    <h1 className="hero-heading heading-line-style | primary-header | text-center mg-block-start-0">
                       {x.eventName}
                     </h1>
                     <div className='wrapper flex-jc-c gap-4'>
-                      <ul className="event-info-wrapper | flow-2">
+                      <ul className="event-info-wrapper | flow-1">
                         <li className='primary-paragraph | clr-light-500 flex gap-1'><img src={locationIcon1} alt="location" />{x.eventStreet}, {x.eventParish}</li>
                         <li className='primary-paragraph | clr-light-500 flex gap-1'><img src={dateIcon1} alt="date" />{x.eventDate}</li>
                       </ul>
                       <div className="hero-button-wrapper | flex-center wrap gap-2">
                         <Link to={'/' + x.id}><button onClick={handleEventClick} className="button | primary-button ">Get Tickets</button></Link>
                         <div className="price-wrapper | flex-center gap-0"><img src={ticketIcon} alt="ticket" />
-                          <p className='vertical-align'>${x.eventPrice}</p>
+                          <p className='vertical-align clr-accent-400'>${x.eventPrice}</p>
                         </div>
                       </div>
                     </div>
-                    <p className='base-text | clr-dark-300'>Get exclusive tickets here and also purchase food and drinks.</p>
+                    <p className='base-text | fs-200 clr-dark-300'>Get exclusive tickets here and also purchase food and drinks.</p>
                   </li>
                 )
               }
             })
           }
         </ul>
-        <ul className="right-hero | flex-carousel flex-center">
+        <ul className="right-hero | flex-center">
           <div className='hero-img-cont bg-primary-300'>
         {
           events.map((x,key)=>{
@@ -125,7 +124,7 @@ export default function Hero() {
         }
         </div>
         </ul>
-        <ul className="hero-flyer-buttons | flex">
+        <ul className="hero-flyer-buttons | flex-center gap-1">
           {events.map((x, key)=>{
             const activeFlyer = key === currentFlyer ? 'active-button': 'inactive-button'
             if (x.featured === true) {

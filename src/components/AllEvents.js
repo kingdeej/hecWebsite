@@ -23,26 +23,26 @@ export default class HotEvents extends Component {
   }
   render() {
     return (
-      <section className= {`${this.props.eventStyle} hot-events | page-block-padding`}>
-        <div className="hot-events-wrapper | page-inline-padding">
-            <div className="hot-events-header | space-between">
-                <h4 className='secondary-header'>{this.props.FlyersType} Events</h4>
+      <section className= {`${this.props.eventStyle} hot-events | bg-image pg-block-13`}>
+        <div className="hot-events-wrapper | page-inline-padding container ">
+            <div className="hot-events-header | flex-jc-sb">
+                <h4 className='secondary-heading clr-dark-400'>{this.props.FlyersType} Events</h4>
                 <a href='/events-page' className='primary-paragraph'>See all</a>
             </div>
-            <ul className="flyers-wrapper | flex">
+            <ul className="flyers-wrapper | even-columns gap-2">
               {this.state.events?.map((x, key)=>{
                 if (key < this.props.eventAmount) {
                   return(
-                    <li key={key} className="flyer | flex-column">
+                    <li key={key} className="flyer | flex-column | clr-dark-300">
                         <Link to={'/' + x.id}><img src={x.poster} className='flyer-img' alt="flyer" /></Link>
-                        <div className="flyer-info-cont | flex-center">
-                            <h4 className='flyer-header | heading-line-style'>{x.eventName}</h4>
+                        <div className="flyer-info-cont |  bg-light-300 flow-2 pg-1">
+                            <h4 className='flyer-header | heading-line-style mx-auto'>{x.eventName}</h4>
                             <ul className="event-info-wrapper">
-                                <li className='flex'><img src={locationIcon} alt="location" />{x.eventStreet}, {x.eventParish}</li>
-                                <li className='flex'><img src={dateIcon} alt="date" />{x.eventDate}</li>
+                                <li className='flex gap-0'><img src={locationIcon} alt="location" /><p>{x.eventStreet}, {x.eventParish}</p></li>
+                                <li className='flex gap-0'><img src={dateIcon} alt="date" /><p>{x.eventDate}</p></li>
                             </ul>
-                            <div className='tickets-wrapper'>
-                              <p className='ticket-price flex-center'><img src={ticketIcon} alt="ticket-img" />${x.eventPrice}</p>
+                            <div className='tickets-wrapper | flow-1'>
+                              <p className='ticket-price flex-center  | clr-accent-400'><img src={ticketIcon} alt="ticket-img" />${x.eventPrice}</p>
                               <Link className="get-tickets-button | button" to={'/' + x.id}><button className='button get-tickets-button'  >Get Tickets</button></Link>
                             </div>
                         </div>

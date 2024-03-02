@@ -8,17 +8,24 @@
 }
 .primary-heading{
     font-size: $fs-600;
-
+    text-align: center;
 }
 .section-heading{
     --_margin-size: min(2.5vw, 2rem);
-    font-size: $fs-500;
-    margin-bottom: $secondary-heading-padding;
+    font-size: $fs-600;
+    margin-bottom: $primary-heading-padding;
+    // padding-top: $secondary-heading-padding;
     text-align: center;
 }
 .secondary-heading{
-    font-size: $fs-500;
+    font-size: $fs-400;
     margin-bottom: $secondary-heading-padding;
+    font-weight: $fw-regular;
+}
+.flyer-header{
+    // font-size: clamp($fs-300,5vw, $fs-400);
+    font-size: $fs-400;
+    text-size-adjust: auto;
 }
 .card-heading{
     font-size: $fs-500;
