@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom'
 import Events from '../components/Events'
 import ReactPlayer from 'react-player'
 import Loading from '../components/Loading'
+import PromoteCta from '../components/PromoteCta'
 
 
 export default function EventPage() {
@@ -24,25 +25,25 @@ export default function EventPage() {
     
       
   return (
-    <main className="event-page">
+    <main className="event-page | bg-image">
        {eventInfo?.length === 0 ? <Loading /> : eventInfo?.map((event, key)=>{
         const location = `${event.streetAddress},${event.eventStreet},${event.eventParish},Jamaica`
         if (event?.id === eventId) {
             return (
-                <div key={key} className="event-page-wrapper | page-block-padding">
-                <div className="event-page-info-wrapper | page-inline-padding flex">
-                    <div className="left-wrapper flex-center">
-                        <img src={event.poster} alt="event" className="event-image" />
+                <div key={key} className="event-page-wrapper | container section">
+                <div className="event-page-info-wrapper | bg-light-300 mg-block-end-5 pg-block-3 clr-dark-300">
+                    <div className="left-wrapper">
+                        <img src={event.poster} alt="event" className="event-image | mx-auto" />
                     </div>
-                    <div className="right-wrapper | flex-column space-between">
-                        <h2 className="primary-header | heading-line-style">
+                    <div className="right-wrapper | flex-column pg-2 flow-3 text-center">
+                        <h2 className="primary-heading | heading-line-style text-center mx-auto">
                             {event.eventName}
                         </h2>
                         <div className="promoter-links-wrapper">
-                            <h3 className="secondary-header">
+                            <h3 className="secondary-header | text-left">
                                 Promoter Links
                             </h3>
-                            <ul className="promoter-links flex">
+                            <ul className="promoter-links flex-al-c">
                                 <li>
                                     <div className="social-links-wrapper">
                                         <ul className="social-links flex">
@@ -57,24 +58,24 @@ export default function EventPage() {
                             </ul>
                         </div>
                         <div className=''>
-                            <ul className="event-info-wrapper">
-                                <li className='flex'><ImLocation /> <a href="#google-map-event">{event.placeName}{event.placeName ? ',': ''} {event.streetAddress}, {event.eventStreet}, {event.eventParish}</a> </li>
-                                <li className='flex'><FiCalendar />{event.eventDate}</li>
+                            <ul className="event-info-wrapper flow-0">
+                                <li className='flex | gap-1'><ImLocation /> <a className='flex-wrap' href="#google-map-event">{event.placeName}{event.placeName ? ',': ''} {event.streetAddress}, {event.eventStreet}, {event.eventParish}</a> </li>
+                                <li className='flex | gap-1'><FiCalendar />{event.eventDate}</li>
                             </ul>
-                            <select name="quantity" id="quantity">
+                            <select className='mg-block-2 bg-dark-300 clr-light-300' name="quantity" id="quantity">
                                 <option value="1">Quantity</option>
                             </select>
                         </div>
-                        <div className='flex-column button-wrapper'>
-                            <p className='ticket-wrapper flex-center'><img src={ticketIcon} alt="ticket-img" />${event.eventPrice}</p>
-                            <button className="get-tickets-button | button">Buy Ticket</button>
+                        <div className='flex-column flow-2 button-wrapper'>
+                            <p className='ticket-wrapper flex-center clr-accent-400'><img src={ticketIcon} alt="ticket-img" />${event.eventPrice}</p>
+                            <button className="get-tickets-button | pg-block-1 button">Buy Ticket</button>
                         </div>
                     </div>
                 </div>
                 {/* if there is no video of photos found then don't show entertainment wrapper */}
                 {event.photos || event.video ? 
-                    <div className="entertainment-wrapper | page-block-padding">
-                        <div className="entertainment | page-inline-padding">
+                    <div className="entertainment-wrapper | section clr-dark-300">
+                        <div className="entertainment | page-inline-padding flow-4">
                             <h2 className="secondary-header">
                                 Videos and Images
                             </h2>
@@ -82,7 +83,7 @@ export default function EventPage() {
                                 {!event.video ? <div>No Media Yet</div>: ''}
                                 <ReactPlayer className='react-player' controls={true} url={event.video}/>
                             </div>
-                            <ul className='images-carousel | flex'>
+                            <ul className='images-carousel | flex-jc-sb gap-3'>
                                 {
                                 photoArray.map((x, key)=>{
                                     return(
@@ -114,6 +115,7 @@ export default function EventPage() {
             
         }
        })}
+       <PromoteCta />
       </main>
   )
 }

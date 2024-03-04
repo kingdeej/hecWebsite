@@ -1,11 +1,8 @@
 .login-page{
-    min-height: 100dvh;
+    height: calc(100dvh - $header-height);
     gap: 2rem;
     background-color: $clr-light-300;
     color: $clr-dark-300;
-    .primary-header{
-        color: $clr-dark-300;
-    }
     .login-page-wrapper{
         background: linear-gradient(90deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,.77));
         box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.10);
@@ -26,7 +23,7 @@
 
         .button{
             margin-bottom: 1rem;
-            background-color: var(--primary-clr-300);
+            background-color: $clr-primary-300;
             width: 100%;
             color: $clr-light-400;
             &:hover{
@@ -35,7 +32,7 @@
         }
         span{
             cursor: pointer;
-            color: var(--primary-clr-300);
+            color:$clr-primary-300;
             font-weight: var(--fw-bold);
             &:hover{
                 text-decoration: underline;

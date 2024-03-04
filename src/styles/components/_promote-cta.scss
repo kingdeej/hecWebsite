@@ -24,7 +24,7 @@
             @include even-columns;
             .left-cta{
                 border: none;
-                justify-content: left;
+                margin-left: 0;
             }
         }
     }

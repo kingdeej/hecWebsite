@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import Events from '../../components/Events';
 import AdminEvent from './AdminEvent';
+import {AiOutlinePlus,AiOutlineDelete} from 'react-icons/ai'
 import { Link } from 'react-router-dom';
+import PrimaryPopup from '../../components/PrimaryPopup';
 
 export class EditAdmin extends Component {
     state ={
@@ -25,19 +27,22 @@ export class EditAdmin extends Component {
         switch (urlEvents? 0 :this.state.step) {
             case 0:
                 return(
-                    <ul className='admin-events-list flex-column'>
+                    <ul className='admin-events-list | pg-3'>
                         {this.state.events?.map((x, key)=>{
                             return(
-                                <li key={key} className='admin-event vertical-align'>
-                                    <button className='button' id={x.id} key={key} onClick={(e) => { this.handleEventClick(e) }}>
-                                        <Link to={'/admin-page/' + x.id}>
-                                            <div id={x.id} className="flex vertical-align">
+                                <li key={key} className='admin-event | flex-jc-sb'>
+                                    <button className='admin-event-button | button' id={x.id} key={key} onClick={(e) => { this.handleEventClick(e) }}>
+                                        <Link to={'/admin/' + x.id}>
+                                            <div id={x.id} className="flex-al-c gap-3">
                                                 <img id={x.id} src={x.poster} alt="" />
                                                 <h3 id={x.id} className="secondary-header">
                                                     {x.eventName}
                                                 </h3>
                                             </div>
                                         </Link>
+                                    </button>
+                                    <button className='button'>
+                                        <AiOutlineDelete />
                                     </button>
                                 </li>
                             )
@@ -57,10 +62,19 @@ export class EditAdmin extends Component {
     }
   render() {
     return(
-        <div className='page-block-padding'>
-                <div className="page-inline-padding">
-                    <this.EventPages />
+        <div className='edit-admin | section'>
+            <div className="container clr-dark-300">
+                <h1 className='primary-heading'>Events</h1>
+                <div className="event-panel | mg-block-4 pg-block-end-2 flex-jc-sb">
+                    <div className='flex gap-2'>
+                        <AiOutlinePlus />
+                        <button className='button'>New Event</button>
+                    </div>
+                    <AiOutlineDelete />
                 </div>
+                <this.EventPages />
+            </div>
+            <PrimaryPopup prompt='hello' action={console.log('hello')} />
         </div>
     )
   }

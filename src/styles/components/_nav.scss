@@ -1,6 +1,6 @@
 @import "../base/mixins";
 .nav{
-    height: 80px;
+    height: $header-height;
     position: relative;
     .nav-wrapper{
     }

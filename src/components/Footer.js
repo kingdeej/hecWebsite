@@ -6,8 +6,8 @@ import whatsapp from '../images/whatsapp.svg'
 
 export default function Footer() {
   return (
-    <footer className='footer | page-block-padding'>
-      <div className="footer-wrapper | page-inline-padding space-between">
+    <footer className='footer | section'>
+      <div className="footer-wrapper | container  flex-jc-sb">
         <div className="left-footer | flex-column">
           <img src={logo} alt="logo" className="logo" />
           <p>Copyright 2023 <img src="" alt="" /></p>           

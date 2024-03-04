@@ -1,0 +1,25 @@
+.admin-event-page{
+    // display: none;
+}
+.edit-admin{
+    .event-panel{
+        border-bottom: 2px solid $clr-light-400;
+    }
+    .admin-events-list{
+        box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.08);
+        .admin-event{
+            padding: .5rem;
+            .admin-event-button{
+                width: 100%;
+            }
+            img{
+                height: 3.7rem;
+                aspect-ratio: 1.5/2;
+            }
+            &:not(:last-child){
+                border-bottom: 2px solid $clr-light-400;
+            }
+
+        }
+    }
+}

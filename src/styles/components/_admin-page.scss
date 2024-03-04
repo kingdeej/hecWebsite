@@ -1,45 +1,31 @@
 .admin-page{
-    h1{
-        margin-bottom: 4rem;
+    min-height: calc(100dvh - $header-height);
+    .secondary-heading{
+        margin-bottom: 0;
+        
     }
     .admin-buttons-wrapper{
-        gap: 1rem;
         li{
-            box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.17);
-            width: 100%;
-            padding-block: min(3rem, 5vw);
-            padding-inline: min(2rem, 5vw);
-            &:hover{
-                box-shadow: 4px 4px 20px 0px rgba(45, 88, 115, 0.20);
-            }
-            &:hover>.button{
-                color: $clr-primary-300;
-            }
-            
-            .button{
-                gap: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width:250px;
+            flex-grow: 9999;
+            max-height: 250px;
+            aspect-ratio: 1;
+            box-shadow: 4px 4px 20px 0px rgba(45, 88, 115, 0.20);
+            .admin-button{
                 .button-img{
-                    font-size: min(4rem, 10vw);
+                    margin-inline: auto;
+                    font-size: 2rem;
                 }
-            }
+                .secondary-heading{
+                    font-weight: $fw-medium;
+                    &:hover{
+                        color: $clr-primary-300;
+                    }
+                }
+            } 
         }
     }
-}
-.admin-events-list{
-    gap: 1rem;
-    .admin-event{
-        box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.10);
-        height: 3rem;
-        padding-inline-end: 1.5rem;
-        div{
-            gap: 1rem;
-        }
-        img{
-            aspect-ratio: 1.75/2;
-            max-height: 3rem;
-        }
-    }
-}
-.admin-event-page{
-    color: clr-dark-300;
 }

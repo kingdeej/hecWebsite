@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {useParams, useNavigate} from 'react-router-dom'
-import Add1 from "./Add1";
-import Add2 from "./Add2";
-import Add3 from "./Add3";
+import Add1 from "./AddAdmin/Add1";
+import Add2 from "./AddAdmin/Add2";
+import Add3 from "./AddAdmin/Add3";
 import {v4} from 'uuid'
 import SendImage from "../../components/SendImage";
 
@@ -40,7 +40,7 @@ export default function AddAdmin() {
     const videoObj = {photoName: eventvideoName, eventPhotos: eventvideo, mediaType:'video'}
     SendImage(getId, posterObj,  photosObj, videoObj, objData, getId)
     // navigate to admin
-    navigate('/admin-page')
+    navigate('/admin')
   }
   
   

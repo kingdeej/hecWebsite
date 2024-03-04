@@ -16,7 +16,7 @@ export default function LoginPage() {
 
     if (admins.includes(auth?.currentUser?.email)) {
         if (redirect) {
-            navigate('/admin-page')
+            navigate('/admin')
         }
     }else if (redirect) {
         navigate('/promoter/add-event/0')
@@ -94,11 +94,11 @@ export default function LoginPage() {
         )
     }
   return (
-    <main className="login-page | page-block-padding flex-center flex-column">
-        <h1 className='primary-header'>{loginErrorText}</h1>
-        <form onSubmit={(e) => {handleSubmit(e) }} className="login-page-wrapper | page-inline-padding space-between flex-column">
-            <div className="top-wrapper flex-column">
-                <div className="inputs-wrapper | flex-column">
+    <main className="login-page | flex-center flex-column">
+        <h1 className='primary-heading'>{loginErrorText}</h1>
+        <form onSubmit={(e) => {handleSubmit(e) }} className="login-page-wrapper">
+            <div className="top-wrapper | flow-2">
+                <div className="inputs-wrapper | flow-2">
                     <input className='text-input' required onChange={(e) => {setEmail(e.target.value)}} type="email" name="email" id="email" />
                     <input className='text-input' required onChange={(e) => {setPassword(e.target.value)}} type={showPassword} name="password" id="password" />
                 </div>
@@ -107,7 +107,7 @@ export default function LoginPage() {
                      <label htmlFor='show-password'>show/hide password</label>
                 </div>
             </div>
-            <div className="bottom-wrapper flex-column">
+            <div className="bottom-wrapper flow-2">
                 <div className='flex'>
                     <input type="checkbox" onChange={(e) => { setRemember(e.target.value)}} name="remember-me" id="remember-me" />
                      <p>Remember me</p>
