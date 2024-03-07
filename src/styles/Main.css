@@ -341,7 +341,7 @@ footer a, footer p {
   display: inline;
 }
 .hero .hero-wrapper .right-hero {
-  padding-inline: 0.75rem;
+  padding-inline: min(1.5rem, 7vw);
 }
 .hero .hero-wrapper .right-hero .hero-img-cont {
   --_size: 1rem;
