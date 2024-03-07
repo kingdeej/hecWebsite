@@ -14,12 +14,14 @@
         flex-direction: column-reverse;
         .right-hero{
             .hero-img-cont{
-                padding-block-end: 1rem;
-                // padding-inline-end: 1rem;
+                --_size: 1rem;
+                padding-block-end: var(--_size);
+                margin-inline-start: var(--_size);
                 border-radius: 5px;
                 .hero-img{
-                    margin-top: -1rem;
-                    margin-left: -1rem;
+                    margin-block-start: -1rem ;
+                    margin-inline-start: -1rem;
+                    // margin-left: var(--_size);
                     border-radius: 5px;
                 }
             }

@@ -341,12 +341,14 @@ footer a, footer p {
   display: inline;
 }
 .hero .hero-wrapper .right-hero .hero-img-cont {
-  padding-block-end: 1rem;
+  --_size: 1rem;
+  padding-block-end: var(--_size);
+  margin-inline-start: var(--_size);
   border-radius: 5px;
 }
 .hero .hero-wrapper .right-hero .hero-img-cont .hero-img {
-  margin-top: -1rem;
-  margin-left: -1rem;
+  margin-block-start: -1rem;
+  margin-inline-start: -1rem;
   border-radius: 5px;
 }
 .hero .hero-wrapper .right-hero li .hero-img {
@@ -1170,9 +1172,10 @@ footer a, footer p {
   display: none;
 }
 .dropdown-button-wrapper .active-dropdown {
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  margin-top: 1.6rem;
+  margin-top: 2rem;
   position: absolute;
   transform: translateX(calc(-100% + 1.5rem));
   background-color: hsl(0, 0%, 100%);
