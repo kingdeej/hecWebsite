@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import {AiOutlineClose} from 'react-icons/ai'
 export default function PrimaryPopup(props) {
+  const modalRef = useRef(null)
+  useEffect(() => {
+    if (props.isOpen) modalRef.current.showModal();
+    // if (!props.isOpen) modalRef.current.close();
+  }, [props.isOpen])
+  
+  const closeModal = (e) => {
+    modalRef.current.close();
+    props.isClosed()
+  }
+  const cancelModal = (e) => {
+    modalRef.current.close();
+  }
+  const handleClick = (e) => {
+    if (e.target === modalRef.current) {
+      modalRef.current.close();
+    }
+  }
   return (
-    <div>
-        <AiOutlineClose />
-        <div>
+    <dialog className='popup | position-center pg-2' onClick={(e) => {handleClick(e) }} ref={modalRef}>
+        <AiOutlineClose className='flex-js-e' onClick={(e) => { cancelModal() } } />
+        <div className='flow-3'>
             <h1>{props.prompt}</h1> 
-            <button onClick={(e) => { console.log('hello'); }}>Click Here</button>
+            <button className='button secondary-button' onClick={(e) => { closeModal() }}>Delete</button>
         </div>
-    </div>
+    </dialog>
     
   )
 }

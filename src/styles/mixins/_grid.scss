@@ -17,3 +17,6 @@
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
 }
+@mixin responsive-grid ($max-width){
+    grid-template-columns: repeat(auto-fit, minmax($max-width, 1fr));
+}

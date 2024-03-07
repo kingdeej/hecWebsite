@@ -19,6 +19,23 @@ button{
         background: $clr-light-400;
     }
 }
+button[datatype-button='primary']{
+    background: $clr-light-300;
+    color: $clr-primary-300;
+    padding: 7px 1.25rem;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: clamp($fs-250, 2vw, $fs-300);
+    &:hover{
+        background: $clr-light-400;
+    }
+}
+button[datatype-button='secondary']{
+    background: $clr-primary-300;
+    color: $clr-light-400;
+    padding: 4px 1rem;
+    border-radius: 1px;
+}
 .secondary-button{
     background: $clr-primary-300;
     color: $clr-light-400;

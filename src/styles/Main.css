@@ -187,6 +187,25 @@ button {
   background: hsl(60, 7%, 95%);
 }
 
+button[datatype-button=primary] {
+  background: hsl(0, 0%, 100%);
+  color: hsl(203, 44%, 31%);
+  padding: 7px 1.25rem;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: clamp(1rem, 2vw, 1.094rem);
+}
+button[datatype-button=primary]:hover {
+  background: hsl(60, 7%, 95%);
+}
+
+button[datatype-button=secondary] {
+  background: hsl(203, 44%, 31%);
+  color: hsl(60, 7%, 95%);
+  padding: 4px 1rem;
+  border-radius: 1px;
+}
+
 .secondary-button {
   background: hsl(203, 44%, 31%);
   color: hsl(60, 7%, 95%);
@@ -314,6 +333,7 @@ footer a, footer p {
   min-height: calc(100dvh - 85px);
 }
 .hero .hero-wrapper {
+  padding-block-start: 2rem;
   justify-content: center;
   flex-direction: column-reverse;
 }
@@ -664,8 +684,14 @@ footer a, footer p {
   transition: box-shadow 250ms, background-color 250ms;
 }
 
+.edit-admin {
+  min-height: calc(100dvh - 85px);
+}
+.edit-admin svg {
+  font-size: 1.5rem;
+}
 .edit-admin .event-panel {
-  border-bottom: 2px solid hsl(60, 7%, 95%);
+  border-bottom: 2px solid hsl(0, 0%, 79%);
 }
 .edit-admin .admin-events-list {
   box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.08);
@@ -681,7 +707,26 @@ footer a, footer p {
   aspect-ratio: 1.5/2;
 }
 .edit-admin .admin-events-list .admin-event:not(:last-child) {
-  border-bottom: 2px solid hsl(60, 7%, 95%);
+  border-bottom: 1px solid hsl(0, 0%, 79%);
+}
+
+.admin-event-page .text-input {
+  margin-left: 1rem;
+  width: calc(100% - 1rem);
+}
+.admin-event-page img {
+  width: 200px;
+}
+.admin-event-page .react-player {
+  max-width: 100%;
+}
+.admin-event-page .media-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+}
+
+.popup {
+  width: min(400px, 80vw);
 }
 
 .flex, .flex-wrap, .flex-jc-c, .flex-jc-e, .flex-jc-sb, .flex-al-c, .flex-center {
@@ -1047,6 +1092,22 @@ footer a, footer p {
 
 .max-width {
   width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-b {
+  display: inline-block;
 }
 
 .text-left {

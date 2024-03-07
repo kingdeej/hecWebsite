@@ -3,12 +3,18 @@ import UpdateEvent from "../../components/events/UpdateEvent";
 import DeleteEvent from "../../components/events/DeleteEvent";
 import sendImage from "../../components/SendImage";
 import UpdateMedia from "../../components/events/UpdateMedia";
+import PrimaryPopup from "../../components/PrimaryPopup";
+import ReactPlayer from "react-player";
 
 export class AdminEvent extends Component {
   state = {
     events: this.props.event,
     eventInfo: {} ,
-    image: ''
+    poster: '',
+    photos: [],
+    video: '',
+    popup: false,
+    popupPrompt: 'Are you sure you want to delete this event?',
   };
   onChangeEvent = (e) => {
     const name = e.target.name;
@@ -28,7 +34,16 @@ export class AdminEvent extends Component {
     // sendImage(this.state.events.id, posterObj)
   }
   handleDelete = (e) => {
-    DeleteEvent(this.props.id, this.state.events.poster)
+    if (this.state.popup) {
+      this.setState({popup: false})
+      console.log('yess');
+    }else{
+        this.setState({popup: true})
+    }
+    // DeleteEvent(this.props.id, this.state.events.poster)
+  }
+  handleImgChange = (e) => {
+    console.log(e);
   }
 
   render() {
@@ -76,45 +91,74 @@ export class AdminEvent extends Component {
           <li>
               <label htmlFor="">Event Address</label>
               <div>
-              <ul className="wrapper">
-                
-                <input
-                  className="text-input"
-                  name="streetAddress"
-                  onChange={(e) => {
-                    this.onChangeEvent(e);
-                  }}
-                  value={this.state.events.streetAddress}
-                  type="text"
-                />
-                <input
-                  className="text-input"
-                  name="eventParish"
-                  onChange={(e) => {
-                    this.onChangeEvent(e);
-                  }}
-                  value={this.state.events.eventParish}
-                  type="text"
-                />
-                <input
-                  className="text-input"
-                  name="eventStreet"
-                  onChange={(e) => {
-                    this.onChangeEvent(e);
-                  }}
-                  value={this.state.events.eventStreet}
-                  type="text"
-                />
+              <ul className="wrapper | flow-1">
+                <li>
+                  <input
+                    className="text-input"
+                    name="streetAddress"
+                    onChange={(e) => {
+                      this.onChangeEvent(e);
+                    }}
+                    value={this.state.events.streetAddress}
+                    type="text"
+                  />
+                </li>
+                <li>
+                  <input
+                    className="text-input"
+                    name="eventParish"
+                    onChange={(e) => {
+                      this.onChangeEvent(e);
+                    }}
+                    value={this.state.events.eventParish}
+                    type="text"
+                  />
+                </li>
+                <li>
+                  <input
+                    className="text-input"
+                    name="eventStreet"
+                    onChange={(e) => {
+                      this.onChangeEvent(e);
+                    }}
+                    value={this.state.events.eventStreet}
+                    type="text"
+                  />
+                </li>
               </ul>        
               </div>
           </li>
-          <li>
-            <label htmlFor="">Poster</label>
-            <input type="file" accept="image/png, image/jpeg" onChange={(e) => { this.setState({image: e.target.files[0]}) }}/>
-          </li>
-        <button onClick={(e) => { this.handleDelete() }}>Delete</button>
-        <button onClick={(e) => { this.handleUpdate() }}>Submit</button>
+          <div>
+            <ul className="media-wrapper">
+              <li className="mg-block-start-3">
+                <label className="block" htmlFor="">Poster</label>
+                <input className="mg-block-end-1" type="file" accept="image/png, image/jpeg" onChange={(e) => { this.setState({poster: e.target.files[0]}) }}/>
+                <img src={this.state.poster? URL?.createObjectURL(this.state.poster): this.state.events.poster} alt="" />
+              </li>
+              <li className="mg-block-start-3">
+                <label className="block" htmlFor="">Photos</label>
+                <input className="mg-block-end-1" type="file" accept="image/png, image/jpeg" onChange={(e) => { this.setState({photos: [...this.state.photos, e.target.files[0]] }) }}/>
+                <div className="photos-wrapper | flex-wrap">
+                  {this.state.photos.map((x, key)=>{
+                    return(
+                      <img key={key} src={x? URL?.createObjectURL(x): x} alt="" />
+                      
+                    )
+                  })}
+                </div>
+                
+              </li>
+              <li className="mg-block-start-3">
+                <label className="block" htmlFor="">Videos</label>
+                <input className="mg-block-end-1" type="file" accept="video/mp4,video/x-m4v,video/*" onChange={(e) => { this.setState({image: e.target.files[0]}) }}/>
+                <ReactPlayer className='react-player' controls={true} url={this.state.events.video}/>
+              </li>
+            </ul>
+          </div>
+        <button datatype-button="primary" className="button full-width" onClick={(e) => { this.handleDelete() }}>Delete</button>
+        <button datatype-button="secondary" className="button full-width" onClick={(e) => { this.handleUpdate() }}>Submit</button>
         </ul>
+        <PrimaryPopup isOpen={this.state.popup} prompt={this.state.popupPrompt} isClosed={this.handleDelete} />
       </div>
     );
   }

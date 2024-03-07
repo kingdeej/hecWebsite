@@ -1,9 +1,11 @@
-.admin-event-page{
-    // display: none;
-}
+
 .edit-admin{
+    min-height: $page-height-with-nav;
+    svg{
+        font-size: 1.5rem;
+    }
     .event-panel{
-        border-bottom: 2px solid $clr-light-400;
+        border-bottom: 2px solid $clr-light-500;
     }
     .admin-events-list{
         box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.08);
@@ -17,9 +19,26 @@
                 aspect-ratio: 1.5/2;
             }
             &:not(:last-child){
-                border-bottom: 2px solid $clr-light-400;
+                border-bottom: 1px solid $clr-light-500;
             }
 
         }
+    }
+}
+
+.admin-event-page{
+    .text-input{
+        margin-left: 1rem;
+        width: calc(100% - 1rem);
+    }
+    img{
+        width: 200px;
+    }
+    .react-player{
+        max-width: 100%;
+    }
+    .media-wrapper{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
     }
 }
