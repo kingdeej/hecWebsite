@@ -13,6 +13,7 @@
         justify-content: center;
         flex-direction: column-reverse;
         .right-hero{
+            padding-inline: .75rem;
             .hero-img-cont{
                 --_size: 1rem;
                 padding-block-end: var(--_size);
@@ -21,7 +22,6 @@
                 .hero-img{
                     margin-block-start: -1rem ;
                     margin-inline-start: -1rem;
-                    // margin-left: var(--_size);
                     border-radius: 5px;
                 }
             }
