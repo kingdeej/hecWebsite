@@ -7,33 +7,35 @@
     min-height: calc(100dvh - $header-height);
     .hero-wrapper{
         padding-block-start: 2rem;
+        justify-content: center;
+        flex-direction: column-reverse;
         .hero-heading{
             display: inline;
         }
-        justify-content: center;
-        flex-direction: column-reverse;
+        .wrapper{
+            gap: min(2rem, 2vw);
+        }
         .right-hero{
-            padding-inline: min(1.5rem, 7vw ) ;
+            padding-inline: min(2rem, 10vw ) ;
             .hero-img-cont{
-                --_size: 1rem;
-                padding-block-end: var(--_size);
-                margin-inline-start: var(--_size);
+                transform: translateX(2.5%);
                 border-radius: 5px;
                 .hero-img{
-                    margin-block-start: -1rem ;
-                    margin-inline-start: -1rem;
+                    transform: translateX(-5%) translateY(-4%);
                     border-radius: 5px;
+                    object-fit: fill;
                 }
             }
             li{
                 .hero-img{
                     max-height: 400px;
+                    aspect-ratio: 1.5/2;
                 }
             }
         }
     }
     .hero-flyer-buttons{
-        margin-top: 5rem;
+        // margin-top: 5rem;
         height: 50px;
         order: -1;
         .hero-flyer-button{
@@ -92,6 +94,7 @@
         }
     }
     .hero-nav-button-wrapper{
+        z-index: 10;
         display: block;
         cursor: pointer;
         position: absolute;

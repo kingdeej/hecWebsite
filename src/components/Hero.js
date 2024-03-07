@@ -86,8 +86,8 @@ export default function Hero() {
                     <h1 className="hero-heading heading-line-style | primary-header | text-center mg-block-start-0">
                       {x.eventName}
                     </h1>
-                    <div className='wrapper flex-jc-c gap-4'>
-                      <ul className="event-info-wrapper | flow-1">
+                    <div className='wrapper flex-jc-c'>
+                      <ul className="event-info-wrapper | text-left flow-1">
                         <li className='primary-paragraph | clr-light-500 flex gap-1'><img src={locationIcon1} alt="location" />{x.eventStreet}, {x.eventParish}</li>
                         <li className='primary-paragraph | clr-light-500 flex gap-1'><img src={dateIcon1} alt="date" />{x.eventDate}</li>
                       </ul>

@@ -98,10 +98,9 @@
         box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.10);
         padding: .2rem;
         .dropdown{
-            min-width: 2.7rem;
-            line-break:strict;
+            min-width: 3rem;
+            line-break: strict;
             background-color: $clr-light-300;
-            text-align: left;
             &:hover{
                 background-color: $clr-light-400;
             } 

@@ -99,7 +99,7 @@ export default function Nav(props) {
               {
                 sessionStorage.getItem('user')?
                 <div>
-                  <Link className='dropdown' to='/admin'><button className='button'>Admin</button></Link>
+                  <Link className='dropdown' to='/admin'><button className='button dropdown'>Admin</button></Link>
                   <button onClick={(e) => { logout() } } className='button dropdown'>Logout</button>
                 </div>
                 :

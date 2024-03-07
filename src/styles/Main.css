@@ -340,25 +340,27 @@ footer a, footer p {
 .hero .hero-wrapper .hero-heading {
   display: inline;
 }
+.hero .hero-wrapper .wrapper {
+  gap: min(2rem, 2vw);
+}
 .hero .hero-wrapper .right-hero {
-  padding-inline: min(1.5rem, 7vw);
+  padding-inline: min(2rem, 10vw);
 }
 .hero .hero-wrapper .right-hero .hero-img-cont {
-  --_size: 1rem;
-  padding-block-end: var(--_size);
-  margin-inline-start: var(--_size);
+  transform: translateX(2.5%);
   border-radius: 5px;
 }
 .hero .hero-wrapper .right-hero .hero-img-cont .hero-img {
-  margin-block-start: -1rem;
-  margin-inline-start: -1rem;
+  transform: translateX(-5%) translateY(-4%);
   border-radius: 5px;
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 .hero .hero-wrapper .right-hero li .hero-img {
   max-height: 400px;
+  aspect-ratio: 1.5/2;
 }
 .hero .hero-flyer-buttons {
-  margin-top: 5rem;
   height: 50px;
   order: -1;
 }
@@ -417,6 +419,7 @@ footer a, footer p {
     grid-column: span 2;
   }
   .hero-nav-button-wrapper {
+    z-index: 10;
     display: block;
     cursor: pointer;
     position: absolute;
@@ -1186,10 +1189,9 @@ footer a, footer p {
   padding: 0.2rem;
 }
 .dropdown-button-wrapper .active-dropdown .dropdown {
-  min-width: 2.7rem;
+  min-width: 3rem;
   line-break: strict;
   background-color: hsl(0, 0%, 100%);
-  text-align: left;
 }
 .dropdown-button-wrapper .active-dropdown .dropdown:hover {
   background-color: hsl(60, 7%, 95%);
