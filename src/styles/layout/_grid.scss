@@ -7,11 +7,9 @@
     grid-auto-columns: 1fr;
 }
 .responsive-even-columns{
+    --_grid-size: 250px;
     display: grid;
-    @media (min-width:$breakpoint-medium){
-        grid-auto-flow: column;
-        grid-auto-columns: 1fr;
-    }
+    grid-template-columns: repeat(auto-fit, minmax(var(--_grid-size), 1fr));
 }
 .grid-area{
     display: grid;

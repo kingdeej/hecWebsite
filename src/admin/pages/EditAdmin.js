@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Events from '../../components/Events';
 import AdminEvent from './AdminEvent';
-import {AiOutlinePlus,AiOutlineDelete} from 'react-icons/ai'
+// import {AiOutlinePlus,AiOutlineDelete} from 'react-icons/ai'
+import {Trash, Plus} from '../../images/Icons'
 import { Link } from 'react-router-dom';
 import PrimaryPopup from '../../components/PrimaryPopup';
 
@@ -11,6 +12,8 @@ export class EditAdmin extends Component {
         eventId: '',
         step: 0,
         event: {},
+        popup: false,
+        popupPrompt: 'Are you sure you want to delete this event?'
     }
 
     getEvents = (e) => {
@@ -21,13 +24,21 @@ export class EditAdmin extends Component {
         this.setState({step: 1})
         this.setState({event: this.state.events.find((x)=>x.id === e.target.id)})
     }
+    handleDelete = (e) => {
+        if (this.state.popup) {
+            this.setState({popup: false})
+            
+        }else{
+            this.setState({popup: true})
+        }
+    }
     EventPages = (e) =>{
         const url = window.location.pathname  
         const urlEvents = url.includes('events') 
         switch (urlEvents? 0 :this.state.step) {
             case 0:
                 return(
-                    <ul className='admin-events-list | pg-3'>
+                    <ul className='admin-events-list | bg-light-300 pg-inline-2'>
                         {this.state.events?.map((x, key)=>{
                             return(
                                 <li key={key} className='admin-event | flex-jc-sb'>
@@ -41,8 +52,8 @@ export class EditAdmin extends Component {
                                             </div>
                                         </Link>
                                     </button>
-                                    <button className='button'>
-                                        <AiOutlineDelete />
+                                    <button onClick={this.handleDelete} className='button'>
+                                        <Trash />
                                     </button>
                                 </li>
                             )
@@ -63,18 +74,22 @@ export class EditAdmin extends Component {
   render() {
     return(
         <div className='edit-admin | section'>
-            <div className="container clr-dark-300">
+            <div className="container | clr-dark-300">
                 <h1 className='primary-heading'>Events</h1>
                 <div className="event-panel | mg-block-4 pg-block-end-2 flex-jc-sb">
-                    <div className='flex gap-2'>
-                        <AiOutlinePlus />
-                        <button className='button'>New Event</button>
+                    <div className='flex gap-1'>
+                        <Plus />
+                        <Link to={'/admin/add-event/0'}><button className='button fs-300'>New Event</button></Link>
                     </div>
-                    <AiOutlineDelete />
+                    <Trash />
                 </div>
                 <this.EventPages />
             </div>
-            <PrimaryPopup prompt='hello' action={console.log('hello')} />
+            <PrimaryPopup 
+                isOpen={this.state.popup} 
+                prompt={this.state.popupPrompt} 
+                isClosed={this.handleDelete} 
+            />
         </div>
     )
   }

@@ -85,9 +85,9 @@ export default function AddAdmin() {
     }
   };
   return (
-    <div className="add-event-page | page-block-padding">
-      <div className="add-event-page-wrapper | page-inline-padding">
-        <h1 className="primary-header | text-center">Admin</h1>
+    <div className="add-event-page | section">
+      <div className="add-event-page-wrapper | clr-dark-300 container">
+        <h1 className="primary-heading  |  text-center">Admin</h1>
         <div className="add-event-wrapper">
           <Forms  />
         </div>

@@ -62,10 +62,10 @@ export default function Add2(props) {
         props.setEventImages(EventMedia)
     }
   return (
-    <form onSubmit={(e) => { handleButtonClick(e) }} className="add-event | flex-column space-between">
-            <h2 className="secondary-header">Add Photos</h2>
+    <form onSubmit={(e) => { handleButtonClick(e) }} className="add-event | flow-0">
+            <h2 className="secondary-heading">Add Photos</h2>
             <label htmlFor="">Add Poster</label>
-            <div className="add-img-wrapper flex-center">
+            <div className="add-img-wrapper relative flex-center">
               <div className="position-center">
                 {
                   !eventImage ? <HiPlus className="add-img-button position-center" /> : <img src={URL.createObjectURL(eventImage)} alt="" /> 
@@ -84,7 +84,7 @@ export default function Add2(props) {
             </div>
 
             <label htmlFor="">Add video</label>
-            <div className="add-img-wrapper flex-center">
+            <div className="add-img-wrapper mg-block relative">
               <div className="position-center">
                 {
                   !eventVideo ? <HiPlus className="add-img-button position-center" /> : <video src={URL.createObjectURL(eventVideo)} alt="" /> 
@@ -103,13 +103,13 @@ export default function Add2(props) {
 
             
             <label htmlFor="">Additional Photos</label>
-            <div className="add-imgs-wrapper flex">
+            <div className="add-imgs-wrapper | gap-1 flex">
               {[...Array(addImagesCount())].map((x, key)=>{
                 const keyCount = key +1
                 const eventsImagesList = !eventImages ? '' : eventImages[key]
                 const eventsImagesLength = eventImages.length
                 return(
-                  <div key={key} className="add-img-wrapper flex-center">
+                  <div key={key} className="add-img-wrapper relative">
                   <div className="position-center">
                     {
                       eventsImagesLength === key ? <HiPlus className="add-img-button position-center" /> : <img src={URL.createObjectURL(eventsImagesList)} alt="" /> 
@@ -130,7 +130,7 @@ export default function Add2(props) {
             </div>
               <button
               type="submit"
-              className="button get-tickets-button"
+              className="get-tickets-button | mg-block-start-2 button "
             >
               Next
             </button>

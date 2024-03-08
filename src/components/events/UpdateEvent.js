@@ -1,4 +1,3 @@
-import React from 'react'
 import { db } from '../../firebase/firebase'
 import { doc,updateDoc } from 'firebase/firestore'
 

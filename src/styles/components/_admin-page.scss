@@ -1,5 +1,5 @@
 .admin-page{
-    min-height: calc(100dvh - $header-height);
+    min-height: $page-height-with-nav;
     .secondary-heading{
         margin-bottom: 0;
         

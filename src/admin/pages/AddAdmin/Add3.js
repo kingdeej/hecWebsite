@@ -31,7 +31,7 @@ export class Add3 extends Component {
         onSubmit={(e) => {
           this.handleButtonClick(e);
         }}
-        className="add-event | flex-column space-between"
+        className="add-event | flow-2"
       >
         <h2 className="secondary-header">Add event info</h2>
         <input
@@ -67,8 +67,8 @@ export class Add3 extends Component {
         />
         <label htmlFor="">Additional Photos</label>
 
-        <ul className="promoter-links-wrapper space-between">
-          <li className="promoter-link-wrapper flex-column">
+        <ul className="promoter-links-wrapper | gap-1 responsive-even-columns">
+          <li className="promoter-link-wrapper flow-1">
             <AiOutlineInstagram />
             <input
               onChange={(e) => {
@@ -81,7 +81,7 @@ export class Add3 extends Component {
               id="promoterName"
             />
           </li>
-          <li className="promoter-link-wrapper flex-column">
+          <li className="promoter-link-wrapper  flow-1">
             <AiFillFacebook />
 
             <input
@@ -95,7 +95,7 @@ export class Add3 extends Component {
               id="promoterName"
             />
           </li>
-          <li className="promoter-link-wrapper flex-column">
+          <li className="promoter-link-wrapper  flow-1">
             <AiOutlineWhatsApp />
             <input
               onChange={(e) => {

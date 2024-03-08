@@ -25,9 +25,9 @@ export default class Add1 extends Component {
         onSubmit={(e) => {
           this.handleButtonClick(e);
         }}
-        className="add-event | flex-column space-between"
+        className="add-event | flow-2"
       >
-        <h2 className="secondary-header">Add event info</h2>
+        <h2 className="secondary-heading">Add event info</h2>
         <input
           onChange={(e) => {
             this.handleChange(e);
@@ -60,7 +60,7 @@ export default class Add1 extends Component {
           name="eventDate"
           id="eventDate"
         />
-        <hr />
+        <hr className="divider mg-block-start-2" />
           <input
             onChange={(e) => {
               this.handleChange(e);
@@ -83,7 +83,7 @@ export default class Add1 extends Component {
             name="streetAddress"
             id="streetAddress"
           />
-        <div className="location-wrapper space-between">
+        <div className="location-wrapper flow-3">
           <input
             onChange={(e) => {
               this.handleChange(e);
@@ -108,7 +108,7 @@ export default class Add1 extends Component {
           />
         </div>
         <button 
-        type="submit" className="button get-tickets-button">
+        type="submit" className="get-tickets-button | button">
           Next
         </button>
       </form>

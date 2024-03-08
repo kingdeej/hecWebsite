@@ -38,3 +38,6 @@ $input-padding-block: $size-1;
 $input-padding-inline: $size-1;
 $input-border: 1.5px solid hsl(from $clr-primary-300 h s l / .5);
 $input-border-radius: 2px;
+
+//Page
+$page-height-with-nav: calc(100dvh - $header-height);

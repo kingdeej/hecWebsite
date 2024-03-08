@@ -1,5 +1,4 @@
 import { ref, deleteObject, uploadBytes, getDownloadURL } from 'firebase/storage'
-import React from 'react'
 import { storage } from '../../firebase/firebase'
 
 export default function UpdateMedia(id, media, poster, getEventMedia) {
