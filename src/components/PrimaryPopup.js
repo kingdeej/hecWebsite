@@ -2,7 +2,7 @@ import React from 'react'
 import {AiOutlineClose} from 'react-icons/ai'
 export default function PrimaryPopup(props) {
   return (
-    <div>
+    <div className=''>
         <AiOutlineClose />
         <div>
             <h1>{props.prompt}</h1> 
