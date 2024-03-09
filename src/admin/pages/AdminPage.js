@@ -3,20 +3,26 @@ import { Link, useNavigate } from "react-router-dom";
 import {AiOutlinePlus, AiOutlineEdit} from 'react-icons/ai'
 import {VscSignOut} from 'react-icons/vsc'
 import { auth } from "../../firebase/firebase";
-import { signOut } from "@firebase/auth";
+import { signOut, onAuthStateChanged } from "@firebase/auth";
 import Sidebar from "../components/Sidebar";
+import IsSignedIn from "../../components/IsSignedIn";
 
 export default function AdminPage() {
   const navigate = useNavigate();
+  const [isAuth, setIsAuth] = useState(null)
 
   useEffect(() => {
-    if (!sessionStorage.getItem('user')) {
+    function getAuth(user) {
+      setIsAuth(user)
+      if (!user) {
         navigate('/')
+      }
     }
-  }, [])
+    IsSignedIn(getAuth)
+  }, [isAuth])
   const onSignOut = (e) => {
     signOut(auth)
-    sessionStorage.removeItem('user')
+    console.log(auth);
     navigate('/')
   }
   return (
@@ -38,8 +44,8 @@ export default function AdminPage() {
             </Link>
           </li>
           <li className="">
-            <button className="admin-button button flow-2">
-              <VscSignOut onClick={(e) => { onSignOut() }} className="button-img" />
+            <button onClick={(e) => { onSignOut() }} className="admin-button button flow-2">
+              <VscSignOut className="button-img" />
               <h2 className="secondary-heading">Sign Out</h2>
             </button>
           </li>

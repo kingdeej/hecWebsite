@@ -4,7 +4,7 @@ import Add1 from "./AddAdmin/Add1";
 import Add2 from "./AddAdmin/Add2";
 import Add3 from "./AddAdmin/Add3";
 import {v4} from 'uuid'
-import SendImage from "../../components/SendImage";
+import SendImage from "../../components/events/SendImage";
 
 
 export default function AddAdmin() {

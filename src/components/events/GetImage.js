@@ -1,5 +1,5 @@
 import {ref, getDownloadURL, listAll, list} from 'firebase/storage'
-import {storage} from '../firebase/firebase'
+import {storage} from '../../firebase/firebase'
 
 export default function GetImage(getImageList) {
     let poster = []

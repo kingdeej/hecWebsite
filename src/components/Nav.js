@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../images/logo.svg'
 import searchIcon from '../images/searchIcon.svg'
 import profileIcon from '../images/profileIcon.svg'
@@ -11,15 +11,20 @@ import {Link} from 'react-router-dom'
 import { signOut } from 'firebase/auth'
 import { auth } from '../firebase/firebase'
 import {useNavigate} from 'react-router-dom'
+import IsSignedIn from './IsSignedIn'
 
 
 export default function Nav(props) {
   const [hideMenu, setHideMenu] = useState('')
   const [count, setCount] = useState(false)
   const [redirect, setRedirect] = useState(false)
+  const [isAuth, setIsAuth] = useState(null)
   const dropdown = count ? 'active-dropdown' : '' 
   const navigate = useNavigate()
-
+  
+    useEffect(() => {
+      IsSignedIn(setIsAuth)
+    }, [])
   function toggleNav(e) {
     if (e === 0) {
       setHideMenu('nav-active')
@@ -45,6 +50,7 @@ export default function Nav(props) {
     navigate('/')
     setRedirect(false)
   }
+  
   return (
     <nav className='nav' style={{background: props.background}}>
       <div className="nav-wrapper | space-between container flex-jc-sb">
@@ -97,7 +103,7 @@ export default function Nav(props) {
             <img onClick={toggleDropdown} className="button | icon-button dropdown-button" src={profileIcon} alt="profile" />
             <div className={`dropdown-options ${dropdown}`}>
               {
-                sessionStorage.getItem('user')?
+                isAuth?
                 <div>
                   <Link className='dropdown' to='/admin'><button className='button dropdown'>Admin</button></Link>
                   <button onClick={(e) => { logout() } } className='button dropdown'>Logout</button>

@@ -9,12 +9,24 @@ import LoginPage from './pages/LoginPage';
 import AdminPage from './admin/pages/AdminPage';
 import AddAdmin from './admin/pages/AddAdmin';
 import EditAdmin from './admin/pages/EditAdmin';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [bgColor, setBgColor] = useState('#2D5873')
+  const params = window.location.pathname
+  useEffect(() => {
+    if (params === '/') {
+      setBgColor('#2D5873')
+    }else{
+      setBgColor('#2D5873')
+    }
+
+  }, [params])
+  
   return (
     <div className="App">
       <BrowserRouter >
-        <Nav background='#2D5873' />
+        <Nav background={bgColor} />
         <Routes >
           <Route path='/' Component={HomePage}/>
           <Route path='/events-page' Component={EventsPage}/>

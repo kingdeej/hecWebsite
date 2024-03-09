@@ -6,6 +6,7 @@ import {BiChevronRightCircle, BiChevronLeftCircle} from 'react-icons/bi'
 import {Link} from 'react-router-dom'
 import Events from './Events'
 import Loading from './Loading'
+import IsSignedIn from './IsSignedIn'
 
 export default function Hero() {
   const [currentFlyer, setCurrentFlyer] = useState(0)
@@ -16,7 +17,6 @@ export default function Hero() {
   const heroNumber = 3
 
   function handleChangeflyer(e) {
-    console.log(e);
     setCurrentFlyer(e)
   }
   const handleEventClick = () => { 

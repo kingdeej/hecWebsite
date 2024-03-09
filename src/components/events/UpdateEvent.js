@@ -12,7 +12,7 @@ export default function UpdateEvent(event, id) {
                 console.log(error);
             })
         } catch (error) {
-            
+            console.log(error );
         }
     }
     handleUpdate()

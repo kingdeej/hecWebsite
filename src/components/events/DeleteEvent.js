@@ -3,7 +3,6 @@ import { db, storage } from '../../firebase/firebase'
 import {deleteObject, ref, getMetadata} from 'firebase/storage'
 
 export default function DeleteEvent(id, media) {
-    console.log(media);
     const docRef = doc(db, 'flyerData', id)
     const imageRef = ref(storage, `${media}`)
     const handleDeleteEvent = async (e) => {

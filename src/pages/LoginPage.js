@@ -21,9 +21,6 @@ export default function LoginPage() {
     }else if (redirect) {
         navigate('/promoter/add-event/0')
     }
-    if (redirect) {
-        sessionStorage.setItem('user', auth.currentUser.uid)
-    }
     
     function handleSubmit(e) {
         e.preventDefault()
@@ -87,11 +84,6 @@ export default function LoginPage() {
             default:
                 break;
         }
-    }
-    const loginError = (e) => {
-        return(
-            setLoginErrorText('error')
-        )
     }
   return (
     <main className="login-page | flex-center flex-column">

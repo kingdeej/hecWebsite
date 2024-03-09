@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import UpdateEvent from "../../components/events/UpdateEvent";
 import DeleteEvent from "../../components/events/DeleteEvent";
-import sendImage from "../../components/SendImage";
-import UpdateMedia from "../../components/events/UpdateMedia";
+import sendImage from "../../components/events/SendImage";
+import UpdateMedia from "../../components/events/UpdatePoster";
 import PrimaryPopup from "../../components/PrimaryPopup";
 import ReactPlayer from "react-player";
+import SendEvent from "../../components/events/SendEvent";
 
 export class AdminEvent extends Component {
   state = {
@@ -23,21 +24,39 @@ export class AdminEvent extends Component {
     this.setState({events: {...this.state.events, [name]: value}})
     this.setState({eventInfo: {...this.state.eventInfo, [name]: value}})
   };
-  getEventMedia  = (e) => {
-    const poster = e
-    // this.setState({eventInfo: {...this.state.eventInfo, poster} })
-    // UpdateEvent({...this.state.eventInfo, poster}, this.props.id)
-    UpdateEvent(this.state.eventInfo, this.props.id)
-  }
-  
-  handleUpdate = (e) => {
-    const posterObj = {photoName: this.state.poster.name, eventPhotos: this.state.poster, mediaType:'poster'}
-    if (this.state.poster) {
-      UpdateMedia(this.state.events.id, this.state.events.poster, this.state.image, this.getEventMedia())
-    }else{
-      this.getEventMedia()
+  onChangeMedia = (e) => {
+    const name = e.target.name;
+    const value = e.target.files[0];
+    
+    if (name !== 'photos') {
+      this.setState({[name]: value})
     }
-    // sendImage(this.state.events.id, posterObj)
+    if (name === 'photos') {
+      this.setState({[name]: [...this.state.photos, value] })
+    }
+      console.log(this.state.events.photos);
+
+  }
+  getEventMedia  = (mediaType, url) => {
+    const poster = url
+    this.setState({eventInfo: {[mediaType]: poster} })
+    if (mediaType === 'poster') {
+      UpdateEvent({[mediaType]: poster}, this.props.id)
+    }
+    if (mediaType === 'photos') {
+      UpdateEvent({...this.state.events.photos, [mediaType]: poster}, this.props.id)
+    }
+  }
+  handleUpdate = (e) => {
+    if (this.state.poster) {
+      UpdateMedia(this.state.events.id, this.state.events.poster, this.state.poster, this.getEventMedia,'poster')
+    }
+    if (this.state.photos) {
+      console.log('photos');
+      this.state.photos.map((x)=>{
+        return UpdateMedia(this.state.events.id, this.state.events.photos, x, this.getEventMedia,'photos')
+      })
+    }
   }
   handleDelete = (e) => {
     if (this.state.popup) {
@@ -96,8 +115,6 @@ export class AdminEvent extends Component {
 
     }
   ]
-
-
   render() {
     return (
       <div className="admin-event-page">
@@ -142,12 +159,12 @@ export class AdminEvent extends Component {
                     <ul className="media-wrapper">
                       <li className="mg-block-start-3">
                         <label className="block" htmlFor="">Poster</label>
-                        <input className="mg-block-end-1" type="file" accept="image/png, image/jpeg" onChange={(e) => { this.setState({poster: e.target.files[0]}) }}/>
+                        <input className="mg-block-end-1" name='poster' type="file" accept="image/png, image/jpeg" onChange={(e) => {this.onChangeMedia(e) }}/>
                         <img src={this.state.poster? URL?.createObjectURL(this.state.poster): this.state.events.poster} alt="" />
                       </li>
                       <li className="mg-block-start-3">
                         <label className="block" htmlFor="">Photos</label>
-                        <input className="mg-block-end-1" type="file" accept="image/png, image/jpeg" onChange={(e) => { this.setState({photos: [...this.state.photos, e.target.files[0]] }) }}/>
+                        <input className="mg-block-end-1" name="photos" type="file" accept="image/png, image/jpeg" onChange={(e) => {this.onChangeMedia(e) }}/>
                         <div className="photos-wrapper | flex-wrap">
                           {this.state.photos.map((x, key)=>{
                             return(

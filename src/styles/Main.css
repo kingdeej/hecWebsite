@@ -217,6 +217,9 @@ button[datatype-button=secondary] {
   margin-left: 0;
   display: block;
 }
+.event-page-wrapper .event-page-info-wrapper .event-info-wrapper {
+  text-align: left;
+}
 .event-page-wrapper .entertainment-wrapper .video-wrapper {
   background-color: hsl(60, 7%, 95%);
 }
@@ -498,6 +501,12 @@ footer a, footer p {
 .nav {
   height: 85px;
   position: relative;
+}
+.nav .logo img {
+  height: 80%;
+}
+.nav .nav-wrapper {
+  height: 100%;
 }
 .nav .nav-links-wrapper {
   z-index: 999;

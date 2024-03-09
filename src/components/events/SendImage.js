@@ -1,4 +1,4 @@
-import { storage } from "../firebase/firebase";
+import { storage } from "../../firebase/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import SendEvent from "./SendEvent";
 

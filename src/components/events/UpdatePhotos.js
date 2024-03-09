@@ -1,7 +1,7 @@
 import { ref, deleteObject, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { storage } from '../../firebase/firebase'
 
-export default function UpdateMedia(id, media, poster, getEventMedia) {
+export default function UpdatePhotos(id, media, poster, getEventMedia) {
     const prevRef = ref(storage, media)
     const mediaRef = ref(storage, `eventFlyers/${id}/${poster.name + id} `)
     
@@ -33,6 +33,10 @@ export default function UpdateMedia(id, media, poster, getEventMedia) {
             console.log(error);
         }
     }
-    // updateMedia()
-    deleteMedia()
+    //if there is already a photo
+    if (media) {
+        deleteMedia()
+    }else{
+        updateMedia()
+    }
 }

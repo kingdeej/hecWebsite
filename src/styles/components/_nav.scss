@@ -2,7 +2,13 @@
 .nav{
     height: $header-height;
     position: relative;
+    .logo{
+        img{
+            height: 80%;
+        }
+    }
     .nav-wrapper{
+        height: 100%;
     }
     .nav-links-wrapper{
         z-index: 999;
