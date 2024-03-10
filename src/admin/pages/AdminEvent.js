@@ -44,7 +44,16 @@ export class AdminEvent extends Component {
       UpdateEvent({[mediaType]: poster}, this.props.id)
     }
     if (mediaType === 'photos') {
-      UpdateEvent({...this.state.events.photos, [mediaType]: poster}, this.props.id)
+      const prevPhoto = this.state.events.photos 
+      const currentPhoto = poster
+      let newPhoto = {[mediaType]: [!prevPhoto, currentPhoto]}
+      if (prevPhoto) {
+        newPhoto = {[mediaType]: [!prevPhoto, currentPhoto]}
+      }else{
+        newPhoto = {[mediaType]: [currentPhoto]}
+      }
+      console.log(newPhoto);
+      UpdateEvent(newPhoto, this.props.id)
     }
   }
   handleUpdate = (e) => {
@@ -167,6 +176,7 @@ export class AdminEvent extends Component {
                         <input className="mg-block-end-1" name="photos" type="file" accept="image/png, image/jpeg" onChange={(e) => {this.onChangeMedia(e) }}/>
                         <div className="photos-wrapper | flex-wrap">
                           {this.state.photos.map((x, key)=>{
+                            console.log(x);
                             return(
                               <img key={key} src={x? URL?.createObjectURL(x): x} alt="" />
                               
