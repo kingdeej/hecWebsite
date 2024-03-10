@@ -87,7 +87,7 @@ export default function EventPage() {
                                 {
                                 photoArray.map((x, key)=>{
                                     return(
-                                        <li className='flex-center' key={key}> {!event.photos ? <p>No Image</p> : ''}<img src={event.photos} alt="" /></li>
+                                        <li className='flex-center' key={key}> {!event.photos[0] ? <p>No Image</p> : ''}<img src={event.photos[key]} alt="" /></li>
                                     )
                                 })
                                     

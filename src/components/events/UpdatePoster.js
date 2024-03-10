@@ -35,9 +35,9 @@ export default function UpdateMedia(id, media, poster, getEventMedia, mediaType)
         }
     }
     //if there is already a photo
-    if (media) {
-        deleteMedia()
-    }else{
-        updateMedia()
-    }
+    // if (media) {
+    //     deleteMedia()
+    // }else{
+    // }
+    updateMedia()
 }

@@ -1,17 +1,20 @@
 import React, { Component } from "react";
 import UpdateEvent from "../../components/events/UpdateEvent";
-import DeleteEvent from "../../components/events/DeleteEvent";
-import sendImage from "../../components/events/SendImage";
+// import DeleteEvent from "../../components/events/DeleteEvent";
+// import sendImage from "../../components/events/SendImage";
+// import SendEvent from "../../components/events/SendEvent";
 import UpdateMedia from "../../components/events/UpdatePoster";
 import PrimaryPopup from "../../components/PrimaryPopup";
 import ReactPlayer from "react-player";
-import SendEvent from "../../components/events/SendEvent";
+import {Trash} from '../../images/Icons'
+import {eventInputs} from '../components/eventInputs'
 
 export class AdminEvent extends Component {
   state = {
     events: this.props.event,
     eventInfo: {} ,
     poster: '',
+    deletePhotos: [],
     photos: [],
     video: '',
     popup: false,
@@ -34,10 +37,17 @@ export class AdminEvent extends Component {
     if (name === 'photos') {
       this.setState({[name]: [...this.state.photos, value] })
     }
-      console.log(this.state.events.photos);
-
   }
+  onDeleteMedia = (e)=>{
+    const filter = this.state.photos.filter((x)=> x !== e)
+    this.setState({photos: filter})
+    if (typeof e === 'string') {
+      console.log('hello');
+    }
+  }
+
   getEventMedia  = (mediaType, url) => {
+    console.log(url);
     const poster = url
     this.setState({eventInfo: {[mediaType]: poster} })
     if (mediaType === 'poster') {
@@ -46,27 +56,32 @@ export class AdminEvent extends Component {
     if (mediaType === 'photos') {
       const prevPhoto = this.state.events.photos 
       const currentPhoto = poster
-      let newPhoto = {[mediaType]: [!prevPhoto, currentPhoto]}
+      console.log(poster);
+      let newPhoto = {}
+      //if there is already a photo
       if (prevPhoto) {
-        newPhoto = {[mediaType]: [!prevPhoto, currentPhoto]}
+        newPhoto = {[mediaType]: [...prevPhoto, currentPhoto]}
       }else{
         newPhoto = {[mediaType]: [currentPhoto]}
       }
-      console.log(newPhoto);
       UpdateEvent(newPhoto, this.props.id)
     }
   }
+
   handleUpdate = (e) => {
     if (this.state.poster) {
       UpdateMedia(this.state.events.id, this.state.events.poster, this.state.poster, this.getEventMedia,'poster')
     }
+    if (this.state.events.photos) {
+      console.log('hello');
+    }
     if (this.state.photos) {
-      console.log('photos');
       this.state.photos.map((x)=>{
-        return UpdateMedia(this.state.events.id, this.state.events.photos, x, this.getEventMedia,'photos')
+        UpdateMedia(this.state.events.id, null, x, this.getEventMedia, 'photos')
       })
     }
   }
+
   handleDelete = (e) => {
     if (this.state.popup) {
       this.setState({popup: false})
@@ -77,58 +92,13 @@ export class AdminEvent extends Component {
     // DeleteEvent(this.props.id, this.state.events.poster)
   }
   handleImgChange = (e) => {
-    console.log(e);
   }
-  eventInputs =[
-    {
-      eventInfo: [
-        {
-          inputType: 'Event Name',
-          eventName: 'eventName',
-        },
-        {
-          inputType: 'Event Date',
-          eventName: 'eventDate',
-        },
-        {
-          inputType: 'Event Price',
-          eventName: 'eventPrice',
-        }
-      ],
-      eventAddress: [
-        {
-          eventName: 'streetAddress',
-        },
-        {
-          eventName: 'eventStreet',
-        },
-        {
-          eventName: 'eventParish',
-        },
-      ],
-      promoterInfo: [
-        {
-          inputType: 'Promoter Name',
-          eventName: 'PromoterName',
-        },
-        {
-          inputType: 'Promoter Email',
-          eventName: 'PromoterEmail',
-        },
-        {
-          inputType: 'Promoter Number',
-          eventName: 'PromoterNumber',
-        },
-      ]
-      
-
-    }
-  ]
   render() {
+    const newArray = this.state.photos.concat(Array(1).fill(0))
     return (
       <div className="admin-event-page">
         <ul>
-          {this.eventInputs.map((x, key)=>{
+          {eventInputs.map((x, key)=>{
             return(
               <li key={key}>
                 <div>
@@ -173,23 +143,37 @@ export class AdminEvent extends Component {
                       </li>
                       <li className="mg-block-start-3">
                         <label className="block" htmlFor="">Photos</label>
-                        <input className="mg-block-end-1" name="photos" type="file" accept="image/png, image/jpeg" onChange={(e) => {this.onChangeMedia(e) }}/>
+                        {newArray.map((x, key)=>{
+                          const maxInputs = 4
+                          if (x === 0 && key < maxInputs) {
+                            return <input key={key} className="mg-block-end-1" name="photos" type="file" accept="image/png, image/jpeg"  onChange={(e) => {this.onChangeMedia(e) }}/>
+                          }
+                        })}
                         <div className="photos-wrapper | flex-wrap">
-                          {this.state.photos.map((x, key)=>{
-                            console.log(x);
-                            return(
-                              <img key={key} src={x? URL?.createObjectURL(x): x} alt="" />
-                              
+                          {this.state.events.photos?.map((x, key)=>{
+                            return( 
+                              <div key={key} className="flex">
+                                <img  src={x} alt="" />
+                                <Trash onClick={(e) => { this.onDeleteMedia(x) }}/>
+                              </div>
                               )
                             })}
+                          {this.state.photos.map((x, key)=>{
+                            return( 
+                              <div className="flex">
+                                <img key={key} src={x? URL?.createObjectURL(x): x} alt="" />
+                                <Trash onClick={(e) => { this.onDeleteMedia(x) }}/>
+                              </div>
+                              )
+                            })}
+                            
                         </div>
                         
                       </li>
                       <li className="mg-block-start-3">
                         <label className="block" htmlFor="">Videos</label>
                         <input className="mg-block-end-1" type="file" accept="video/mp4,video/x-m4v,video/*" onChange={(e) => { this.setState({image: e.target.files[0]}) }}/>
-                        {this.state.events.video ? <ReactPlayer className='react-player' controls={true} url={this.state.events.video} /> : ''
-                        }
+                        {this.state.events.video ? <ReactPlayer className='react-player' controls={true} url={this.state.events.video} /> : ''}
                       </li>
                   </ul>
                   {x.promoterInfo.map((info, key)=>{
