@@ -79,15 +79,19 @@ export default function EventPage() {
                             <h2 className="secondary-header">
                                 Videos and Images
                             </h2>
-                            <div className='video-wrapper'>
-                                {!event.video ? <div>No Media Yet</div>: ''}
+                            <div className='video-wrapper flex-center'>
+                                {!event.video ? <div>No Media Yet</div>
+                                    : 
                                 <ReactPlayer className='react-player' controls={true} url={event.video}/>
+                                }
                             </div>
                             <ul className='images-carousel | flex-jc-sb gap-3'>
                                 {
                                 photoArray.map((x, key)=>{
+                                    console.log('event.photos');
+                                    const photosArray = event?.photos ? event.photos : [0,0,0,0]
                                     return(
-                                        <li className='flex-center' key={key}> {!event.photos[0] ? <p>No Image</p> : ''}<img src={event.photos[key]} alt="" /></li>
+                                        <li className='flex-center' key={key}> {!photosArray[key] ? <p>No Image</p> : ''}<img src={photosArray[key]} alt="" /></li>
                                     )
                                 })
                                     

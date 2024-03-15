@@ -9,8 +9,8 @@ export default function UpdateMedia(id, media, poster, getEventMedia, mediaType)
             try {
                 await deleteObject(prevRef)
                     .then((response)=>{
-                        updateMedia()
                         console.log('deleted');
+                        getEventMedia(mediaType)
                     })                    
                     .catch((error)=>{
                         console.log(error);
@@ -26,7 +26,6 @@ export default function UpdateMedia(id, media, poster, getEventMedia, mediaType)
                     .then((response)=>{
                         getDownloadURL(response.ref)
                         .then((url)=>{
-                    console.log('updated');
                     getEventMedia(mediaType, url)
                 })
             })
@@ -34,10 +33,10 @@ export default function UpdateMedia(id, media, poster, getEventMedia, mediaType)
             console.log(error);
         }
     }
-    //if there is already a photo
-    // if (media) {
-    //     deleteMedia()
-    // }else{
-    // }
-    updateMedia()
+    // if there is already a photo
+    if (media) {
+        deleteMedia()
+    }else{
+        updateMedia()
+    }
 }

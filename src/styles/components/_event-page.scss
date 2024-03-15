@@ -32,6 +32,8 @@
     .entertainment-wrapper{
         .video-wrapper{
             background-color: $clr-light-400;
+            max-height: 360px;
+            height: 360px;
             .react-player{
                 margin-inline: auto;
                 max-width: 100%;

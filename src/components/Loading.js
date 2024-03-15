@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Loading() {
+export default function Loading(type) {
     return(
-        <div className='loading | position-center'></div>
+        <div datatype-loading={!type.type ? 'normal' : type.type} className='loading | position-center'></div>
     )
 }

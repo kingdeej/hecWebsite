@@ -54,7 +54,7 @@ export default function Nav(props) {
   return (
     <nav className='nav' style={{background: props.background}}>
       <div className="nav-wrapper | space-between container flex-jc-sb">
-        <a href='/' className="logo">
+        <a href='/' className="logo flex-al-c">
           <img src={logo} alt="Logo" />
         </a>
         <ul datatype-nav={hideMenu} className="nav-links-wrapper | clr-dark-300">

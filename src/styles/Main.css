@@ -222,6 +222,8 @@ button[datatype-button=secondary] {
 }
 .event-page-wrapper .entertainment-wrapper .video-wrapper {
   background-color: hsl(60, 7%, 95%);
+  max-height: 360px;
+  height: 360px;
 }
 .event-page-wrapper .entertainment-wrapper .video-wrapper .react-player {
   margin-inline: auto;
@@ -456,6 +458,10 @@ footer a, footer p {
   100% {
     rotate: 360deg;
   }
+}
+
+.loading[datatype-loading=fixed] {
+  position: fixed;
 }
 
 .login-page {
@@ -704,7 +710,7 @@ footer a, footer p {
   max-height: 250px;
 }
 .admin-event-page .react-player {
-  max-width: 100%;
+  max-width: 250px;
   max-height: 250px;
 }
 .admin-event-page .media-wrapper {

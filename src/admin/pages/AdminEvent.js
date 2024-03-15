@@ -5,6 +5,7 @@ import UpdateEvent from "../../components/events/UpdateEvent";
 // import SendEvent from "../../components/events/SendEvent";
 import UpdateMedia from "../../components/events/UpdatePoster";
 import PrimaryPopup from "../../components/PrimaryPopup";
+import Loading from '../../components/Loading'
 import ReactPlayer from "react-player";
 import {Trash} from '../../images/Icons'
 import {eventInputs} from '../components/eventInputs'
@@ -16,11 +17,15 @@ export class AdminEvent extends Component {
     poster: '',
     deletePhotos: [],
     photos: [],
+    newPhotos: [],
     video: '',
     popup: false,
     popupPrompt: 'Are you sure you want to delete this event?',
-  };
-
+    loading: false  
+};
+  setLoading = (e) => {
+    this.setState({Loading: false})
+  }
   onChangeEvent = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -38,48 +43,65 @@ export class AdminEvent extends Component {
       this.setState({[name]: [...this.state.photos, value] })
     }
   }
+
   onDeleteMedia = (e)=>{
     const filter = this.state.photos.filter((x)=> x !== e)
     this.setState({photos: filter})
     if (typeof e === 'string') {
       console.log('hello');
+      this.setState({deletePhotos: [...this.state.deletePhotos, e]})
     }
   }
 
   getEventMedia  = (mediaType, url) => {
-    console.log(url);
-    const poster = url
-    this.setState({eventInfo: {[mediaType]: poster} })
+    let media = url
+    this.setState({eventInfo: {[mediaType]: media} })
     if (mediaType === 'poster') {
-      UpdateEvent({[mediaType]: poster}, this.props.id)
+      UpdateEvent({[mediaType]: media}, this.props.id, this.setLoading)
     }
+    if (mediaType === 'video') {
+      UpdateEvent({[mediaType]: media}, this.props.id, this.setLoading)
+    }
+
     if (mediaType === 'photos') {
-      const prevPhoto = this.state.events.photos 
-      const currentPhoto = poster
-      console.log(poster);
-      let newPhoto = {}
-      //if there is already a photo
-      if (prevPhoto) {
-        newPhoto = {[mediaType]: [...prevPhoto, currentPhoto]}
-      }else{
-        newPhoto = {[mediaType]: [currentPhoto]}
-      }
-      UpdateEvent(newPhoto, this.props.id)
+      const prevPhoto = this.state.events?.photos
+      const filteredPhotos = prevPhoto?.filter(x =>!this.state.deletePhotos.includes(x))
+      //this is if deleted and url returns null 
+      media = url ? url : []
+
+      this.setState({newPhotos: this.state.newPhotos.concat(media) })
+      const newPhotos = filteredPhotos.concat(this.state.newPhotos)
+      const newPhotosObj = {[mediaType]:newPhotos.concat(media)} 
+      UpdateEvent(newPhotosObj, this.props.id, this.setLoading)
+      this.setState({loading: false})
     }
   }
 
-  handleUpdate = (e) => {
+  handleUpdate = async (e) => {
+    this.setState({loading: true})
+    //if updating poster
     if (this.state.poster) {
       UpdateMedia(this.state.events.id, this.state.events.poster, this.state.poster, this.getEventMedia,'poster')
     }
-    if (this.state.events.photos) {
-      console.log('hello');
+    //if updating video
+    if (this.state.video) {
+      UpdateMedia(this.state.events.id, this.state.events.video, this.state.video, this.getEventMedia,'video')
     }
+    //if deleting photos
+    if (this.state.deletePhotos) {
+      this.state.deletePhotos.map((x)=>{
+        UpdateMedia(this.state.events.id, x, x, this.getEventMedia, 'photos')
+      })
+    }
+    //if updating photos
     if (this.state.photos) {
-      this.state.photos.map((x)=>{
+      this.state.photos.map(async(x, key)=>{
         UpdateMedia(this.state.events.id, null, x, this.getEventMedia, 'photos')
       })
     }
+  }
+  testing = (e) => {
+    this.setState({events: {...this.state.events, poster: null}})
   }
 
   handleDelete = (e) => {
@@ -97,6 +119,7 @@ export class AdminEvent extends Component {
     const newArray = this.state.photos.concat(Array(1).fill(0))
     return (
       <div className="admin-event-page">
+        {this.state.loading && <Loading type='fixed' />}
         <ul>
           {eventInputs.map((x, key)=>{
             return(
@@ -139,41 +162,51 @@ export class AdminEvent extends Component {
                       <li className="mg-block-start-3">
                         <label className="block" htmlFor="">Poster</label>
                         <input className="mg-block-end-1" name='poster' type="file" accept="image/png, image/jpeg" onChange={(e) => {this.onChangeMedia(e) }}/>
-                        <img src={this.state.poster? URL?.createObjectURL(this.state.poster): this.state.events.poster} alt="" />
+                        <div className="flex">
+                          <img src={this.state.poster? URL?.createObjectURL(this.state.poster): this.state.events.poster} alt="" />
+                        </div>
                       </li>
+
                       <li className="mg-block-start-3">
                         <label className="block" htmlFor="">Photos</label>
                         {newArray.map((x, key)=>{
-                          const maxInputs = 4
+                          const prevPhotos = !this.state.events.photos?.length ? 0 : this.state.events.photos?.length
+                          const maxInputs = (4 - prevPhotos) + this.state.deletePhotos?.length
                           if (x === 0 && key < maxInputs) {
                             return <input key={key} className="mg-block-end-1" name="photos" type="file" accept="image/png, image/jpeg"  onChange={(e) => {this.onChangeMedia(e) }}/>
                           }
                         })}
-                        <div className="photos-wrapper | flex-wrap">
+                        <div className="photos-wrapper | flex-wrap gap-0">
                           {this.state.events.photos?.map((x, key)=>{
-                            return( 
-                              <div key={key} className="flex">
-                                <img  src={x} alt="" />
-                                <Trash onClick={(e) => { this.onDeleteMedia(x) }}/>
-                              </div>
-                              )
+                        if (!this.state.deletePhotos.includes(x)) {
+                          return( 
+                            <div key={key} className="flex">
+                              <img  src={x} alt="" />
+                              <Trash onClick={(e) => { this.onDeleteMedia(x) }}/>
+                            </div>
+                            )
+                        }
                             })}
                           {this.state.photos.map((x, key)=>{
                             return( 
-                              <div className="flex">
+                              <div key={key} className="flex">
                                 <img key={key} src={x? URL?.createObjectURL(x): x} alt="" />
                                 <Trash onClick={(e) => { this.onDeleteMedia(x) }}/>
                               </div>
                               )
                             })}
-                            
                         </div>
-                        
                       </li>
                       <li className="mg-block-start-3">
                         <label className="block" htmlFor="">Videos</label>
-                        <input className="mg-block-end-1" type="file" accept="video/mp4,video/x-m4v,video/*" onChange={(e) => { this.setState({image: e.target.files[0]}) }}/>
-                        {this.state.events.video ? <ReactPlayer className='react-player' controls={true} url={this.state.events.video} /> : ''}
+                        <input name="video" className="mg-block-end-1" type="file" accept="video/mp4,video/x-m4v,video/*" onChange={(e) => { this.onChangeMedia(e)}}/>
+                        <div className="flex">
+                          {this.state.video ? 
+                            <ReactPlayer className='react-player' controls={true} url={URL.createObjectURL(this.state.video)} /> 
+                            : 
+                            <ReactPlayer className='react-player' controls={true} url={this.state.events.video} />
+                          }
+                        </div>
                       </li>
                   </ul>
                   {x.promoterInfo.map((info, key)=>{
