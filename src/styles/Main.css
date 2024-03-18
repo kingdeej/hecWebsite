@@ -418,11 +418,12 @@ footer a, footer p {
 }
 
 .hot-events .flyers-wrapper {
-  box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.08);
   overflow-x: auto;
+  justify-self: center;
 }
 .hot-events .flyers-wrapper .flyer {
   box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.08);
+  margin-bottom: 3rem;
 }
 .hot-events .flyers-wrapper .flyer .flyer-img {
   min-height: 350px;

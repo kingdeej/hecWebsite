@@ -13,7 +13,8 @@ export class EditAdmin extends Component {
         step: 0,
         event: {},
         popup: false,
-        popupPrompt: 'Are you sure you want to delete this event?'
+        popupPrompt: 'Are you sure you want to delete this event?',
+        loading: false,
     }
 
     getEvents = (e) => {
@@ -27,7 +28,9 @@ export class EditAdmin extends Component {
     handleDelete = (e) => {
         if (this.state.popup) {
             this.setState({popup: false})
-            
+            this.setState({loading: true})
+            console.log(e);
+            // DeleteEvent(this.props.id, this.setLoading)
         }else{
             this.setState({popup: true})
         }
@@ -52,7 +55,7 @@ export class EditAdmin extends Component {
                                             </div>
                                         </Link>
                                     </button>
-                                    <button onClick={this.handleDelete} className='button'>
+                                    <button onClick={(e) => { this.handleDelete('x.id') }} className='button'>
                                         <Trash />
                                     </button>
                                 </li>
@@ -77,10 +80,7 @@ export class EditAdmin extends Component {
             <div className="container | clr-dark-300">
                 <h1 className='primary-heading'>Events</h1>
                 <div className="event-panel | mg-block-4 pg-block-end-2 flex-jc-sb">
-                    <div className='flex gap-1'>
-                        <Plus />
-                        <Link to={'/admin/add-event/0'}><button className='button fs-300'>New Event</button></Link>
-                    </div>
+                    <Link className='flex gap-1' to={'/admin/add-event/0'}><Plus /><button className='button fs-300'>New Event</button></Link>
                     <Trash />
                 </div>
                 <this.EventPages />

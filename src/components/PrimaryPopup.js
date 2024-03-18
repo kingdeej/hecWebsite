@@ -4,7 +4,6 @@ export default function PrimaryPopup(props) {
   const modalRef = useRef(null)
   useEffect(() => {
     if (props.isOpen) modalRef.current.showModal();
-    // if (!props.isOpen) modalRef.current.close();
   }, [props.isOpen])
   
   const closeModal = (e) => {

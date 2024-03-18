@@ -88,13 +88,11 @@ export default function EventPage() {
                             <ul className='images-carousel | flex-jc-sb gap-3'>
                                 {
                                 photoArray.map((x, key)=>{
-                                    console.log('event.photos');
                                     const photosArray = event?.photos ? event.photos : [0,0,0,0]
                                     return(
                                         <li className='flex-center' key={key}> {!photosArray[key] ? <p>No Image</p> : ''}<img src={photosArray[key]} alt="" /></li>
                                     )
                                 })
-                                    
                                 }
                             </ul>
                         </div>

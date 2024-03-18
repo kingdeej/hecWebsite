@@ -29,7 +29,7 @@ export default class HotEvents extends Component {
                 <h4 className='secondary-heading clr-dark-400'>{this.props.FlyersType} Events</h4>
                 <a href='/events-page' className='primary-paragraph'>See all</a>
             </div>
-            <ul className="flyers-wrapper | even-columns gap-2">
+            <ul className="flyers-wrapper | flex gap-2">
               {this.state.events?.map((x, key)=>{
                 if (key < this.props.eventAmount) {
                   return(
@@ -41,8 +41,8 @@ export default class HotEvents extends Component {
                                 <li className='flex gap-0'><img src={locationIcon} alt="location" /><p>{x.eventStreet}, {x.eventParish}</p></li>
                                 <li className='flex gap-0'><img src={dateIcon} alt="date" /><p>{x.eventDate}</p></li>
                             </ul>
-                            <div className='tickets-wrapper | flow-1'>
-                              <p className='ticket-price flex-center  | clr-accent-400'><img src={ticketIcon} alt="ticket-img" />${x.eventPrice}</p>
+                            <div className='tickets-wrapper'>
+                              <p className='ticket-price flex-center  | mg-block-end-1 clr-accent-400'><img src={ticketIcon} alt="ticket-img" />${x.eventPrice}</p>
                               <Link className="get-tickets-button | button" to={'/' + x.id}><button className='button get-tickets-button'  >Get Tickets</button></Link>
                             </div>
                         </div>

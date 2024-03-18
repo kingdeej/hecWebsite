@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import UpdateEvent from "../../components/events/UpdateEvent";
-// import DeleteEvent from "../../components/events/DeleteEvent";
+import DeleteEvent from "../../components/events/DeleteEvent";
 // import sendImage from "../../components/events/SendImage";
 // import SendEvent from "../../components/events/SendEvent";
 import UpdateMedia from "../../components/events/UpdatePoster";
@@ -107,11 +107,11 @@ export class AdminEvent extends Component {
   handleDelete = (e) => {
     if (this.state.popup) {
       this.setState({popup: false})
-      console.log('yess');
+      this.setState({loading: true})
+      DeleteEvent(this.props.id, this.setLoading)
     }else{
         this.setState({popup: true})
     }
-    // DeleteEvent(this.props.id, this.state.events.poster)
   }
   handleImgChange = (e) => {
   }
@@ -236,7 +236,6 @@ export class AdminEvent extends Component {
 
         </div>
         </ul>
-        <PrimaryPopup isOpen={this.state.popup} prompt={this.state.popupPrompt} isClosed={this.handleDelete} />
         <PrimaryPopup isOpen={this.state.popup} prompt={this.state.popupPrompt} isClosed={this.handleDelete} />
       </div>
     );

@@ -1,10 +1,13 @@
 
 .hot-events{
     .flyers-wrapper{
-        box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.08);
+        // box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.08);
         overflow-x: auto;
+        justify-self: center;
         .flyer{
             box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.08);
+            // max-width: 280px;
+            margin-bottom: 3rem;
             .flyer-img{
                 min-height: 350px;
                 max-height: 350px;
