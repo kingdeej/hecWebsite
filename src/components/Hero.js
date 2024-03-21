@@ -14,7 +14,7 @@ export default function Hero() {
   const [firstTouchPosition, setFirstTouchPosition] = useState(0)
 
   //the number of hero events to display
-  const heroNumber = events?.length
+  const heroNumber = 2
 
   function handleChangeflyer(e) {
     setCurrentFlyer(e)
