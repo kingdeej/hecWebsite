@@ -5,7 +5,7 @@ import SendEvent from "./SendEvent";
 export default function sendImage(id, posterInfo, photosInfo, videoInfo, objData, getId) {
   const sendImage = async () => {
     let poster = {}
-    let photos = {}
+    let photos = []
     let video = {}
     //sendlfyers
     const sendPoster = () => {
@@ -69,25 +69,26 @@ export default function sendImage(id, posterInfo, photosInfo, videoInfo, objData
           const imagePhotosRef = ref(
             storage,
             `eventFlyers/${id}/photos-${photosInfo?.photoName[key] + id}`
-          );
-          try {
-            uploadBytes(imagePhotosRef, photosInfo?.eventPhotos)
+            );
+            try {
+              uploadBytes(imagePhotosRef, photosInfo?.eventPhotos[key])
               .then((response) => {
                 getDownloadURL(imagePhotosRef)
-                  .then((url)=>{
-                    photos = {...photos, 'photos': url}
-                    const newObj = {photos, poster, video}
-                    SendEvent(newObj, getId)
-                  })
+                .then((url)=>{
+                  photos = [...photos, url]
+                  console.log(url);
+                })
               })
               .catch((error) => {
                 console.log(error);
               });
-          } catch (error) {
-            console.log(error);
-          }
-        });
-      }
+            } catch (error) {
+              console.log(error);
+            }
+          });
+        }
+        const newObj = {...poster, ...video, ...objData, 'photos': photos, }
+        SendEvent(newObj, getId)
     };
     sendPoster()
   };

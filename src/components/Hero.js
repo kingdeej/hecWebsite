@@ -14,15 +14,14 @@ export default function Hero() {
   const [firstTouchPosition, setFirstTouchPosition] = useState(0)
 
   //the number of hero events to display
-  const heroNumber = 3
-
+  const heroNumber = events.length
   function handleChangeflyer(e) {
     setCurrentFlyer(e)
   }
   const handleEventClick = () => { 
   }
   const getInfo = (e) => {
-    Events ((e) => { setEvents(e) } )
+    Events ((e) => { setEvents(e.filter(x=>x.featured) ) } )
   }
   useEffect(() => {
     if (events?.length === 0) {
@@ -132,7 +131,6 @@ export default function Hero() {
                   <li onClick={() => {handleChangeflyer(key) }}  key={key} datatype-flyer={activeFlyer} className="button hero-flyer-button">
                   </li>
               )
-              
             }
           })}
         </ul>

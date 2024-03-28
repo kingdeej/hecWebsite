@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Events from '../../components/Events';
 import AdminEvent from './AdminEvent';
-// import {AiOutlinePlus,AiOutlineDelete} from 'react-icons/ai'
+import DeleteEvent from '../../components/events/DeleteEvent'
 import {Trash, Plus} from '../../images/Icons'
 import { Link } from 'react-router-dom';
 import PrimaryPopup from '../../components/PrimaryPopup';
@@ -16,6 +16,9 @@ export class EditAdmin extends Component {
         popupPrompt: 'Are you sure you want to delete this event?',
         loading: false,
     }
+    setLoading = () => {
+        this.setState({loading: false})
+    }
 
     getEvents = (e) => {
         this.setState({events: e})
@@ -26,11 +29,11 @@ export class EditAdmin extends Component {
         this.setState({event: this.state.events.find((x)=>x.id === e.target.id)})
     }
     handleDelete = (e) => {
+        this.setState({eventId: e})
         if (this.state.popup) {
             this.setState({popup: false})
             this.setState({loading: true})
-            console.log(e);
-            // DeleteEvent(this.props.id, this.setLoading)
+            DeleteEvent(this.state.eventId, this.setLoading)
         }else{
             this.setState({popup: true})
         }
@@ -55,7 +58,7 @@ export class EditAdmin extends Component {
                                             </div>
                                         </Link>
                                     </button>
-                                    <button onClick={(e) => { this.handleDelete('x.id') }} className='button'>
+                                    <button onClick={(e) => { this.handleDelete(x.id) }} className='button'>
                                         <Trash />
                                     </button>
                                 </li>

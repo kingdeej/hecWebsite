@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import UpdateEvent from "../../components/events/UpdateEvent";
 import DeleteEvent from "../../components/events/DeleteEvent";
 // import sendImage from "../../components/events/SendImage";
-// import SendEvent from "../../components/events/SendEvent";
 import UpdateMedia from "../../components/events/UpdatePoster";
 import PrimaryPopup from "../../components/PrimaryPopup";
 import Loading from '../../components/Loading'
@@ -21,10 +20,11 @@ export class AdminEvent extends Component {
     video: '',
     popup: false,
     popupPrompt: 'Are you sure you want to delete this event?',
-    loading: false  
+    loading: false,
+    featured: false,
 };
   setLoading = (e) => {
-    this.setState({Loading: false})
+    this.setState({loading: false})
   }
   onChangeEvent = (e) => {
     const name = e.target.name;
@@ -48,7 +48,6 @@ export class AdminEvent extends Component {
     const filter = this.state.photos.filter((x)=> x !== e)
     this.setState({photos: filter})
     if (typeof e === 'string') {
-      console.log('hello');
       this.setState({deletePhotos: [...this.state.deletePhotos, e]})
     }
   }
@@ -64,13 +63,12 @@ export class AdminEvent extends Component {
     }
 
     if (mediaType === 'photos') {
-      const prevPhoto = this.state.events?.photos
+      const prevPhoto = this.state.events?.photos ? this.state.events?.photos : []
       const filteredPhotos = prevPhoto?.filter(x =>!this.state.deletePhotos.includes(x))
       //this is if deleted and url returns null 
       media = url ? url : []
-
       this.setState({newPhotos: this.state.newPhotos.concat(media) })
-      const newPhotos = filteredPhotos.concat(this.state.newPhotos)
+      const newPhotos = filteredPhotos?.concat(this.state.newPhotos)
       const newPhotosObj = {[mediaType]:newPhotos.concat(media)} 
       UpdateEvent(newPhotosObj, this.props.id, this.setLoading)
       this.setState({loading: false})
@@ -99,6 +97,9 @@ export class AdminEvent extends Component {
         UpdateMedia(this.state.events.id, null, x, this.getEventMedia, 'photos')
       })
     }
+    if (this.state.eventInfo) {
+      UpdateEvent(this.state.eventInfo, this.state.events.id, this.setLoading)
+    }
   }
   testing = (e) => {
     this.setState({events: {...this.state.events, poster: null}})
@@ -108,12 +109,20 @@ export class AdminEvent extends Component {
     if (this.state.popup) {
       this.setState({popup: false})
       this.setState({loading: true})
+      console.log(this.props.id);
       DeleteEvent(this.props.id, this.setLoading)
     }else{
         this.setState({popup: true})
     }
   }
-  handleImgChange = (e) => {
+  handleFeatured = (e) => {
+    if (this.state.eventInfo?.featured) {
+      let eventInfo = this.state.eventInfo
+      delete eventInfo.featured
+      this.setState({eventInfo: eventInfo})
+    }else{
+      this.setState({eventInfo: {...this.state.eventInfo, featured: true}})
+    }
   }
   render() {
     const newArray = this.state.photos.concat(Array(1).fill(0))
@@ -121,6 +130,8 @@ export class AdminEvent extends Component {
       <div className="admin-event-page">
         {this.state.loading && <Loading type='fixed' />}
         <ul>
+          featured
+          <input type="checkbox" name="featured" onClick={(e) => { this.handleFeatured(e) }} />
           {eventInputs.map((x, key)=>{
             return(
               <li key={key}>

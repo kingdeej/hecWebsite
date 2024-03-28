@@ -19,7 +19,13 @@ export default class Add1 extends Component {
     const name = e.target.name;
     this.setState({ [name]: value });
   };
+  
+  
   render() {
+    const year = new Date().getFullYear()
+    const month = new Date().getMonth().toString().length === 1 ? '0' + ( new Date().getMonth()+1 ) : new Date().getMonth()+1
+    const date = new Date().getDate()
+    const fullDate = year + '-' + month + '-' + date
     return (
       <form
         onSubmit={(e) => {
@@ -59,6 +65,7 @@ export default class Add1 extends Component {
           type="date"
           name="eventDate"
           id="eventDate"
+          min={fullDate}
         />
         <hr className="divider mg-block-start-2" />
           <input
