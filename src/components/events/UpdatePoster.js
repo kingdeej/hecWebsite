@@ -22,11 +22,13 @@ export default function UpdateMedia(id, media, poster, getEventMedia, mediaType)
             }
             const updateMedia = async (e)  => {
                 try {
+                    console.log(poster);
                     await uploadBytes(mediaRef, poster)
                     .then((response)=>{
                         getDownloadURL(response.ref)
                         .then((url)=>{
                     getEventMedia(mediaType, url)
+                    console.log(mediaType, url)
                 })
             })
         } catch (error) {

@@ -3,8 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {AiOutlinePlus, AiOutlineEdit} from 'react-icons/ai'
 import {VscSignOut} from 'react-icons/vsc'
 import { auth } from "../../firebase/firebase";
-import { signOut, onAuthStateChanged } from "@firebase/auth";
-import Sidebar from "../components/Sidebar";
+import { signOut } from "@firebase/auth";
 import IsSignedIn from "../../components/IsSignedIn";
 
 export default function AdminPage() {
@@ -14,17 +13,18 @@ export default function AdminPage() {
   useEffect(() => {
     function getAuth(user) {
       setIsAuth(user)
-      if (!user) {
+      if (user.displayName !== 'admin') {  
         navigate('/')
       }
     }
     IsSignedIn(getAuth)
-  }, [isAuth])
+  }, [])
+
   const onSignOut = (e) => {
     signOut(auth)
-    console.log(auth);
     navigate('/')
   }
+
   return (
     <div className="admin-page | pg-block-14 clr-dark-300">
       {/* <Sidebar /> */}

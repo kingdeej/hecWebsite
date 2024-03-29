@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {auth} from '../firebase/firebase'
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth'
 import {useNavigate} from 'react-router-dom'
-import { admins } from '../components/admins'
+import IsSignedIn from '../components/IsSignedIn'
 
 export default function LoginPage() {
     const [email, setEmail] = useState('')
@@ -14,13 +14,14 @@ export default function LoginPage() {
     const [loginErrorText, setLoginErrorText] = useState('Login')
     const navigate = useNavigate()
 
-    if (admins.includes(auth?.currentUser?.email)) {
+    if (auth?.currentUser?.displayName === 'admin') {
         if (redirect) {
             navigate('/admin')
         }
     }else if (redirect) {
         navigate('/promoter/add-event/0')
     }
+    
     
     function handleSubmit(e) {
         e.preventDefault()

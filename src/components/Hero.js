@@ -14,7 +14,7 @@ export default function Hero() {
   const [firstTouchPosition, setFirstTouchPosition] = useState(0)
 
   //the number of hero events to display
-  const heroNumber = events?.length
+  const heroNumber = events?.length > 3 ? 3 : events?.length
 
   function handleChangeflyer(e) {
     setCurrentFlyer(e)
@@ -127,11 +127,13 @@ export default function Hero() {
         <ul className="hero-flyer-buttons | flex-center gap-1">
           {events.map((x, key)=>{
             const activeFlyer = key === currentFlyer ? 'active-button': 'inactive-button'
-            if (x.featured === true) {
-              return(
-                  <li onClick={() => {handleChangeflyer(key) }}  key={key} datatype-flyer={activeFlyer} className="button hero-flyer-button">
-                  </li>
-              )
+            if (key < heroNumber) {
+              if (x.featured === true) {
+                return(
+                    <li onClick={() => {handleChangeflyer(key) }}  key={key} datatype-flyer={activeFlyer} className="button hero-flyer-button"> </li>
+                )
+              }
+              
             }
           })}
         </ul>

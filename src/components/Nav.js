@@ -24,7 +24,7 @@ export default function Nav(props) {
   
     useEffect(() => {
       IsSignedIn(setIsAuth)
-    }, [])
+    }, [isAuth])
   function toggleNav(e) {
     if (e === 0) {
       setHideMenu('nav-active')
@@ -101,12 +101,19 @@ export default function Nav(props) {
           <button className="button | icon-button"><img src={searchIcon} alt="search" /></button>
           <div className='dropdown-button-wrapper'>
             <img onClick={toggleDropdown} className="button | icon-button dropdown-button" src={profileIcon} alt="profile" />
-            <div className={`dropdown-options ${dropdown}`}>
+            <div onClick={(e) => { setCount(false) }} className={`dropdown-options ${dropdown}`}>
               {
                 isAuth?
                 <div>
-                  <Link className='dropdown' to='/admin'><button className='button dropdown'>Admin</button></Link>
+                  {
+                  isAuth?.displayName === 'admin' ?
+                  <div>
+                    <Link className='dropdown' to='/admin'><button className='button dropdown'>Admin</button></Link>
+                    <button onClick={(e) => { logout() } } className='button dropdown'>Logout</button>
+                  </div>
+                  :
                   <button onClick={(e) => { logout() } } className='button dropdown'>Logout</button>
+                  }
                 </div>
                 :
                 <Link onClick={() => { setCount(false) }} className='dropdown' to='/login'><button className='button'>Sign In</button></Link>
