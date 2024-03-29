@@ -4,17 +4,23 @@ export const eventInputs =[
         {
           inputType: 'Event Name',
           eventName: 'eventName',
+          type: 'text'
         },
         {
           inputType: 'Event Date',
           eventName: 'eventDate',
+          type: 'date'
         },
         {
           inputType: 'Event Price',
           eventName: 'eventPrice',
+          type: 'text'
         }
       ],
       eventAddress: [
+        {
+          eventName: 'placeName',
+        },
         {
           eventName: 'streetAddress',
         },

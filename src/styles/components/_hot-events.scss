@@ -6,7 +6,7 @@
         justify-self: center;
         .flyer{
             box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.08);
-            // max-width: 280px;
+            max-width: 280px;
             margin-bottom: 3rem;
             .flyer-img{
                 min-height: 350px;
@@ -21,7 +21,8 @@
                     margin-inline: auto;
                     text-overflow: ellipsis;
                     text-wrap: nowrap;
-                    // max-width: 5ch;
+                    overflow: hidden;
+                    max-width: 100%;
                 }
                 .p{
                     font-weight: light;

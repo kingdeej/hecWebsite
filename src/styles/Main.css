@@ -423,6 +423,7 @@ footer a, footer p {
 }
 .hot-events .flyers-wrapper .flyer {
   box-shadow: 5.36907px 5.36907px 20.13402px 0px rgba(0, 0, 0, 0.08);
+  max-width: 280px;
   margin-bottom: 3rem;
 }
 .hot-events .flyers-wrapper .flyer .flyer-img {
@@ -438,6 +439,8 @@ footer a, footer p {
   margin-inline: auto;
   text-overflow: ellipsis;
   text-wrap: nowrap;
+  overflow: hidden;
+  max-width: 100%;
 }
 .hot-events .flyers-wrapper .flyer .flyer-info-cont .p {
   font-weight: light;

@@ -12,7 +12,7 @@ import {eventInputs} from '../components/eventInputs'
 export class AdminEvent extends Component {
   state = {
     events: this.props.event,
-    eventInfo: {} ,
+    eventInfo: {featured: this.props.event?.featured} ,
     poster: '',
     deletePhotos: [],
     photos: [],
@@ -21,10 +21,10 @@ export class AdminEvent extends Component {
     popup: false,
     popupPrompt: 'Are you sure you want to delete this event?',
     loading: false,
-    featured: false,
 };
   setLoading = (e) => {
     this.setState({loading: false})
+    window.location.reload()
   }
   onChangeEvent = (e) => {
     const name = e.target.name;
@@ -117,9 +117,7 @@ export class AdminEvent extends Component {
   }
   handleFeatured = (e) => {
     if (this.state.eventInfo?.featured) {
-      let eventInfo = this.state.eventInfo
-      delete eventInfo.featured
-      this.setState({eventInfo: eventInfo})
+      this.setState({eventInfo: {featured : false}})
     }else{
       this.setState({eventInfo: {...this.state.eventInfo, featured: true}})
     }
@@ -130,8 +128,10 @@ export class AdminEvent extends Component {
       <div className="admin-event-page">
         {this.state.loading && <Loading type='fixed' />}
         <ul>
-          featured
-          <input type="checkbox" name="featured" onClick={(e) => { this.handleFeatured(e) }} />
+          <div className="mg-block-end-1">
+            <label className="mg-inline-end-0" htmlFor="featured">Featured</label> 
+            <input id="featured" type="checkbox" name="featured" checked={this.state.eventInfo?.featured} onChange={(e) => { this.handleFeatured(e) }} />
+          </div>
           {eventInputs.map((x, key)=>{
             return(
               <li key={key}>
@@ -148,7 +148,7 @@ export class AdminEvent extends Component {
                             this.onChangeEvent(e);
                           }}
                           value={this.state.events[info.eventName]}
-                          type="text"
+                          type={info.type}
                         />
                       </li>
                       )
