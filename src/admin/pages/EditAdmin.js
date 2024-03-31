@@ -16,8 +16,10 @@ export class EditAdmin extends Component {
         popupPrompt: 'Are you sure you want to delete this event?',
         loading: false,
     }
-    setLoading = () => {
+    setLoading = (e) => {
         this.setState({loading: false})
+        const filter = this.state.events.filter((x)=>x.id !== e)
+        this.setState({events: filter})
     }
 
     getEvents = (e) => {
@@ -39,6 +41,7 @@ export class EditAdmin extends Component {
         }
     }
     EventPages = (e) =>{
+        console.log(this.state.events);
         const url = window.location.pathname  
         const urlEvents = url.includes('events') 
         switch (urlEvents? 0 :this.state.step) {

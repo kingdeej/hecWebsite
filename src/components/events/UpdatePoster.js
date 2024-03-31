@@ -11,6 +11,9 @@ export default function UpdateMedia(id, media, poster, getEventMedia, mediaType)
                     .then((response)=>{
                         console.log('deleted');
                         getEventMedia(mediaType)
+                        if (media) {
+                            updateMedia()
+                        }
                     })                    
                     .catch((error)=>{
                         console.log(error);

@@ -25,7 +25,7 @@ export default function DeleteEvent(id, callBack) {
                     console.log(element.name);
                     deleteObject(ref(storage, `eventFlyers/${id}/${element.name}`))
                     .then((response)=>{
-                        callBack(false)
+                        callBack(id)
                     })
                     .catch((error)=>{
                         console.log(error);

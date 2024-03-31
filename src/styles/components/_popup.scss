@@ -1,3 +1,13 @@
 .popup{
     width: min(400px, 80vw);
 }
+.home-screen-popup{
+    --_screen-max-width: 40rem !important;
+    max-height: auto;
+    .heading-wrapper{
+        max-width: 280px;
+        .divider{
+            background-color: $clr-primary-300;
+        }
+    }
+}

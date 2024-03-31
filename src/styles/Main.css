@@ -726,6 +726,17 @@ footer a, footer p {
   width: min(400px, 80vw);
 }
 
+.home-screen-popup {
+  --_screen-max-width: 40rem !important;
+  max-height: auto;
+}
+.home-screen-popup .heading-wrapper {
+  max-width: 280px;
+}
+.home-screen-popup .heading-wrapper .divider {
+  background-color: hsl(203, 44%, 31%);
+}
+
 .flex, .flex-wrap, .flex-jc-c, .flex-jc-e, .flex-jc-sb, .flex-al-c, .flex-center {
   display: flex;
 }

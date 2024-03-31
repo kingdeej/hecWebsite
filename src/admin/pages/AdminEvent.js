@@ -24,7 +24,7 @@ export class AdminEvent extends Component {
 };
   setLoading = (e) => {
     this.setState({loading: false})
-    // window.location.reload()
+    window.location.reload()
   }
   onChangeEvent = (e) => {
     const name = e.target.name;
