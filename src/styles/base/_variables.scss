@@ -12,15 +12,17 @@ $clr-light-500: hsla(0, 0%, 79%, 1);
 $clr-dark-300: hsla(0, 0%, 17%, 1);
 $clr-dark-400: hsla(0, 0%, 0%, 1);
 
-$fs-100: 0.625rem; //10px
-$fs-200: .813rem; //13px
-$fs-250: 1rem; //16px
-$fs-300: 1.094rem; //17.5px
-$fs-350: 1.25rem; //20px
-$fs-400: 1.5rem; //24px
-$fs-500: 1.875rem; //30px
-$fs-600: 2.25rem;  //36px
-$fs-700: 2.5rem; //40px
+$fs-clamp-size: 5vw;
+
+$fs-100: clamp(0.5rem, $fs-clamp-size,0.625rem) ; //10px
+$fs-200: clamp(0.65rem, $fs-clamp-size,.813rem); //13px
+$fs-250: clamp(0.813rem, $fs-clamp-size,1rem); //16px
+$fs-300: clamp(1rem, $fs-clamp-size,1.094rem); //17.5px
+$fs-350: clamp(1.094rem, $fs-clamp-size,1.25rem); //20px
+$fs-400: clamp(1.25rem, $fs-clamp-size,1.5rem); //24px
+$fs-500: clamp(1.5rem, $fs-clamp-size,1.875rem); //30px
+$fs-600: clamp(1.875rem, $fs-clamp-size,2.25rem);  //36px
+$fs-700: clamp(2.25rem, $fs-clamp-size,2.5rem); //40px
 
 $fw-light: 300;
 $fw-regular: 400;

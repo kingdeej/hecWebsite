@@ -149,7 +149,7 @@ button {
   padding: 7px 1.25rem;
   border-radius: 3px;
   font-weight: bold;
-  font-size: clamp(1rem, 2vw, 1.094rem);
+  font-size: clamp(clamp(0.813rem, 5vw, 1rem), 2vw, clamp(1rem, 5vw, 1.094rem));
 }
 .primary-button:hover {
   background: hsl(60, 7%, 95%);
@@ -161,7 +161,7 @@ button[datatype-button=primary] {
   padding: 7px 1.25rem;
   border-radius: 3px;
   font-weight: bold;
-  font-size: clamp(1rem, 2vw, 1.094rem);
+  font-size: clamp(clamp(0.813rem, 5vw, 1rem), 2vw, clamp(1rem, 5vw, 1.094rem));
 }
 button[datatype-button=primary]:hover {
   background: hsl(60, 7%, 95%);
@@ -186,7 +186,7 @@ button[datatype-button=secondary] {
   background-color: hsl(203, 44%, 31%);
   color: hsl(0, 0%, 100%);
   padding-block: 0.6rem;
-  font-size: 1rem;
+  font-size: clamp(0.813rem, 5vw, 1rem);
 }
 
 .secondary-a-tag {
@@ -289,14 +289,14 @@ footer .logo {
 }
 footer .secondary-header {
   margin-bottom: 1.5rem;
-  font-size: 1rem;
+  font-size: clamp(0.813rem, 5vw, 1rem);
 }
 footer label {
-  font-size: 0.813rem;
+  font-size: clamp(0.65rem, 5vw, 0.813rem);
 }
 footer a, footer p {
   color: hsl(60, 7%, 95%);
-  font-size: 0.625rem;
+  font-size: clamp(0.5rem, 5vw, 0.625rem);
   font-weight: 300;
 }
 
@@ -381,7 +381,7 @@ footer a, footer p {
     justify-content: start;
   }
   .hero .hero-wrapper .left-hero .primary-paragraph {
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
     font-weight: 300;
   }
   .hero .hero-wrapper .right-hero {
@@ -585,7 +585,7 @@ footer a, footer p {
   }
   .nav .nav-links-wrapper .nav-links a {
     color: hsl(60, 7%, 95%);
-    font-size: 0.813rem;
+    font-size: clamp(0.65rem, 5vw, 0.813rem);
   }
   .nav .nav-links-wrapper .nav-footer {
     display: none;
@@ -633,7 +633,7 @@ footer a, footer p {
 .testimonials .testimonials-wrapper .header-buttons .button {
   background-color: hsl(60, 7%, 95%);
   padding: 0.2rem 0.3rem;
-  font-size: 0.625rem;
+  font-size: clamp(0.5rem, 5vw, 0.625rem);
 }
 .testimonials .testimonials-wrapper .testimonials-card-wrapper {
   gap: 1rem;
@@ -657,7 +657,7 @@ footer a, footer p {
 }
 .testimonials .testimonials-wrapper .testimonials-card-wrapper .testimonial-card p {
   color: hsl(0, 0%, 17%);
-  font-size: 0.813rem;
+  font-size: clamp(0.65rem, 5vw, 0.813rem);
 }
 .testimonials .testimonials-wrapper .testimonials-card-wrapper .testimonial-card .testimonial-profile .profile-picture {
   margin-bottom: 0.5rem;
@@ -734,6 +734,18 @@ footer a, footer p {
   z-index: 9999;
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
+  animation: 150ms popup ease-in;
+}
+.home-screen-popup-container[datatype-display=false] {
+  display: none;
+}
+@keyframes popup {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .home-screen-popup {
@@ -743,7 +755,8 @@ footer a, footer p {
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
-  box-shadow: 4px 4px 20px 0px rgba(45, 88, 115, 0.2);
+  box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.404);
+  background-color: hsla(0, 0%, 100%, 0.87);
 }
 .home-screen-popup .heading-wrapper {
   max-width: 280px;
@@ -751,7 +764,6 @@ footer a, footer p {
 .home-screen-popup .heading-wrapper .divider {
   background-color: hsl(203, 44%, 31%);
 }
-
 .flex, .flex-wrap, .flex-jc-c, .flex-jc-e, .flex-jc-sb, .flex-al-c, .flex-center {
   display: flex;
 }
@@ -1027,76 +1039,76 @@ footer a, footer p {
 }
 
 .hero-heading {
-  font-size: clamp(2.25rem, 5vw, 2.5rem);
+  font-size: clamp(clamp(1.875rem, 5vw, 2.25rem), 5vw, clamp(2.25rem, 5vw, 2.5rem));
   font-weight: 700;
 }
 
 .primary-heading {
-  font-size: 2.25rem;
+  font-size: clamp(1.875rem, 5vw, 2.25rem);
   text-align: center;
 }
 
 .section-heading {
   --_margin-size: min(2.5vw, 2rem);
-  font-size: 2.25rem;
+  font-size: clamp(1.875rem, 5vw, 2.25rem);
   margin-bottom: 7.5rem;
   text-align: center;
 }
 
 .secondary-heading {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
   margin-bottom: 2.8125rem;
   font-weight: 400;
 }
 
 .flyer-header {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
   -webkit-text-size-adjust: auto;
      -moz-text-size-adjust: auto;
           text-size-adjust: auto;
 }
 
 .card-heading {
-  font-size: 1.875rem;
+  font-size: clamp(1.5rem, 5vw, 1.875rem);
   font-size: 700;
 }
 
 .primary-body {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
   font-weight: 400;
 }
 
 .secondary-body {
-  font-size: 1.094rem;
+  font-size: clamp(1rem, 5vw, 1.094rem);
 }
 
 .sub-body {
-  font-size: 0.813rem;
+  font-size: clamp(0.65rem, 5vw, 0.813rem);
   font-weight: 300;
 }
 
 .fs-700 {
-  font-size: 2.5rem;
+  font-size: clamp(2.25rem, 5vw, 2.5rem);
 }
 
 .fs-600 {
-  font-size: 2.25rem;
+  font-size: clamp(1.875rem, 5vw, 2.25rem);
 }
 
 .fs-500 {
-  font-size: 1.875rem;
+  font-size: clamp(1.5rem, 5vw, 1.875rem);
 }
 
 .fs-400 {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
 }
 
 .fs-300 {
-  font-size: 1.094rem;
+  font-size: clamp(1rem, 5vw, 1.094rem);
 }
 
 .fs-200 {
-  font-size: 0.813rem;
+  font-size: clamp(0.65rem, 5vw, 0.813rem);
 }
 
 .relative {
