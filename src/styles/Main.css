@@ -757,6 +757,7 @@ footer a, footer p {
   position: absolute;
   box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.404);
   background-color: hsla(0, 0%, 100%, 0.87);
+  padding-inline: min(3rem, 5vw);
 }
 .home-screen-popup .heading-wrapper {
   max-width: 280px;
@@ -764,6 +765,10 @@ footer a, footer p {
 .home-screen-popup .heading-wrapper .divider {
   background-color: hsl(203, 44%, 31%);
 }
+.home-screen-popup button > img {
+  margin-bottom: 1rem;
+}
+
 .flex, .flex-wrap, .flex-jc-c, .flex-jc-e, .flex-jc-sb, .flex-al-c, .flex-center {
   display: flex;
 }

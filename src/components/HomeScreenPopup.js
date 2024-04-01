@@ -3,11 +3,11 @@ import close from '../images/close.svg'
 
 export default function HomeScreenPopup(props) {
   return (
-    <div className='home-screen-popup | container pg-block-2'>
+    <div className='home-screen-popup | container pg-block-3'>
         <div className='flex-jc-e'>
-            <button onClick={(e) => { props.setBodyStyle(false) }} className='button'> <img className='mg-inline-end-6 mg-block-start-4 ' src={close} alt="" /> </button>
+            <button onClick={(e) => { props.setBodyStyle(false) }} className='button'> <img src={close} alt="" /> </button>
         </div>
-        <div className="home-screen-popup-wrapper | flow-10 pg-7">
+        <div className="home-screen-popup-wrapper | flow-10">
             <div className="heading-wrapper | mx-auto text-center">
                 <h1 className="primary-wrapper | clr-accent-400 fs-500">Welcome to H.E.C</h1>
                 <div className="divider | mg-block-1"></div>
