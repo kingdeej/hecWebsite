@@ -3,7 +3,7 @@ import close from '../images/close.svg'
 
 export default function HomeScreenPopup(props) {
   return (
-    <div className='home-screen-popup | container pg-block-3'>
+    <div className='home-screen-popup | container pg-block-4'>
         <div className='flex-jc-e'>
             <button onClick={(e) => { props.setBodyStyle(false) }} className='button'> <img src={close} alt="" /> </button>
         </div>

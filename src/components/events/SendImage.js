@@ -2,7 +2,7 @@ import { storage } from "../../firebase/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import SendEvent from "./SendEvent";
 
-export default function sendImage(id, posterInfo, photosInfo, videoInfo, objData, getId) {
+export default function sendImage(id, posterInfo, photosInfo, videoInfo, objData, getId, setLoading) {
   const sendImage = async () => {
     let poster = {}
     let photos = []
@@ -63,7 +63,7 @@ export default function sendImage(id, posterInfo, photosInfo, videoInfo, objData
     const sendPhotos = () => {
       if (photosInfo?.photoName.length === 0) {
         const getObj = {...poster, ...video, ...objData}
-        SendEvent(getObj, getId)
+        SendEvent(getObj, getId, setLoading)
       }else{
         photosInfo?.photoName.map((x, key) => {
           const imagePhotosRef = ref(
@@ -88,7 +88,7 @@ export default function sendImage(id, posterInfo, photosInfo, videoInfo, objData
           });
         }
         const newObj = {...poster, ...video, ...objData, 'photos': photos, }
-        SendEvent(newObj, getId)
+        SendEvent(newObj, getId, setLoading)
     };
     sendPoster()
   };

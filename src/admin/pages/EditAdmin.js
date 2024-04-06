@@ -41,7 +41,6 @@ export class EditAdmin extends Component {
         }
     }
     EventPages = (e) =>{
-        console.log(this.state.events);
         const url = window.location.pathname  
         const urlEvents = url.includes('events') 
         switch (urlEvents? 0 :this.state.step) {

@@ -5,6 +5,7 @@ import Add2 from "./AddAdmin/Add2";
 import Add3 from "./AddAdmin/Add3";
 import {v4} from 'uuid'
 import SendImage from "../../components/events/SendImage";
+import Loading from "../../components/Loading";
 
 
 export default function AddAdmin() {
@@ -15,6 +16,7 @@ export default function AddAdmin() {
   const [nextStep, setNextStep] = useState(0);
   const [eventDetails, setEventDetails] = useState([]);
   const [eventImages, setEventImages] = useState([]);
+  const [loading, setLoading] = useState(false);
   //url pathname
   const pathname = window.location.pathname
   const newPathname =  pathname.slice(0, -1)
@@ -39,9 +41,10 @@ export default function AddAdmin() {
     const photosObj = {photoName: eventPhotosName, eventPhotos: eventPhotos, mediaType:'photos'}
     const videoObj = {photoName: eventvideoName, eventPhotos: eventvideo, mediaType:'video'}
 
-    SendImage(getId, posterObj,  photosObj, videoObj, objData, getId)
+    SendImage(getId, posterObj,  photosObj, videoObj, objData, getId, setLoading)
+    setLoading(true)
     // navigate to admin
-    navigate('/admin')
+
   }
   
   
@@ -58,6 +61,15 @@ export default function AddAdmin() {
       setStep(urlParams)
     }
   }, [urlParams])
+  useEffect(() => {
+  
+    return () => {
+      if (loading) {
+        navigate('/admin')
+      }
+    }
+  }, [loading])
+  
   
   
   const handleButtonClick = (e) => {
@@ -92,6 +104,7 @@ export default function AddAdmin() {
         <div className="add-event-wrapper">
           <Forms  />
         </div>
+        {loading && <Loading type={'fixed'}/>}
       </div>
     </div>
   );

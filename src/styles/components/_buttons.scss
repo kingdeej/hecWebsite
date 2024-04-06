@@ -4,6 +4,7 @@
     outline: none;
     background: none;
     cursor: pointer;
+    transition: background-color 150ms;
 }
 button{
     cursor: pointer;
@@ -35,6 +36,9 @@ button[datatype-button='secondary']{
     color: $clr-light-400;
     padding: 4px 1rem;
     border-radius: 1px;
+    &:hover{
+        background-color: $clr-primary-800;
+    }
 }
 .secondary-button{
     background: $clr-primary-300;
@@ -48,6 +52,9 @@ button[datatype-button='secondary']{
     color: $clr-light-300;
     padding-block: .6rem;
     font-size: $fs-250;
+    &:hover{
+        background-color: $clr-primary-800;
+    }
 }
 
 .secondary-a-tag{

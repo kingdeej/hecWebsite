@@ -137,6 +137,7 @@ select {
   outline: none;
   background: none;
   cursor: pointer;
+  transition: background-color 150ms;
 }
 
 button {
@@ -173,6 +174,9 @@ button[datatype-button=secondary] {
   padding: 4px 1rem;
   border-radius: 1px;
 }
+button[datatype-button=secondary]:hover {
+  background-color: hsl(203, 84%, 19%);
+}
 
 .secondary-button {
   background: hsl(203, 44%, 31%);
@@ -187,6 +191,9 @@ button[datatype-button=secondary] {
   color: hsl(0, 0%, 100%);
   padding-block: 0.6rem;
   font-size: clamp(0.813rem, 5vw, 1rem);
+}
+.get-tickets-button:hover {
+  background-color: hsl(203, 84%, 19%);
 }
 
 .secondary-a-tag {
@@ -757,7 +764,7 @@ footer a, footer p {
   position: absolute;
   box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.404);
   background-color: hsla(0, 0%, 100%, 0.87);
-  padding-inline: min(3rem, 5vw);
+  padding-inline: min(2rem, 5vw);
 }
 .home-screen-popup .heading-wrapper {
   max-width: 280px;

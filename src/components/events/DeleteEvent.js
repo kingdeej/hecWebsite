@@ -22,7 +22,6 @@ export default function DeleteEvent(id, callBack) {
             await listAll(imageRef)
             .then((response)=>{
                 response.items.forEach(element => {
-                    console.log(element.name);
                     deleteObject(ref(storage, `eventFlyers/${id}/${element.name}`))
                     .then((response)=>{
                         callBack(id)
