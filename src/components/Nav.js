@@ -27,6 +27,15 @@ export default function Nav(props) {
     useEffect(() => {
       IsSignedIn(setIsAuth)
     }, [isAuth])
+    
+    useEffect(() => {
+      if (hideMenu !== '') {
+        document.body.style.overflowY = "hidden";
+      }
+      else{
+          document.body.style.overflowY = "scroll"
+      }
+    }, [hideMenu])
 
     useEffect(() => {
       if (location.pathname === '/') {

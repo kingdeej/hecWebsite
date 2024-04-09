@@ -319,6 +319,7 @@ footer a, footer p {
   background-image: url("/src/images/heroImg.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   padding-top: 85px;
   min-height: 80dvh;
 }
