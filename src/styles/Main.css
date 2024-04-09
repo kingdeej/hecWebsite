@@ -544,6 +544,7 @@ footer a, footer p {
   width: 100vw;
   background-color: hsl(0, 0%, 100%);
   height: 100dvh;
+  max-height: 100dvh;
   padding: 2rem;
   transform: translateX(100%);
   transition: transform 250ms;

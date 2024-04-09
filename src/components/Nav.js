@@ -79,7 +79,7 @@ export default function Nav(props) {
         </a>
         <ul datatype-nav={hideMenu} className="nav-links-wrapper | clr-dark-300">
           <img onClick={() => { toggleNav(1) }} className={`close-button button | icon-button flex-js-e `} src={close} alt="" />
-          <div className='nav-links flow-8 pg-block-14'>
+          <div className='nav-links flow-8 pg-block-10'>
             <li className="link"><a href="/events-page">All events</a></li>
             <li className="link"><a href="/events-page">Hot Events</a></li>
             <li className="link"><a href="/#">Top Locations</a></li>
