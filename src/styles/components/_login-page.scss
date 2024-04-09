@@ -1,8 +1,9 @@
 .login-page{
-    height: calc(100dvh - $header-height);
+    margin-top: $page-height-with-nav;
     gap: 2rem;
     background-color: $clr-light-300;
     color: $clr-dark-300;
+    min-height: 80dvh;
     .login-page-wrapper{
         background: linear-gradient(90deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,.77));
         box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.10);

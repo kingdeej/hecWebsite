@@ -60,7 +60,7 @@ select {
 }
 
 .add-event-page {
-  min-height: calc(100dvh - 85px);
+  margin-top: 85px;
 }
 .add-event-page .add-event > div {
   margin-block-end: 1rem;
@@ -96,7 +96,8 @@ select {
 }
 
 .admin-page {
-  min-height: calc(100dvh - 85px);
+  margin-top: 85px;
+  min-height: 100dvh;
 }
 .admin-page .secondary-heading {
   margin-bottom: 0;
@@ -203,6 +204,9 @@ button[datatype-button=secondary]:hover {
   color: hsl(0, 0%, 79%);
 }
 
+.event-page-wrapper {
+  margin-top: 85px;
+}
 .event-page-wrapper .event-page-info-wrapper {
   box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.1);
 }
@@ -253,6 +257,9 @@ button[datatype-button=secondary]:hover {
   .event-page .event-page-info-wrapper .right-wrapper {
     text-align: left;
   }
+}
+.events-page {
+  margin-top: 85px;
 }
 .events-page .filter-wrapper {
   align-items: center;
@@ -309,8 +316,11 @@ footer a, footer p {
 
 .hero {
   position: relative;
-  background: linear-gradient(102deg, #2D5873 0.31%, rgba(45, 88, 115, 0.71) 80.02%);
-  min-height: calc(100dvh - 85px);
+  background-image: url("/src/images/heroImg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 85px;
+  min-height: 80dvh;
 }
 .hero .hero-wrapper {
   padding-block-start: 2rem;
@@ -359,9 +369,6 @@ footer a, footer p {
 }
 
 @media (min-width: calc(65rem + 1px)) {
-  .hero {
-    min-height: 75dvh;
-  }
   .hero .hero-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -476,10 +483,11 @@ footer a, footer p {
 }
 
 .login-page {
-  height: calc(100dvh - 85px);
+  margin-top: 85px;
   gap: 2rem;
   background-color: hsl(0, 0%, 100%);
   color: hsl(0, 0%, 17%);
+  min-height: 80dvh;
 }
 .login-page .login-page-wrapper {
   background: linear-gradient(90deg, hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0.77));
@@ -516,8 +524,11 @@ footer a, footer p {
 }
 
 .nav {
+  top: 0;
   height: 85px;
-  position: relative;
+  position: absolute;
+  width: 100%;
+  z-index: 9999;
 }
 .nav .logo img {
   height: 80%;
@@ -687,7 +698,8 @@ footer a, footer p {
 }
 
 .edit-admin {
-  min-height: calc(100dvh - 85px);
+  margin-top: 85px;
+  min-height: 100dvh;
 }
 .edit-admin svg {
   font-size: 1.5rem;

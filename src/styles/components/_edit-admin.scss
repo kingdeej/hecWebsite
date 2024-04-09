@@ -1,6 +1,7 @@
 
 .edit-admin{
-    min-height: $page-height-with-nav;
+    margin-top: $page-height-with-nav;
+    min-height: 100dvh;
     svg{
         font-size: 1.5rem;
     }

@@ -7,10 +7,9 @@ import close from '../images/close.svg'
 import facebook1 from '../images/facebook1.svg'
 import instagram1 from '../images/instagram1.svg'
 import whatsapp1 from '../images/whatsapp1.svg'
-import {Link} from 'react-router-dom'
 import { signOut } from 'firebase/auth'
 import { auth } from '../firebase/firebase'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate , Link, useLocation} from 'react-router-dom'
 import IsSignedIn from './IsSignedIn'
 
 
@@ -20,11 +19,23 @@ export default function Nav(props) {
   const [redirect, setRedirect] = useState(false)
   const [isAuth, setIsAuth] = useState(null)
   const dropdown = count ? 'active-dropdown' : '' 
+  const [bgColor, setBgColor] = useState('#2D5873')
+
   const navigate = useNavigate()
+  const location = useLocation()
   
     useEffect(() => {
       IsSignedIn(setIsAuth)
     }, [isAuth])
+
+    useEffect(() => {
+      if (location.pathname === '/') {
+        setBgColor('')
+      }else{
+        setBgColor('#2D5873')
+      }
+    }, [location])
+    
   function toggleNav(e) {
     if (e === 0) {
       setHideMenu('nav-active')
@@ -52,7 +63,7 @@ export default function Nav(props) {
   }
   
   return (
-    <nav className='nav' style={{background: props.background}}>
+    <nav className='nav' style={{background: bgColor}}>
       <div className="nav-wrapper | space-between container flex-jc-sb">
         <a href='/' className="logo flex-al-c">
           <img src={logo} alt="Logo" />

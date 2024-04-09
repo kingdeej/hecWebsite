@@ -35,7 +35,6 @@ export default function Hero() {
       }
     }, 7000);   
 
- 
 
     return()=>{clearInterval(flyerAnimations)}
   }, [currentFlyer])
@@ -98,7 +97,7 @@ export default function Hero() {
                         </div>
                       </div>
                     </div>
-                    <p className='base-text | fs-200 clr-dark-300'>Get exclusive tickets here and also purchase food and drinks.</p>
+                    <p className='base-text | fs-200 clr-light-500'>Get exclusive tickets here and also purchase food and drinks.</p>
                   </li>
                 )
               }

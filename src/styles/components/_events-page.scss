@@ -1,5 +1,6 @@
 @import '../base/mixins';
 .events-page{
+    margin-top: $header-height;
     .filter-wrapper{
         @include min-mobile{
             grid-template-columns: 1fr 1fr 1fr;

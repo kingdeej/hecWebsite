@@ -1,6 +1,7 @@
 @import '../base/mixins';
 
 .event-page-wrapper{
+    margin-top: $header-height;
     .event-page-info-wrapper{
         box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.10);
         .primary-heading{

@@ -3,8 +3,12 @@
 
 .hero{
     position: relative;
-    background: linear-gradient(102deg, #2D5873 0.31%, rgba(45, 88, 115, 0.71) 80.02%);;
-    min-height: calc(100dvh - $header-height);
+    background-image: url('/src/images/heroImg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    // background: linear-gradient(102deg, #2D5873 0.31%, rgba(45, 88, 115, 0.71) 80.02%);;
+    padding-top: $page-height-with-nav;
+    min-height: 80dvh;
     .hero-wrapper{
         padding-block-start: 2rem;
         justify-content: center;
@@ -55,7 +59,6 @@
 }
 @include min-tablet{
     .hero{
-        min-height: 75dvh;
         .hero-wrapper{
                 @include two-columns;
                 .left-hero-wrapper{

@@ -31,9 +31,9 @@ export default function HomePage() {
         <div datatype-display={bodyStyle ? 'true' : 'false'} className='home-screen-popup-container'>
           <HomeScreenPopup setBodyStyle={setBodyStyle} />
         </div>
-        <Testimonials />
         <AllEvents eventAmount={4} eventStyle='hot-event-style' FlyersType='Hot'/>
         <PromoteCta color='#F28080' />
+        <Testimonials />
         <AllEvents eventAmount={8} eventStyle='all-event-style' FlyersType='All' />
         <PromoteCta />        
     </main>

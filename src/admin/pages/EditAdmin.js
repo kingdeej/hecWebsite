@@ -5,8 +5,13 @@ import DeleteEvent from '../../components/events/DeleteEvent'
 import {Trash, Plus} from '../../images/Icons'
 import { Link } from 'react-router-dom';
 import PrimaryPopup from '../../components/PrimaryPopup';
+import { useParams } from "react-router-dom";
 
-export class EditAdmin extends Component {
+function withParams(Component) {
+    return props => <Component {...props} params={useParams()} />;
+}
+
+export class EditAdmin extends Component {S
     state ={
         events: [],
         eventId: '',
@@ -15,6 +20,15 @@ export class EditAdmin extends Component {
         popup: false,
         popupPrompt: 'Are you sure you want to delete this event?',
         loading: false,
+    }
+    componentDidMount(){
+        Events((e) => { this.getEvents(e) })
+        const params = this.props.params.events
+        if (params) {
+            this.setState({eventId: params})
+            this.setState({step: 1})
+        }
+
     }
     setLoading = (e) => {
         this.setState({loading: false})
@@ -43,6 +57,7 @@ export class EditAdmin extends Component {
     EventPages = (e) =>{
         const url = window.location.pathname  
         const urlEvents = url.includes('events') 
+        
         switch (urlEvents? 0 :this.state.step) {
             case 0:
                 return(
@@ -76,9 +91,7 @@ export class EditAdmin extends Component {
                 break;
         }
     }
-    componentDidMount(){
-        Events((e) => { this.getEvents(e) })
-    }
+
   render() {
     return(
         <div className='edit-admin | section'>
@@ -100,4 +113,5 @@ export class EditAdmin extends Component {
   }
 }
 
-export default EditAdmin
+// export default EditAdmin
+export default withParams(EditAdmin)
