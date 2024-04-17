@@ -8,12 +8,15 @@ import Events from '../components/Events'
 import ReactPlayer from 'react-player'
 import Loading from '../components/Loading'
 import PromoteCta from '../components/PromoteCta'
+import HomeScreenPopup from '../components/HomeScreenPopup'
 
 
 export default function EventPage() {
     const [eventInfo, setEventInfo] = useState([])
     const [photoArray] = useState(Array(4).fill(0))
+    const [isOpen, setIsOpen] = useState(false)
     let { eventId } = useParams()
+    // let navigate = useRedir()
     const getInfo = (e) => {
         Events((e) => { setEventInfo(e) } )
     }
@@ -23,9 +26,26 @@ export default function EventPage() {
         getInfo()
     }, [])
     
-      
+    function isClosed(e) {
+        setIsOpen(false)
+        console.log(e);
+    }
+    
+    const content = (         
+        <div className='flow-10'>
+          <div className="heading-wrapper | mx-auto text-center">
+              <h1 className="primary-wrapper | clr-accent-400 fs-500">7 Days free trail !!!</h1>
+              <div className="divider | mg-block-1"></div>
+              <p className='clr-primary-300 fs-100'>Harnessing.Entertaining.Concepts</p>
+          </div>
+          <p className="body-paragraph | fs-400 clr-dark-300">
+            We're excited to offer you exclusive access to all our incredible events with V.I.P access and cuisines. To get started, we invite you to embark on a 7-day trial journey with us. Experience the thrill of discovering and booking events hassle-free. Join us now and let the adventure begin! Sign up for your complimentary trial today.          
+          </p>
+        </div>
+    )
   return (
     <main className="event-page | bg-image">
+        <HomeScreenPopup isOpen={isOpen} isClosed={isClosed} content={content} buttonPrompt='Sign Up' />
        {eventInfo?.length === 0 ? <Loading /> : eventInfo?.map((event, key)=>{
         const location = `${event.streetAddress},${event.eventStreet},${event.eventParish},Jamaica`
         if (event?.id === eventId) {
@@ -68,7 +88,7 @@ export default function EventPage() {
                         </div>
                         <div className='flex-column flow-2 button-wrapper'>
                             <p className='ticket-wrapper flex-center clr-accent-400'><img src={ticketIcon} alt="ticket-img" />${event.eventPrice}</p>
-                            <button className="get-tickets-button | pg-block-1 button">Buy Ticket</button>
+                            <button onClick={(e) => { setIsOpen(true) }} className="get-tickets-button | pg-block-1 button">Buy Ticket</button>
                         </div>
                     </div>
                 </div>
